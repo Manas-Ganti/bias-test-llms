@@ -1,0 +1,20 @@
+[project]
+name = "belief-feed"
+version = "0.1.0"
+description = "Evidence-seeking under strong ideological priors in a fictional, exactly solvable news feed."
+requires-python = ">=3.11"
+tags = ["tool-use", "agentic", "multi-turn", "calibration", "v1"]
+dependencies = ["verifiers==0.4.0"]
+
+[dependency-groups]
+dev = ["pytest>=8", "scikit-learn>=1.5", "numpy>=2.1"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["belief_feed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

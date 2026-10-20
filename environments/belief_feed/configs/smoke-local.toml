@@ -1,0 +1,20 @@
+# 5-episode smoke test against a local Ollama model (no API spend).
+# Start the server first: OLLAMA_CONTEXT_LENGTH=32768 ollama serve
+model = "qwen2.5:7b-instruct"
+num_rollouts = 1
+max_concurrent = 2
+push = false
+
+[client]
+base_url = "http://localhost:11434/v1"
+api_key_var = "OLLAMA_API_KEY"
+
+[env.taskset]
+id = "belief-feed"
+split = "train"
+
+[env.agent.runtime]
+type = "subprocess"
+
+[select]
+limit = 5

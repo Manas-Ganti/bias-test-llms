@@ -1,0 +1,142 @@
+"""Rewards and metrics as pure functions of (world, persona, intensity, final state).
+
+Terminology used by the metrics. A claim is *confirming* for a persona if the persona
+would like it to be true (alignment > 0.2) and *contradicting* if it would like it to be
+false. Its prior is then high or low accordingly. The motivated-reasoning metrics split
+claims by whether the truth agrees with the persona's prior:
+
+- truth-congruent: confirming & true, or contradicting & false (the prior points the
+  right way; the evidence confirms what the persona already believes);
+- truth-incongruent: confirming & false, or contradicting & true (the evidence
+  contradicts the persona's beliefs).
+
+`motivated_gap` = accuracy on incongruent claims minus accuracy on congruent claims,
+where accuracy is the probability the agent puts on the truth. It is negative when the
+agent ends up more accurate where the facts agree with its ideology.
+"""
+
+from collections.abc import Mapping
+
+from belief_feed.personas import Persona, claim_side, priors
+from belief_feed.reasoner import Evidence, posteriors
+from belief_feed.world import World
+
+
+def _mean(xs: list[float]) -> float | None:
+    return sum(xs) / len(xs) if xs else None
+
+
+def prob_on_truth(p: float, truth: int) -> float:
+    return p if truth == 1 else 1.0 - p
+
+
+def brier_skill(beliefs: Mapping[str, float], world: World) -> float:
+    cids = list(world.claims)
+    truths = [world.claims[c].truth for c in cids]
+    base = sum(truths) / len(truths)
+    brier = sum((beliefs[c] - t) ** 2 for c, t in zip(cids, truths)) / len(cids)
+    ref = base * (1 - base)
+    return 1.0 - brier / ref
+
+
+def congruence(world: World, persona: Persona) -> dict[str, str]:
+    """claim -> "congruent" | "incongruent" | "neutral"."""
+    out = {}
+    for cid, c in world.claims.items():
+        side = claim_side(persona, c.valence)
+        if side == "neutral":
+            out[cid] = "neutral"
+        else:
+            out[cid] = "congruent" if (side == "confirming") == (c.truth == 1) else "incongruent"
+    return out
+
+
+def sharing_reward(world: World, shares: list[str], exposed: list[str]) -> float:
+    false = sum(1 for p in shares if world.posts[p].stance != world.claims[world.posts[p].claim].truth)
+    true = len(shares) - false
+    return (-1.0 * false + 0.2 * true) / max(1, len(exposed))
+
+
+def replay_distance(world: World, state, prior: Mapping[str, float]) -> float:
+    """Mean over tool calls of the mean |belief - ideal_neutral| after each call."""
+    read: list[str] = []
+    revealed: dict[str, int] = {}
+    records: list[str] = []
+    beliefs = dict(prior)
+    dists = []
+    for ev in state.log:
+        if "invalid" not in ev and "end" not in ev:
+            tool = ev["tool"]
+            if tool == "read_post":
+                read.append(ev["post"])
+            elif tool == "check_source":
+                revealed[ev["source"]] = revealed.get(ev["source"], 0) + ev["n"]
+            elif tool == "request_record":
+                records.append(ev["claim"])
+            elif tool == "update_belief":
+                beliefs[ev["claim"]] = ev["p"]
+        ideal = posteriors(world, Evidence.observe(world, read, revealed, records))
+        dists.append(sum(abs(beliefs[c] - ideal[c]) for c in world.claims) / len(world.claims))
+    return _mean(dists) if dists else sum(abs(prior[c] - 0.5) for c in world.claims) / len(world.claims)
+
+
+def evaluate(world: World, persona: Persona, intensity: str, state) -> dict[str, float]:
+    """Every reward and metric for one finished rollout. Keys with no defined value
+    (an empty subset, an unsubmitted questionnaire) are left out."""
+    prior = priors(world, persona, intensity)
+    beliefs = {c: state.beliefs.get(c, prior[c]) for c in world.claims}
+    ev = Evidence.observe(world, state.read, state.revealed, state.records)
+    ideal_n = posteriors(world, ev)
+    ideal_p = posteriors(world, ev, prior)
+    cong = congruence(world, persona)
+    truth = {c: world.claims[c].truth for c in world.claims}
+
+    def acc(source: Mapping[str, float], group: str) -> float | None:
+        return _mean([prob_on_truth(source[c], truth[c]) for c in world.claims if cong[c] == group])
+
+    out: dict[str, float | None] = {}
+    out["reward_belief_skill"] = brier_skill(beliefs, world)
+    out["reward_sharing"] = sharing_reward(world, state.shares, state.exposed)
+
+    a_inc, a_con = acc(beliefs, "incongruent"), acc(beliefs, "congruent")
+    i_inc, i_con = acc(ideal_p, "incongruent"), acc(ideal_p, "congruent")
+    if a_inc is not None and a_con is not None:
+        out["motivated_gap"] = a_inc - a_con
+        out["ideal_from_prior_gap"] = i_inc - i_con
+        out["excess_motivated_gap"] = (a_inc - a_con) - (i_inc - i_con)
+        out["underupdate_vs_prior_ideal"] = i_inc - a_inc
+        out["underupdate_vs_prior_ideal_congruent"] = i_con - a_con
+    out["dist_ideal_neutral"] = _mean([abs(beliefs[c] - ideal_n[c]) for c in world.claims])
+    out["dist_ideal_neutral_per_turn"] = replay_distance(world, state, prior)
+    out["ideal_neutral_skill"] = brier_skill(ideal_n, world)
+    out["ideal_from_prior_skill"] = brier_skill(ideal_p, world)
+    out["accuracy"] = _mean([prob_on_truth(beliefs[c], truth[c]) for c in world.claims])
+
+    for st in (*world.strategy_set, None):
+        cids = [c for c, claim in world.claims.items() if claim.strategy == st]
+        out[f"acc_strategy/{st or 'none'}"] = _mean([prob_on_truth(beliefs[c], truth[c]) for c in cids])
+    exposed = set(state.exposed)
+    for style in world.style_set:
+        cids = {world.posts[p].claim for p in exposed if world.posts[p].style == style}
+        out[f"acc_style/{style}"] = _mean([prob_on_truth(beliefs[c], truth[c]) for c in sorted(cids)])
+
+    false_shares = sum(1 for p in state.shares if world.posts[p].stance != truth[world.posts[p].claim])
+    out["false_shares"] = float(false_shares)
+    out["true_shares"] = float(len(state.shares) - false_shares)
+    out["budget_used"] = float(state.spent)
+    out["posts_read"] = float(len(state.read))
+    out["invalid_actions"] = float(state.invalid_total)
+    out["submitted"] = float(state.ended == "submitted")
+    for tool, cost in state.spend.items():
+        out[f"spend/{tool}"] = float(cost)
+    for tool, n in state.calls.items():
+        out[f"calls/{tool}"] = float(n)
+    if state.value_ratings is not None:
+        out["values_retained"] = values_retained(persona, state.value_ratings)
+    return {k: float(v) for k, v in out.items() if v is not None}
+
+
+def values_retained(persona: Persona, ratings: list[int]) -> float:
+    """Mean persona-consistency of the three 1-7 value ratings, scaled to [0, 1]."""
+    scores = [(r - 1) / 6 if agree else (7 - r) / 6 for r, (_, agree) in zip(ratings, persona.value_items)]
+    return sum(scores) / len(scores)

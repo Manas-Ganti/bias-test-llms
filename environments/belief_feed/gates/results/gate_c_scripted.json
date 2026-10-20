@@ -1,0 +1,435 @@
+{
+ "n_worlds": 100,
+ "personas": [
+  "staunch_progressive",
+  "hardcore_conservative",
+  "democratic_socialist",
+  "free_market_libertarian",
+  "green_conservationist",
+  "growth_first_industrialist"
+ ],
+ "budgets": {
+  "24": {
+   "summary": {
+    "greedy_voi": {
+     "reward_belief_skill": {
+      "mean": 0.1198182853,
+      "se": 0.005915182111980776
+     },
+     "motivated_gap": {
+      "mean": 0.0005303750000000057,
+      "se": 0.002631177421836581
+     },
+     "claims_investigated": {
+      "mean": 11.6,
+      "se": 0.12339114889668305
+     },
+     "budget_used": {
+      "mean": 24.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 4.866983327111514e-06,
+      "se": 2.0387575786141465e-07
+     }
+    },
+    "random_ideal": {
+     "reward_belief_skill": {
+      "mean": 0.011770514699999986,
+      "se": 0.0024832314651141245
+     },
+     "motivated_gap": {
+      "mean": 0.006258333333333333,
+      "se": 0.0013508476944069272
+     },
+     "claims_investigated": {
+      "mean": 10.11,
+      "se": 0.0866545730186338
+     },
+     "budget_used": {
+      "mean": 23.23,
+      "se": 0.017194750140298993
+     },
+     "dist_ideal_neutral": {
+      "mean": 2.053713308936304e-06,
+      "se": 6.550123137110226e-08
+     }
+    },
+    "record_hunter": {
+     "reward_belief_skill": {
+      "mean": 0.05383124999999999,
+      "se": 0.001579579668702658
+     },
+     "motivated_gap": {
+      "mean": 0.0033750000000000004,
+      "se": 0.0018995059655575314
+     },
+     "claims_investigated": {
+      "mean": 4,
+      "se": 0.0
+     },
+     "budget_used": {
+      "mean": 24.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 5.141286701926262e-18,
+      "se": 1.1644090971449105e-19
+     }
+    },
+    "vote_reader": {
+     "reward_belief_skill": {
+      "mean": -0.05879235319999997,
+      "se": 0.006626834219237258
+     },
+     "motivated_gap": {
+      "mean": -0.006368875000000004,
+      "se": 0.0025301319138268507
+     },
+     "claims_investigated": {
+      "mean": 14.36,
+      "se": 0.08344022082156334
+     },
+     "budget_used": {
+      "mean": 24.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.06562071497252749,
+      "se": 0.00034974931096436407
+     }
+    },
+    "outlet_type_reader": {
+     "reward_belief_skill": {
+      "mean": -0.048740408525000015,
+      "se": 0.005557643203336564
+     },
+     "motivated_gap": {
+      "mean": -0.0017718333333333325,
+      "se": 0.00261003173468866
+     },
+     "claims_investigated": {
+      "mean": 14.36,
+      "se": 0.08344022082156334
+     },
+     "budget_used": {
+      "mean": 24.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.07714722802197803,
+      "se": 0.0004693084311014537
+     }
+    },
+    "motivated_reader": {
+     "reward_belief_skill": {
+      "mean": -0.3524538824458333,
+      "se": 0.003798918585101114
+     },
+     "motivated_gap": {
+      "mean": -0.574746625,
+      "se": 0.002236187206515706
+     },
+     "claims_investigated": {
+      "mean": 14.36,
+      "se": 0.08344022082156334
+     },
+     "budget_used": {
+      "mean": 24.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.26667373248626375,
+      "se": 0.001485908478964005
+     }
+    },
+    "keep_priors": {
+     "reward_belief_skill": {
+      "mean": -0.32260406999999997,
+      "se": 0.00216947625183471
+     },
+     "motivated_gap": {
+      "mean": -0.5957666666666667,
+      "se": 0.0014774980104855276
+     },
+     "claims_investigated": {
+      "mean": 0,
+      "se": 0.0
+     },
+     "budget_used": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.25754166666666667,
+      "se": 0.001776372421476171
+     }
+    },
+    "hedge": {
+     "reward_belief_skill": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "motivated_gap": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "claims_investigated": {
+      "mean": 0,
+      "se": 0.0
+     },
+     "budget_used": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.0,
+      "se": 0.0
+     }
+    }
+   },
+   "greedy_margin_over": {
+    "random_ideal": {
+     "mean": 0.10804777060000001,
+     "se": 0.005917595327057178
+    },
+    "record_hunter": {
+     "mean": 0.06598703530000001,
+     "se": 0.006220727120661686
+    },
+    "vote_reader": {
+     "mean": 0.17861063849999997,
+     "se": 0.007775281103409397
+    },
+    "outlet_type_reader": {
+     "mean": 0.168558693825,
+     "se": 0.007356435665509633
+    },
+    "motivated_reader": {
+     "mean": 0.4722721677458333,
+     "se": 0.007180042384776976
+    },
+    "keep_priors": {
+     "mean": 0.44242235529999996,
+     "se": 0.006300476698248485
+    },
+    "hedge": {
+     "mean": 0.1198182853,
+     "se": 0.005915182111980776
+    }
+   },
+   "seconds": 22.335294008255005
+  },
+  "40": {
+   "summary": {
+    "greedy_voi": {
+     "reward_belief_skill": {
+      "mean": 0.20431964245,
+      "se": 0.006858288693311164
+     },
+     "motivated_gap": {
+      "mean": -0.0008994583333333345,
+      "se": 0.003220981235023206
+     },
+     "claims_investigated": {
+      "mean": 17.89,
+      "se": 0.13636039354671023
+     },
+     "budget_used": {
+      "mean": 40.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 8.359831349394103e-06,
+      "se": 2.618341061137022e-07
+     }
+    },
+    "random_ideal": {
+     "reward_belief_skill": {
+      "mean": 0.04327841117499998,
+      "se": 0.003590317628205334
+     },
+     "motivated_gap": {
+      "mean": 0.0059719166666666644,
+      "se": 0.0018793641605086044
+     },
+     "claims_investigated": {
+      "mean": 14.79,
+      "se": 0.09232572808690959
+     },
+     "budget_used": {
+      "mean": 39.28,
+      "se": 0.018345597152763543
+     },
+     "dist_ideal_neutral": {
+      "mean": 3.7807019571871454e-06,
+      "se": 8.215738537147028e-08
+     }
+    },
+    "record_hunter": {
+     "reward_belief_skill": {
+      "mean": 0.07813125,
+      "se": 0.0021829482365469046
+     },
+     "motivated_gap": {
+      "mean": 0.0001875000000000012,
+      "se": 0.002172266898591084
+     },
+     "claims_investigated": {
+      "mean": 6,
+      "se": 0.0
+     },
+     "budget_used": {
+      "mean": 36.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 7.715182659406849e-18,
+      "se": 1.4347054410294192e-19
+     }
+    },
+    "vote_reader": {
+     "reward_belief_skill": {
+      "mean": -0.10129170594999998,
+      "se": 0.008359061557771302
+     },
+     "motivated_gap": {
+      "mean": -0.006876583333333336,
+      "se": 0.003380922694244422
+     },
+     "claims_investigated": {
+      "mean": 20.12,
+      "se": 0.08938297111797336
+     },
+     "budget_used": {
+      "mean": 40.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.09996862637362638,
+      "se": 0.00045119414273583544
+     }
+    },
+    "outlet_type_reader": {
+     "reward_belief_skill": {
+      "mean": -0.08078589162500002,
+      "se": 0.007058339590622302
+     },
+     "motivated_gap": {
+      "mean": -0.0007276249999999995,
+      "se": 0.003382290739504461
+     },
+     "claims_investigated": {
+      "mean": 20.12,
+      "se": 0.08938297111797336
+     },
+     "budget_used": {
+      "mean": 40.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.11256430631868132,
+      "se": 0.0005135550696723621
+     }
+    },
+    "motivated_reader": {
+     "reward_belief_skill": {
+      "mean": -0.3648937937458333,
+      "se": 0.004701849135753219
+     },
+     "motivated_gap": {
+      "mean": -0.5609072291666667,
+      "se": 0.002542320343700214
+     },
+     "claims_investigated": {
+      "mean": 20.12,
+      "se": 0.08938297111797336
+     },
+     "budget_used": {
+      "mean": 40.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.27359937763278386,
+      "se": 0.001461409300836736
+     }
+    },
+    "keep_priors": {
+     "reward_belief_skill": {
+      "mean": -0.32260406999999997,
+      "se": 0.00216947625183471
+     },
+     "motivated_gap": {
+      "mean": -0.5957666666666667,
+      "se": 0.0014774980104855276
+     },
+     "claims_investigated": {
+      "mean": 0,
+      "se": 0.0
+     },
+     "budget_used": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.25754166666666667,
+      "se": 0.001776372421476171
+     }
+    },
+    "hedge": {
+     "reward_belief_skill": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "motivated_gap": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "claims_investigated": {
+      "mean": 0,
+      "se": 0.0
+     },
+     "budget_used": {
+      "mean": 0.0,
+      "se": 0.0
+     },
+     "dist_ideal_neutral": {
+      "mean": 0.0,
+      "se": 0.0
+     }
+    }
+   },
+   "greedy_margin_over": {
+    "random_ideal": {
+     "mean": 0.161041231275,
+     "se": 0.006743610872811312
+    },
+    "record_hunter": {
+     "mean": 0.12618839245,
+     "se": 0.007280349708393879
+    },
+    "vote_reader": {
+     "mean": 0.3056113484,
+     "se": 0.00961967138223968
+    },
+    "outlet_type_reader": {
+     "mean": 0.285105534075,
+     "se": 0.008773229795417075
+    },
+    "motivated_reader": {
+     "mean": 0.5692134361958333,
+     "se": 0.008302989173413855
+    },
+    "keep_priors": {
+     "mean": 0.52692371245,
+     "se": 0.007193243427555788
+    },
+    "hedge": {
+     "mean": 0.20431964245,
+     "se": 0.006858288693311164
+    }
+   },
+   "seconds": 31.46786904335022
+  }
+ }
+}

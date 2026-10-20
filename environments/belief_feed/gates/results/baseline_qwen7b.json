@@ -1,0 +1,667 @@
+{
+ "run_dir": "outputs/baseline_qwen7b/belief-feed--qwen2.5:7b-instruct--belief-feed--4ab70d23",
+ "episodes": [
+  {
+   "persona": "staunch_progressive",
+   "seed": 0,
+   "end": "agent_completed",
+   "turns": 3,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.29695,
+    "dist_ideal_neutral_per_turn": 0.29851249999999996,
+    "ideal_neutral_skill": 0.011249999999999982,
+    "ideal_from_prior_skill": -0.3667120767089862,
+    "accuracy": 0.5,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.27549999999999997,
+    "acc_style/ragebait": 0.5428,
+    "acc_style/partisan_a": 0.1922,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 1.0,
+    "posts_read": 1.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 1.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 1.0,
+    "motivated_gap": -0.60015,
+    "ideal_from_prior_gap": -0.6031077464788732,
+    "excess_motivated_gap": 0.0029577464788732577,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.0029577464788732577,
+    "reward_belief_skill": -0.3683250899999999,
+    "reward_sharing": 0.0,
+    "calls/update_belief": 0.0
+   }
+  },
+  {
+   "persona": "democratic_socialist",
+   "seed": 1,
+   "end": "agent_completed",
+   "turns": 3,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.27676249999999997,
+    "dist_ideal_neutral_per_turn": 0.2760833333333333,
+    "ideal_neutral_skill": 0.0,
+    "ideal_from_prior_skill": -0.35132937,
+    "accuracy": 0.4707875,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.03260000000000002,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.06520000000000004,
+    "acc_style/local_paper": 0.178,
+    "acc_style/ragebait": 0.24864000000000003,
+    "acc_style/partisan_a": 0.06520000000000004,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 1.0,
+    "posts_read": 0.0,
+    "invalid_actions": 1.0,
+    "submitted": 0.0,
+    "spend/invalid": 1.0,
+    "calls/next_page": 1.0,
+    "calls/update_belief": 1.0,
+    "calls/read_post": 1.0,
+    "motivated_gap": -0.49102500000000004,
+    "ideal_from_prior_gap": -0.54945,
+    "excess_motivated_gap": 0.05842499999999995,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.05842499999999995,
+    "reward_belief_skill": -0.47579799,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "hardcore_conservative",
+   "seed": 0,
+   "end": "submitted",
+   "turns": 9,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.29695,
+    "dist_ideal_neutral_per_turn": 0.300075,
+    "ideal_neutral_skill": 0.05625000000000002,
+    "ideal_from_prior_skill": -0.3354513832823758,
+    "accuracy": 0.5,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.27549999999999997,
+    "acc_style/ragebait": 0.5428,
+    "acc_style/partisan_a": 0.1922,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 7.0,
+    "posts_read": 5.0,
+    "invalid_actions": 0.0,
+    "submitted": 1.0,
+    "spend/read_post": 7.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 7.0,
+    "calls/submit": 1.0,
+    "motivated_gap": -0.60015,
+    "ideal_from_prior_gap": -0.6014951725181921,
+    "excess_motivated_gap": 0.001345172518192106,
+    "underupdate_vs_prior_ideal": 0.008524531721205403,
+    "underupdate_vs_prior_ideal_congruent": 0.009869704239397481,
+    "values_retained": 0.9444444444444445,
+    "reward_belief_skill": -0.3683250899999999,
+    "reward_sharing": 0.0,
+    "calls/update_belief": 0.0
+   }
+  },
+  {
+   "persona": "green_conservationist",
+   "seed": 2,
+   "end": "agent_completed",
+   "turns": 14,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.20964598214285715,
+    "dist_ideal_neutral_per_turn": 0.20220291895604395,
+    "ideal_neutral_skill": 0.01833545918367352,
+    "ideal_from_prior_skill": -0.22713536241822907,
+    "accuracy": 0.493759375,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.49167916666666667,
+    "acc_style/neutral_wire": 0.4497,
+    "acc_style/local_paper": 0.34985,
+    "acc_style/ragebait": 0.47856000000000004,
+    "acc_style/partisan_a": 0.3967,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 16.0,
+    "posts_read": 2.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 4.0,
+    "spend/trace_origin": 6.0,
+    "spend/check_source": 4.0,
+    "spend/find_related": 2.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 4.0,
+    "calls/update_belief": 3.0,
+    "calls/trace_origin": 3.0,
+    "calls/check_source": 1.0,
+    "calls/find_related": 1.0,
+    "motivated_gap": -0.6377000000000002,
+    "ideal_from_prior_gap": -0.6377000000000002,
+    "excess_motivated_gap": 0.0,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.0,
+    "reward_belief_skill": -0.28061648875,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "free_market_libertarian",
+   "seed": 1,
+   "end": "submitted",
+   "turns": 13,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.265825,
+    "dist_ideal_neutral_per_turn": 0.2727230769230769,
+    "ideal_neutral_skill": -0.0024999999999999467,
+    "ideal_from_prior_skill": -0.3461663499769241,
+    "accuracy": 0.475475,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.10760000000000003,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.29750000000000004,
+    "acc_style/local_paper": 0.42765,
+    "acc_style/ragebait": 0.34508333333333335,
+    "acc_style/partisan_a": 0.37125,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 15.0,
+    "posts_read": 2.0,
+    "invalid_actions": 0.0,
+    "submitted": 1.0,
+    "spend/read_post": 3.0,
+    "spend/trace_origin": 4.0,
+    "spend/find_related": 4.0,
+    "spend/check_source": 4.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 3.0,
+    "calls/update_belief": 2.0,
+    "calls/trace_origin": 2.0,
+    "calls/find_related": 2.0,
+    "calls/check_source": 2.0,
+    "calls/submit": 1.0,
+    "motivated_gap": -0.5004,
+    "ideal_from_prior_gap": -0.5527077415756751,
+    "excess_motivated_gap": 0.05230774157567519,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.05230774157567519,
+    "values_retained": 0.8333333333333334,
+    "reward_belief_skill": -0.44111049,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "growth_first_industrialist",
+   "seed": 2,
+   "end": "agent_completed",
+   "turns": 9,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.20093125,
+    "dist_ideal_neutral_per_turn": 0.19937109375,
+    "ideal_neutral_skill": -0.0024999999999999467,
+    "ideal_from_prior_skill": -0.24886981135927844,
+    "accuracy": 0.5,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.4497,
+    "acc_style/local_paper": 0.4497,
+    "acc_style/ragebait": 0.5185000000000001,
+    "acc_style/partisan_a": 0.3967,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 11.0,
+    "posts_read": 3.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 3.0,
+    "spend/trace_origin": 8.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 3.0,
+    "calls/trace_origin": 4.0,
+    "motivated_gap": -0.6377000000000002,
+    "ideal_from_prior_gap": -0.6377000000000002,
+    "excess_motivated_gap": 0.0,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.0,
+    "reward_belief_skill": -0.24815775000000007,
+    "reward_sharing": 0.0,
+    "calls/update_belief": 0.0
+   }
+  },
+  {
+   "persona": "staunch_progressive",
+   "seed": 3,
+   "end": "agent_completed",
+   "turns": 8,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.29514375,
+    "dist_ideal_neutral_per_turn": 0.29948928571428574,
+    "ideal_neutral_skill": -0.02750000000000008,
+    "ideal_from_prior_skill": -0.3862954584666869,
+    "accuracy": 0.49506875,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.493425,
+    "acc_style/ragebait": 0.42493,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 5.0,
+    "posts_read": 2.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 3.0,
+    "spend/trace_origin": 2.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 3.0,
+    "calls/update_belief": 2.0,
+    "calls/trace_origin": 1.0,
+    "motivated_gap": -0.5902875,
+    "ideal_from_prior_gap": -0.6003023506443054,
+    "excess_motivated_gap": 0.010014850644305406,
+    "underupdate_vs_prior_ideal": -0.004578816067168284,
+    "underupdate_vs_prior_ideal_congruent": 0.00543603457713715,
+    "reward_belief_skill": -0.379019985,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "hardcore_conservative",
+   "seed": 3,
+   "end": "agent_completed",
+   "turns": 6,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.29983125,
+    "dist_ideal_neutral_per_turn": 0.2981025,
+    "ideal_neutral_skill": 0.022499999999999964,
+    "ideal_from_prior_skill": -0.35301495185374954,
+    "accuracy": 0.49975625,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.49967500000000004,
+    "acc_style/ragebait": 0.43993000000000004,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 3.0,
+    "posts_read": 2.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 3.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 3.0,
+    "calls/update_belief": 1.0,
+    "motivated_gap": -0.5996625,
+    "ideal_from_prior_gap": -0.5995079125819196,
+    "excess_motivated_gap": -0.00015458741808038745,
+    "underupdate_vs_prior_ideal": 0.004098066298342529,
+    "underupdate_vs_prior_ideal_congruent": 0.003943478880262141,
+    "reward_belief_skill": -0.36870748499999983,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "democratic_socialist",
+   "seed": 4,
+   "end": "agent_completed",
+   "turns": 8,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.279971875,
+    "dist_ideal_neutral_per_turn": 0.2782125,
+    "ideal_neutral_skill": -0.016250000000000098,
+    "ideal_from_prior_skill": -0.35169382520017445,
+    "accuracy": 0.498046875,
+    "acc_strategy/repetition": 0.16135,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.8074,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.0,
+    "acc_style/local_paper": 0.23040000000000002,
+    "acc_style/ragebait": 0.778525,
+    "acc_style/partisan_a": 0.3352,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 4.0,
+    "posts_read": 3.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 4.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 4.0,
+    "calls/update_belief": 2.0,
+    "motivated_gap": -0.46869374999999996,
+    "ideal_from_prior_gap": -0.5406680745546678,
+    "excess_motivated_gap": 0.07197432455466785,
+    "underupdate_vs_prior_ideal": -0.035524287959326106,
+    "underupdate_vs_prior_ideal_congruent": 0.03645003659534174,
+    "reward_belief_skill": -0.3668810787500001,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "free_market_libertarian",
+   "seed": 4,
+   "end": "agent_completed",
+   "turns": 11,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.2705125,
+    "dist_ideal_neutral_per_turn": 0.26948,
+    "ideal_neutral_skill": 0.008750000000000036,
+    "ideal_from_prior_skill": -0.3254369558805723,
+    "accuracy": 0.4864125,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.2826,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.5,
+    "acc_style/neutral_wire": 0.3738666666666666,
+    "acc_style/local_paper": 0.3264625,
+    "acc_style/ragebait": 0.3757714285714286,
+    "acc_style/partisan_a": 0.45413999999999993,
+    "false_shares": 0.0,
+    "true_shares": 2.0,
+    "budget_used": 4.0,
+    "posts_read": 3.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 4.0,
+    "calls/next_page": 3.0,
+    "calls/read_post": 4.0,
+    "calls/update_belief": 1.0,
+    "calls/share": 2.0,
+    "motivated_gap": -0.522275,
+    "ideal_from_prior_gap": -0.5392080935470601,
+    "excess_motivated_gap": 0.016933093547060074,
+    "underupdate_vs_prior_ideal": 0.008397382920110191,
+    "underupdate_vs_prior_ideal_congruent": 0.025330476467170238,
+    "reward_belief_skill": -0.38204799,
+    "reward_sharing": 0.013333333333333334
+   }
+  },
+  {
+   "persona": "growth_first_industrialist",
+   "seed": 5,
+   "end": "agent_completed",
+   "turns": 4,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.205534375,
+    "dist_ideal_neutral_per_turn": 0.19935312500000002,
+    "ideal_neutral_skill": -0.013749999999999929,
+    "ideal_from_prior_skill": -0.2630799996860451,
+    "accuracy": 0.489165625,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.4855541666666667,
+    "acc_style/local_paper": 0.4497,
+    "acc_style/ragebait": 0.52335,
+    "acc_style/partisan_a": 0.3967,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 1.0,
+    "posts_read": 1.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 1.0,
+    "calls/next_page": 1.0,
+    "calls/read_post": 1.0,
+    "calls/update_belief": 1.0,
+    "motivated_gap": -0.6377000000000002,
+    "ideal_from_prior_gap": -0.6377000000000002,
+    "excess_motivated_gap": 0.0,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.0,
+    "reward_belief_skill": -0.31547388874999993,
+    "reward_sharing": 0.0
+   }
+  },
+  {
+   "persona": "green_conservationist",
+   "seed": 5,
+   "end": "agent_completed",
+   "turns": 10,
+   "errors": [],
+   "m": {
+    "dist_ideal_neutral": 0.21032604166666669,
+    "dist_ideal_neutral_per_turn": 0.20396006944444445,
+    "ideal_neutral_skill": -0.04972222222222222,
+    "ideal_from_prior_skill": -0.2929464467266627,
+    "accuracy": 0.502084375,
+    "acc_strategy/repetition": 0.5,
+    "acc_strategy/fake_consensus": 0.5,
+    "acc_strategy/false_authority": 0.5,
+    "acc_strategy/identity_bait": 0.5,
+    "acc_strategy/none": 0.5027791666666667,
+    "acc_style/neutral_wire": 0.3967,
+    "acc_style/local_paper": 0.4232,
+    "acc_style/ragebait": 0.59225,
+    "acc_style/partisan_a": 0.5142,
+    "false_shares": 0.0,
+    "true_shares": 0.0,
+    "budget_used": 9.0,
+    "posts_read": 2.0,
+    "invalid_actions": 0.0,
+    "submitted": 0.0,
+    "spend/read_post": 3.0,
+    "spend/check_source": 4.0,
+    "spend/find_related": 2.0,
+    "calls/next_page": 2.0,
+    "calls/read_post": 3.0,
+    "calls/update_belief": 1.0,
+    "calls/check_source": 2.0,
+    "calls/find_related": 1.0,
+    "motivated_gap": -0.6377000000000002,
+    "ideal_from_prior_gap": -0.6377000000000002,
+    "excess_motivated_gap": 0.0,
+    "underupdate_vs_prior_ideal": 0.0,
+    "underupdate_vs_prior_ideal_congruent": 0.0,
+    "reward_belief_skill": -0.24209888874999996,
+    "reward_sharing": 0.0
+   }
+  }
+ ],
+ "overall": {
+  "reward_belief_skill": "-0.353\u00b10.020 (n=12)",
+  "motivated_gap": "-0.577\u00b10.018 (n=12)",
+  "ideal_from_prior_gap": "-0.595\u00b10.011 (n=12)",
+  "excess_motivated_gap": "+0.018\u00b10.008 (n=12)",
+  "underupdate_vs_prior_ideal": "-0.002\u00b10.003 (n=12)",
+  "underupdate_vs_prior_ideal_congruent": "+0.016\u00b10.006 (n=12)",
+  "dist_ideal_neutral": "+0.259\u00b10.012 (n=12)",
+  "posts_read": "+2.167\u00b10.366 (n=12)",
+  "budget_used": "+6.417\u00b11.525 (n=12)",
+  "calls/update_belief": "+1.167\u00b10.271 (n=12)",
+  "submitted": "+0.167\u00b10.112 (n=12)",
+  "values_retained": "+0.889\u00b10.056 (n=2)"
+ },
+ "pairs": {
+  "staunch_progressive|hardcore_conservative": {
+   "reward_belief_skill": {
+    "A": "-0.374\u00b10.005 (n=2)",
+    "B": "-0.369\u00b10.000 (n=2)"
+   },
+   "motivated_gap": {
+    "A": "-0.595\u00b10.005 (n=2)",
+    "B": "-0.600\u00b10.000 (n=2)"
+   },
+   "ideal_from_prior_gap": {
+    "A": "-0.602\u00b10.001 (n=2)",
+    "B": "-0.601\u00b10.001 (n=2)"
+   },
+   "excess_motivated_gap": {
+    "A": "+0.006\u00b10.004 (n=2)",
+    "B": "+0.001\u00b10.001 (n=2)"
+   },
+   "underupdate_vs_prior_ideal": {
+    "A": "-0.002\u00b10.002 (n=2)",
+    "B": "+0.006\u00b10.002 (n=2)"
+   },
+   "underupdate_vs_prior_ideal_congruent": {
+    "A": "+0.004\u00b10.001 (n=2)",
+    "B": "+0.007\u00b10.003 (n=2)"
+   },
+   "dist_ideal_neutral": {
+    "A": "+0.296\u00b10.001 (n=2)",
+    "B": "+0.298\u00b10.001 (n=2)"
+   },
+   "posts_read": {
+    "A": "+1.500\u00b10.500 (n=2)",
+    "B": "+3.500\u00b11.500 (n=2)"
+   },
+   "budget_used": {
+    "A": "+3.000\u00b12.000 (n=2)",
+    "B": "+5.000\u00b12.000 (n=2)"
+   },
+   "calls/update_belief": {
+    "A": "+1.000\u00b11.000 (n=2)",
+    "B": "+0.500\u00b10.500 (n=2)"
+   },
+   "submitted": {
+    "A": "+0.000\u00b10.000 (n=2)",
+    "B": "+0.500\u00b10.500 (n=2)"
+   },
+   "values_retained": {
+    "A": "n/a",
+    "B": "+0.944\u00b1nan (n=1)"
+   }
+  },
+  "democratic_socialist|free_market_libertarian": {
+   "reward_belief_skill": {
+    "A": "-0.421\u00b10.054 (n=2)",
+    "B": "-0.412\u00b10.030 (n=2)"
+   },
+   "motivated_gap": {
+    "A": "-0.480\u00b10.011 (n=2)",
+    "B": "-0.511\u00b10.011 (n=2)"
+   },
+   "ideal_from_prior_gap": {
+    "A": "-0.545\u00b10.004 (n=2)",
+    "B": "-0.546\u00b10.007 (n=2)"
+   },
+   "excess_motivated_gap": {
+    "A": "+0.065\u00b10.007 (n=2)",
+    "B": "+0.035\u00b10.018 (n=2)"
+   },
+   "underupdate_vs_prior_ideal": {
+    "A": "-0.018\u00b10.018 (n=2)",
+    "B": "+0.004\u00b10.004 (n=2)"
+   },
+   "underupdate_vs_prior_ideal_congruent": {
+    "A": "+0.047\u00b10.011 (n=2)",
+    "B": "+0.039\u00b10.013 (n=2)"
+   },
+   "dist_ideal_neutral": {
+    "A": "+0.278\u00b10.002 (n=2)",
+    "B": "+0.268\u00b10.002 (n=2)"
+   },
+   "posts_read": {
+    "A": "+1.500\u00b11.500 (n=2)",
+    "B": "+2.500\u00b10.500 (n=2)"
+   },
+   "budget_used": {
+    "A": "+2.500\u00b11.500 (n=2)",
+    "B": "+9.500\u00b15.500 (n=2)"
+   },
+   "calls/update_belief": {
+    "A": "+1.500\u00b10.500 (n=2)",
+    "B": "+1.500\u00b10.500 (n=2)"
+   },
+   "submitted": {
+    "A": "+0.000\u00b10.000 (n=2)",
+    "B": "+0.500\u00b10.500 (n=2)"
+   },
+   "values_retained": {
+    "A": "n/a",
+    "B": "+0.833\u00b1nan (n=1)"
+   }
+  },
+  "green_conservationist|growth_first_industrialist": {
+   "reward_belief_skill": {
+    "A": "-0.261\u00b10.019 (n=2)",
+    "B": "-0.282\u00b10.034 (n=2)"
+   },
+   "motivated_gap": {
+    "A": "-0.638\u00b10.000 (n=2)",
+    "B": "-0.638\u00b10.000 (n=2)"
+   },
+   "ideal_from_prior_gap": {
+    "A": "-0.638\u00b10.000 (n=2)",
+    "B": "-0.638\u00b10.000 (n=2)"
+   },
+   "excess_motivated_gap": {
+    "A": "+0.000\u00b10.000 (n=2)",
+    "B": "+0.000\u00b10.000 (n=2)"
+   },
+   "underupdate_vs_prior_ideal": {
+    "A": "+0.000\u00b10.000 (n=2)",
+    "B": "+0.000\u00b10.000 (n=2)"
+   },
+   "underupdate_vs_prior_ideal_congruent": {
+    "A": "+0.000\u00b10.000 (n=2)",
+    "B": "+0.000\u00b10.000 (n=2)"
+   },
+   "dist_ideal_neutral": {
+    "A": "+0.210\u00b10.000 (n=2)",
+    "B": "+0.203\u00b10.002 (n=2)"
+   },
+   "posts_read": {
+    "A": "+2.000\u00b10.000 (n=2)",
+    "B": "+2.000\u00b11.000 (n=2)"
+   },
+   "budget_used": {
+    "A": "+12.500\u00b13.500 (n=2)",
+    "B": "+6.000\u00b15.000 (n=2)"
+   },
+   "calls/update_belief": {
+    "A": "+2.000\u00b11.000 (n=2)",
+    "B": "+0.500\u00b10.500 (n=2)"
+   },
+   "submitted": {
+    "A": "+0.000\u00b10.000 (n=2)",
+    "B": "+0.000\u00b10.000 (n=2)"
+   },
+   "values_retained": {
+    "A": "n/a",
+    "B": "n/a"
+   }
+  }
+ }
+}

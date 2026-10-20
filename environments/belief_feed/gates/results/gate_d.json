@@ -1,0 +1,144 @@
+{
+ "n_worlds": 1000,
+ "pass": true,
+ "failures": {},
+ "failure_counts": {},
+ "correlations": {
+  "lean_economic": 0.014938788578136774,
+  "lean_social": 0.0016631424750278869,
+  "lean_authority": -0.002437328397726633,
+  "lean_scale": 0.010589745782159364,
+  "lean_environment": -0.008308081903935146,
+  "lean_norm": -0.0034560790085475723,
+  "trust_prior/staunch_progressive": -0.005069934842911462,
+  "trust_prior/democratic_socialist": -0.011221144742822634,
+  "trust_prior/green_conservationist": -0.012127016266751946,
+  "trust_prior/civil_libertarian": 0.00045294485892387315,
+  "trust_prior/localist_populist": -0.013319568855272572
+ },
+ "reliability_mean_by_outlet_type": {
+  "local_paper": 0.6080175349159604,
+  "anonymous": 0.6032155294887751,
+  "official": 0.6010953704820172,
+  "partisan_blog": 0.6067951627579415,
+  "wire": 0.5940977838199627
+ },
+ "strategy_by_truth": {
+  "buried_correction/0": 970,
+  "buried_correction/1": 1030,
+  "fake_consensus/0": 1026,
+  "fake_consensus/1": 974,
+  "false_authority/0": 1030,
+  "false_authority/1": 970,
+  "identity_bait/0": 964,
+  "identity_bait/1": 1036,
+  "laundering/0": 1022,
+  "laundering/1": 978,
+  "repetition/0": 988,
+  "repetition/1": 1012
+ },
+ "style_side_share": {
+  "staunch_progressive": 0.0054096723337856145,
+  "hardcore_conservative": 0.0054096723337856145,
+  "democratic_socialist": 0.004476678984563276,
+  "free_market_libertarian": 0.004476678984563276,
+  "green_conservationist": 0.00972975348468924,
+  "growth_first_industrialist": 0.00972975348468924,
+  "civil_libertarian": 0.007919895201734362,
+  "law_and_order_traditionalist": 0.007919895201734362,
+  "localist_populist": 0.008718293989454645,
+  "centrist_technocrat": 0.008718293989454645
+ },
+ "persona_alignment": {
+  "staunch_progressive": {
+   "non_neutral_claims_per_world": 32.0,
+   "profile_alignment": {
+    "market": -0.322,
+    "order": -0.524,
+    "conservation": 0.479,
+    "community": -0.553
+   }
+  },
+  "hardcore_conservative": {
+   "non_neutral_claims_per_world": 32.0,
+   "profile_alignment": {
+    "market": 0.322,
+    "order": 0.524,
+    "conservation": -0.479,
+    "community": 0.553
+   }
+  },
+  "democratic_socialist": {
+   "non_neutral_claims_per_world": 32.0,
+   "profile_alignment": {
+    "market": -0.887,
+    "order": 0.247,
+    "conservation": 0.51,
+    "community": -0.228
+   }
+  },
+  "free_market_libertarian": {
+   "non_neutral_claims_per_world": 32.0,
+   "profile_alignment": {
+    "market": 0.887,
+    "order": -0.247,
+    "conservation": -0.51,
+    "community": 0.228
+   }
+  },
+  "green_conservationist": {
+   "non_neutral_claims_per_world": 16.0,
+   "profile_alignment": {
+    "market": -0.272,
+    "order": -0.067,
+    "conservation": 0.945,
+    "community": 0.14
+   }
+  },
+  "growth_first_industrialist": {
+   "non_neutral_claims_per_world": 16.0,
+   "profile_alignment": {
+    "market": 0.272,
+    "order": 0.067,
+    "conservation": -0.945,
+    "community": -0.14
+   }
+  },
+  "civil_libertarian": {
+   "non_neutral_claims_per_world": 8.0,
+   "profile_alignment": {
+    "market": 0.175,
+    "order": -0.945,
+    "conservation": 0.034,
+    "community": 0.045
+   }
+  },
+  "law_and_order_traditionalist": {
+   "non_neutral_claims_per_world": 8.0,
+   "profile_alignment": {
+    "market": -0.175,
+    "order": 0.945,
+    "conservation": -0.034,
+    "community": -0.045
+   }
+  },
+  "localist_populist": {
+   "non_neutral_claims_per_world": 16.0,
+   "profile_alignment": {
+    "market": -0.275,
+    "order": 0.187,
+    "conservation": 0.079,
+    "community": 0.928
+   }
+  },
+  "centrist_technocrat": {
+   "non_neutral_claims_per_world": 16.0,
+   "profile_alignment": {
+    "market": 0.275,
+    "order": -0.187,
+    "conservation": -0.079,
+    "community": -0.928
+   }
+  }
+ }
+}

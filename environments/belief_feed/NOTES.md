@@ -303,10 +303,15 @@ trust-as-words. Four models ran without `persona_voice`, and two ran with it.
   (25% for DeepSeek) are now on claims with no evidence, mostly guesses made after the
   budget ran out. That is the behaviour fix 2 option 1 (evidence-gated updates) would
   block.
-- **Incomplete runs:** gpt-oss eval_persona has 18 of 24 episodes (15 of 16 with voice),
-  and GLM train has 17 of 24. The GLM and DeepSeek eval_persona and voice runs never ran,
-  because a case-sensitive folder lookup in `arc_eval.sh` stopped the script. That is now
-  fixed. The cause of the partial runs needs the job logs.
+- **Interim numbers.** The results were pushed while three ARC jobs were still running, so
+  gpt-oss eval_persona (18 of 24; 16 with voice) and GLM train (17 of 24) are in-progress
+  files, not failures. Qwen (all four conditions) and gpt-oss train (both conditions) were
+  complete. These rows will be replaced with the finished runs.
+
+  A separate bug: `arc_eval.sh` looked up the run folder by `$SERVED`, but vf-eval
+  lowercases some ids (GLM-5.3 → glm-5.3). The lookup fails after that model's first split
+  and stops the script, so its eval_persona split doesn't run. Fixed in the repo; jobs
+  already running still use the old copy.
 
 **Open decisions (for Manas):**
 1. ~~Let `update_belief` and `submit` work at 0 budget~~ (done, interpretation 5).

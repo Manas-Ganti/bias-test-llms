@@ -1,4 +1,4 @@
-"""vf-eval with two fixes for running against a local vLLM 0.8.5 server.
+"""vf-eval with three fixes for running against a local vLLM 0.8.5 server.
 
 1. aiohttp's server errors go to stderr. verifiers routes only its own logger to eval.log,
    so an unhandled exception inside the interception server reaches the harness as a bare
@@ -12,6 +12,7 @@ Usage is the same as vf-eval:  python scripts/vf_eval_logged.py @ configs/arc.to
 """
 
 import logging
+import os
 import sys
 
 import verifiers.v1.agent as vf_agent
@@ -41,6 +42,27 @@ def parse_message(raw: dict):
 vf_chat.parse_message = parse_message
 vf_dialects.parse_message = parse_message
 vf_agent.parse_message = parse_message
+
+# 3. BF_UNSTREAMED_UPSTREAM=1: ask the provider for whole completions and let the interception
+#    server frame the SSE the harness reads, the path verifiers already uses for training.
+#    vLLM 0.8.5's *streaming* tool parser also drops the finish_reason chunk when a reply is
+#    cut off ("Model stream ended before a completion finished"); non-streaming replies always
+#    carry it.
+if os.environ.get("BF_UNSTREAMED_UPSTREAM") == "1":
+    import verifiers.v1.interception.server as vf_server
+    from verifiers.v1.clients.eval import EvalClient
+    from verifiers.v1.configs.client import EvalClientConfig, TrainClientConfig
+
+    # handle_request relays a stream only when the client is not a TrainClientConfig.
+    vf_server.TrainClientConfig = (TrainClientConfig, EvalClientConfig)
+    _get_response = EvalClient.get_response
+
+    async def get_response(self, dialect, body, *args, **kwargs):
+        if body.get("stream"):
+            body = {k: v for k, v in body.items() if k not in ("stream", "stream_options")}
+        return await _get_response(self, dialect, body, *args, **kwargs)
+
+    EvalClient.get_response = get_response
 
 if __name__ == "__main__":
     sys.exit(main())

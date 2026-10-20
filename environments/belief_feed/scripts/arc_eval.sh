@@ -70,6 +70,8 @@ vllm)
     echo "vLLM ready ($LOG)"
     BASE_URL=${BASE_URL:-http://localhost:$PORT/v1}
     export BF_KEY=EMPTY
+    # Whole completions from vLLM; its streaming tool parser is what breaks (vf_eval_logged.py).
+    export BF_UNSTREAMED_UPSTREAM=1
     ;;
 api)
     SERVED=${SERVED:-gpt-oss-120b}

@@ -27,9 +27,12 @@ if [[ -z ${SKIP_VLLM:-} ]]; then
     VLLM_VERSION=${VLLM_VERSION:-0.8.5}
     [[ -x $BF_VLLM_ENV/bin/python ]] || conda create -y -p "$BF_VLLM_ENV" python=3.12
     "$BF_VLLM_ENV/bin/python" -m pip install "vllm==$VLLM_VERSION"
+    # An unpinned install pulls transformers 5.x, which removed tokenizer attributes these
+    # vLLM releases use (0.11.0: "Qwen2Tokenizer has no attribute all_special_tokens_extended").
     if [[ $VLLM_VERSION == 0.8.5 ]]; then
-        # An unpinned install pulls transformers 5.x, which vLLM 0.8.5 can't load.
         "$BF_VLLM_ENV/bin/python" -m pip install transformers==4.51.3 huggingface-hub==0.36.2
+    else
+        "$BF_VLLM_ENV/bin/python" -m pip install "transformers>=4.56,<5"
     fi
     "$BF_VLLM_ENV/bin/python" -c 'import sys, vllm, transformers; print(sys.executable, "vllm", vllm.__version__, "transformers", transformers.__version__)'
 fi

@@ -66,8 +66,18 @@ vllm)
 api)
     SERVED=${SERVED:-gpt-oss-120b}
     CONC=${CONC:-4}
-    MAX_TOKENS=${MAX_TOKENS:-8192}  # reasoning models spend completion tokens on thinking
+    # Reasoning models spend completion tokens on thinking; the ARC proxy caps non-streaming
+    # requests at 8000.
+    MAX_TOKENS=${MAX_TOKENS:-8000}
     BASE_URL=${BASE_URL:-https://llm-api.arc.vt.edu/api/v1}
+    # Python's certifi bundle can't verify the ARC API's certificate (curl works because it uses
+    # the system store). httpx honours SSL_CERT_FILE, so point it at the system bundle.
+    if [[ -z ${SSL_CERT_FILE:-} ]]; then
+        for f in /etc/pki/tls/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt; do
+            [[ -f $f ]] && { export SSL_CERT_FILE=$f; break; }
+        done
+    fi
+    echo "SSL_CERT_FILE=${SSL_CERT_FILE:-unset}"
     if [[ -z ${VTARC_API_KEY:-} && -f $HOME/.vtarc_key ]]; then VTARC_API_KEY=$(< "$HOME/.vtarc_key"); fi
     : "${VTARC_API_KEY:?set VTARC_API_KEY or put the key in ~/.vtarc_key (chmod 600)}"
     export BF_KEY=$VTARC_API_KEY

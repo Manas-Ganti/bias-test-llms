@@ -1,0 +1,10 @@
+# Shared settings for ARC baselines. scripts/arc_eval.sh adds the model, client, split,
+# sampling and output dir on the command line.
+num_rollouts = 1
+push = false
+
+[env.taskset]
+id = "belief-feed"
+
+[env.agent.runtime]
+type = "subprocess"

@@ -1,0 +1,107 @@
+12:43:47    INFO running 24x1 rollouts on gpt-oss-120b
+12:43:47    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+12:43:47    INFO results: outputs/arc/eval_persona_user_nopush/belief-feed--gpt-oss-120b--belief-feed--3699305d
+12:43:47    INFO rollout start: id=97cd7cbe8c9e47ebb7dd816db510706e task=0 harness=belief-feed runtime=subprocess
+12:43:47    INFO rollout start: id=d1f2c818726e4378ab4551dedfc09145 task=1 harness=belief-feed runtime=subprocess
+12:43:47    INFO rollout start: id=26a479102ac2404e968380107e757665 task=2 harness=belief-feed runtime=subprocess
+12:43:47    INFO rollout start: id=17a416fde1bb4b5b898fff89a297d65f task=3 harness=belief-feed runtime=subprocess
+12:43:47    INFO interception up: url=http://127.0.0.1:46779
+12:43:47    INFO interception pool: 1 server(s), multiplex=32
+12:43:55    INFO tool server '': http://127.0.0.1:39237/mcp
+12:43:55    INFO tool server '': http://127.0.0.1:35525/mcp
+12:43:55    INFO tool server '': http://127.0.0.1:40813/mcp
+12:43:55    INFO tool server '': http://127.0.0.1:40143/mcp
+12:43:57 WARNING model call failed: id=26a479102ac2404e968380107e757665 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:43:57 WARNING model call failed: id=97cd7cbe8c9e47ebb7dd816db510706e ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:44:30 WARNING model call failed: id=97cd7cbe8c9e47ebb7dd816db510706e ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:44:30 WARNING model call failed: id=97cd7cbe8c9e47ebb7dd816db510706e ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:44:40    INFO rollout done: id=26a479102ac2404e968380107e757665 task=2 reward=-0.010 turns=17 stop=agent_completed
+12:44:40    INFO rollout start: id=01357e3fcbd048119152094992974641 task=4 harness=belief-feed runtime=subprocess
+12:44:44    INFO rollout done: id=17a416fde1bb4b5b898fff89a297d65f task=3 reward=0.028 turns=11 stop=agent_completed
+12:44:44    INFO rollout start: id=4ed9d031ae1d4382ac485353e2d6538c task=5 harness=belief-feed runtime=subprocess
+12:44:47    INFO rollout done: id=97cd7cbe8c9e47ebb7dd816db510706e task=0 reward=-0.040 turns=21 stop=agent_completed
+12:44:47    INFO rollout start: id=adbdb5682c0b40b88394c324321ef7e8 task=6 harness=belief-feed runtime=subprocess
+12:44:48    INFO tool server '': http://127.0.0.1:38273/mcp
+12:44:50    INFO tool server '': http://127.0.0.1:33611/mcp
+12:44:53 WARNING model call failed: id=4ed9d031ae1d4382ac485353e2d6538c ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:44:54    INFO tool server '': http://127.0.0.1:39161/mcp
+12:44:54 WARNING model call failed: id=4ed9d031ae1d4382ac485353e2d6538c ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:44:55 WARNING model call failed: id=d1f2c818726e4378ab4551dedfc09145 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:45:19 WARNING model call failed: id=adbdb5682c0b40b88394c324321ef7e8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:45:20 WARNING model call failed: id=d1f2c818726e4378ab4551dedfc09145 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:45:21 WARNING model call failed: id=d1f2c818726e4378ab4551dedfc09145 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:45:22 WARNING model call failed: id=d1f2c818726e4378ab4551dedfc09145 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:45:22    INFO rollout done: id=d1f2c818726e4378ab4551dedfc09145 task=1 reward=0.000 turns=26 stop=ProviderError
+12:45:22    INFO rollout start: id=a1641ff9f0f44fa28a231359fc4ddb76 task=7 harness=belief-feed runtime=subprocess
+12:45:29    INFO tool server '': http://127.0.0.1:34147/mcp
+12:46:00    INFO rollout done: id=01357e3fcbd048119152094992974641 task=4 reward=0.060 turns=17 stop=agent_completed
+12:46:00    INFO rollout start: id=5cefdd7371184565a8c7b78b94bfded0 task=8 harness=belief-feed runtime=subprocess
+12:46:01    INFO rollout done: id=4ed9d031ae1d4382ac485353e2d6538c task=5 reward=0.031 turns=15 stop=agent_completed
+12:46:01    INFO rollout start: id=26c9be7b97e948d8be511a6b7a807fc5 task=9 harness=belief-feed runtime=subprocess
+12:46:04    INFO rollout done: id=a1641ff9f0f44fa28a231359fc4ddb76 task=7 reward=-0.029 turns=17 stop=episode_over
+12:46:04    INFO rollout start: id=8ba034fbb1c8433e9c010eda975802e9 task=10 harness=belief-feed runtime=subprocess
+12:46:09    INFO tool server '': http://127.0.0.1:33069/mcp
+12:46:10    INFO tool server '': http://127.0.0.1:39383/mcp
+12:46:11    INFO tool server '': http://127.0.0.1:45511/mcp
+12:46:13 WARNING model call failed: id=8ba034fbb1c8433e9c010eda975802e9 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:13 WARNING model call failed: id=8ba034fbb1c8433e9c010eda975802e9 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:14 WARNING model call failed: id=8ba034fbb1c8433e9c010eda975802e9 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:15    INFO rollout done: id=8ba034fbb1c8433e9c010eda975802e9 task=10 reward=0.000 turns=0 stop=ProviderError
+12:46:15    INFO rollout start: id=1bc7a4b52c4e4dd8a9628b898ffe6762 task=11 harness=belief-feed runtime=subprocess
+12:46:16 WARNING model call failed: id=adbdb5682c0b40b88394c324321ef7e8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:17 WARNING model call failed: id=adbdb5682c0b40b88394c324321ef7e8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:18 WARNING model call failed: id=adbdb5682c0b40b88394c324321ef7e8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:18    INFO rollout done: id=adbdb5682c0b40b88394c324321ef7e8 task=6 reward=0.000 turns=30 stop=ProviderError
+12:46:18    INFO rollout start: id=3a4ab44be6e7428b87a235fe88ccc2fd task=12 harness=belief-feed runtime=subprocess
+12:46:21    INFO tool server '': http://127.0.0.1:40577/mcp
+12:46:24 WARNING model call failed: id=1bc7a4b52c4e4dd8a9628b898ffe6762 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:46:24    INFO tool server '': http://127.0.0.1:44015/mcp
+12:46:26    INFO rollout done: id=26c9be7b97e948d8be511a6b7a807fc5 task=9 reward=0.000 turns=6 stop=HarnessError
+12:46:26    INFO rollout start: id=8d8ac223d06a485fb7950dacac0f2fc2 task=13 harness=belief-feed runtime=subprocess
+12:46:33    INFO tool server '': http://127.0.0.1:33287/mcp
+12:46:51    INFO rollout done: id=5cefdd7371184565a8c7b78b94bfded0 task=8 reward=-0.081 turns=15 stop=agent_completed
+12:46:51    INFO rollout start: id=db9c57f31bd34eff8201e79df629da69 task=14 harness=belief-feed runtime=subprocess
+12:46:57    INFO tool server '': http://127.0.0.1:39375/mcp
+12:47:03    INFO rollout done: id=3a4ab44be6e7428b87a235fe88ccc2fd task=12 reward=-0.003 turns=19 stop=episode_over
+12:47:03    INFO rollout start: id=23efa9634a8e46d9b8a89a01631765bb task=15 harness=belief-feed runtime=subprocess
+12:47:11    INFO tool server '': http://127.0.0.1:38927/mcp
+12:47:13 WARNING model call failed: id=23efa9634a8e46d9b8a89a01631765bb ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:13 WARNING model call failed: id=23efa9634a8e46d9b8a89a01631765bb ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:14 WARNING model call failed: id=23efa9634a8e46d9b8a89a01631765bb ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:15    INFO rollout done: id=23efa9634a8e46d9b8a89a01631765bb task=15 reward=0.000 turns=0 stop=ProviderError
+12:47:15    INFO rollout start: id=4a03c35871e94427a3ded1c95af6e8c4 task=16 harness=belief-feed runtime=subprocess
+12:47:17    INFO rollout done: id=1bc7a4b52c4e4dd8a9628b898ffe6762 task=11 reward=0.051 turns=16 stop=agent_completed
+12:47:17    INFO rollout start: id=be09d0b1f04e489fbdb7150bc935a568 task=17 harness=belief-feed runtime=subprocess
+12:47:21    INFO tool server '': http://127.0.0.1:44745/mcp
+12:47:23 WARNING model call failed: id=4a03c35871e94427a3ded1c95af6e8c4 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:23    INFO tool server '': http://127.0.0.1:41261/mcp
+12:47:23 WARNING model call failed: id=4a03c35871e94427a3ded1c95af6e8c4 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:24 WARNING model call failed: id=4a03c35871e94427a3ded1c95af6e8c4 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:25    INFO rollout done: id=4a03c35871e94427a3ded1c95af6e8c4 task=16 reward=0.000 turns=0 stop=ProviderError
+12:47:25    INFO rollout start: id=6a15efe6b4194fe2a239b7d6640fac82 task=18 harness=belief-feed runtime=subprocess
+12:47:25 WARNING model call failed: id=be09d0b1f04e489fbdb7150bc935a568 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:25 WARNING model call failed: id=be09d0b1f04e489fbdb7150bc935a568 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:31    INFO tool server '': http://127.0.0.1:37321/mcp
+12:47:33 WARNING model call failed: id=6a15efe6b4194fe2a239b7d6640fac82 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:33 WARNING model call failed: id=6a15efe6b4194fe2a239b7d6640fac82 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:34 WARNING model call failed: id=6a15efe6b4194fe2a239b7d6640fac82 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'gpt-oss-120b' (max 10 in flight per user on this backend)"}
+12:47:35    INFO rollout done: id=6a15efe6b4194fe2a239b7d6640fac82 task=18 reward=0.000 turns=0 stop=ProviderError
+12:47:35    INFO rollout start: id=941f2005f63d44de95e7455f5aef8b16 task=19 harness=belief-feed runtime=subprocess
+12:47:41    INFO tool server '': http://127.0.0.1:38195/mcp
+12:48:21    INFO rollout done: id=be09d0b1f04e489fbdb7150bc935a568 task=17 reward=0.026 turns=12 stop=agent_completed
+12:48:21    INFO rollout start: id=a6af00b1e0114bf780ca307a818d046d task=20 harness=belief-feed runtime=subprocess
+12:48:28    INFO rollout done: id=db9c57f31bd34eff8201e79df629da69 task=14 reward=-0.152 turns=14 stop=agent_completed
+12:48:28    INFO rollout start: id=1478d5279e74496aa6ae2c1ffa1a276f task=21 harness=belief-feed runtime=subprocess
+12:48:29    INFO tool server '': http://127.0.0.1:46749/mcp
+12:48:34    INFO tool server '': http://127.0.0.1:41881/mcp
+12:49:01    INFO rollout done: id=a6af00b1e0114bf780ca307a818d046d task=20 reward=-0.070 turns=13 stop=agent_completed
+12:49:01    INFO rollout start: id=03f25636e01a40879c6932f30fa7831c task=22 harness=belief-feed runtime=subprocess
+12:49:07    INFO tool server '': http://127.0.0.1:46237/mcp
+12:49:22    INFO rollout done: id=1478d5279e74496aa6ae2c1ffa1a276f task=21 reward=-0.100 turns=13 stop=agent_completed
+12:49:22    INFO rollout start: id=3b060f9006c546fd93ac1bc7db836183 task=23 harness=belief-feed runtime=subprocess
+12:49:31    INFO tool server '': http://127.0.0.1:41119/mcp
+12:49:36    INFO rollout done: id=8d8ac223d06a485fb7950dacac0f2fc2 task=13 reward=-0.178 turns=67 stop=episode_over
+12:49:43    INFO rollout done: id=941f2005f63d44de95e7455f5aef8b16 task=19 reward=-0.304 turns=28 stop=episode_over
+12:50:26    INFO rollout done: id=3b060f9006c546fd93ac1bc7db836183 task=23 reward=0.027 turns=21 stop=agent_completed
+12:50:29    INFO rollout done: id=03f25636e01a40879c6932f30fa7831c task=22 reward=0.040 turns=22 stop=agent_completed
+12:50:29    INFO interception down: url=http://127.0.0.1:46779

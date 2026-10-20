@@ -1,0 +1,145 @@
+12:53:31    INFO running 24x1 rollouts on DeepSeek-V4.1-Flash
+12:53:31    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+12:53:31    INFO results: outputs/arc/train_user_nopush/belief-feed--deepseek-v4.1-flash--belief-feed--de72b383
+12:53:31    INFO rollout start: id=ab4c58d0620847a2a2c7e0e6a834c07d task=0 harness=belief-feed runtime=subprocess
+12:53:31    INFO rollout start: id=01a99a1272194397a2f6cdc5765a5ca0 task=1 harness=belief-feed runtime=subprocess
+12:53:31    INFO rollout start: id=42d1ca20088d4c5684fa2deaf61d22c6 task=2 harness=belief-feed runtime=subprocess
+12:53:31    INFO rollout start: id=b4e6913fbd0842d8aa368127aad6fdd8 task=3 harness=belief-feed runtime=subprocess
+12:53:31    INFO interception up: url=http://127.0.0.1:42367
+12:53:31    INFO interception pool: 1 server(s), multiplex=32
+12:53:38    INFO tool server '': http://127.0.0.1:46751/mcp
+12:53:38    INFO tool server '': http://127.0.0.1:44443/mcp
+12:53:38    INFO tool server '': http://127.0.0.1:34867/mcp
+12:53:38    INFO tool server '': http://127.0.0.1:37119/mcp
+12:53:40 WARNING model call failed: id=b4e6913fbd0842d8aa368127aad6fdd8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:40 WARNING model call failed: id=01a99a1272194397a2f6cdc5765a5ca0 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:41 WARNING model call failed: id=b4e6913fbd0842d8aa368127aad6fdd8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:41 WARNING model call failed: id=b4e6913fbd0842d8aa368127aad6fdd8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:42    INFO rollout done: id=b4e6913fbd0842d8aa368127aad6fdd8 task=3 reward=0.000 turns=0 stop=ProviderError
+12:53:42    INFO rollout start: id=4ac5e957d41f436aa0ad44b9d482ca0f task=4 harness=belief-feed runtime=subprocess
+12:53:50    INFO tool server '': http://127.0.0.1:33975/mcp
+12:53:52 WARNING model call failed: id=4ac5e957d41f436aa0ad44b9d482ca0f ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:52 WARNING model call failed: id=4ac5e957d41f436aa0ad44b9d482ca0f ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:53 WARNING model call failed: id=4ac5e957d41f436aa0ad44b9d482ca0f ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:53:54    INFO rollout done: id=4ac5e957d41f436aa0ad44b9d482ca0f task=4 reward=0.000 turns=0 stop=ProviderError
+12:53:54    INFO rollout start: id=b47841073fca4c54a24f7696fb8d110c task=5 harness=belief-feed runtime=subprocess
+12:54:00    INFO tool server '': http://127.0.0.1:41831/mcp
+12:54:02 WARNING model call failed: id=b47841073fca4c54a24f7696fb8d110c ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:02 WARNING model call failed: id=b47841073fca4c54a24f7696fb8d110c ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:03 WARNING model call failed: id=b47841073fca4c54a24f7696fb8d110c ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:03    INFO rollout done: id=b47841073fca4c54a24f7696fb8d110c task=5 reward=0.000 turns=0 stop=ProviderError
+12:54:03    INFO rollout start: id=819146331d2d4cb49b8c6d22cfba03a4 task=6 harness=belief-feed runtime=subprocess
+12:54:10    INFO tool server '': http://127.0.0.1:43223/mcp
+12:54:11 WARNING model call failed: id=819146331d2d4cb49b8c6d22cfba03a4 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:12 WARNING model call failed: id=819146331d2d4cb49b8c6d22cfba03a4 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:13 WARNING model call failed: id=819146331d2d4cb49b8c6d22cfba03a4 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:13    INFO rollout done: id=819146331d2d4cb49b8c6d22cfba03a4 task=6 reward=0.000 turns=0 stop=ProviderError
+12:54:13    INFO rollout start: id=b740ce40c3f543e1b09d2860cadb6e0b task=7 harness=belief-feed runtime=subprocess
+12:54:19    INFO tool server '': http://127.0.0.1:38759/mcp
+12:54:21 WARNING model call failed: id=b740ce40c3f543e1b09d2860cadb6e0b ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:22 WARNING model call failed: id=b740ce40c3f543e1b09d2860cadb6e0b ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:23 WARNING model call failed: id=b740ce40c3f543e1b09d2860cadb6e0b ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:23    INFO rollout done: id=b740ce40c3f543e1b09d2860cadb6e0b task=7 reward=0.000 turns=0 stop=ProviderError
+12:54:23    INFO rollout start: id=f29748698c764fbc8c6ef6eeca53ccae task=8 harness=belief-feed runtime=subprocess
+12:54:29    INFO tool server '': http://127.0.0.1:35151/mcp
+12:54:31 WARNING model call failed: id=f29748698c764fbc8c6ef6eeca53ccae ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:32 WARNING model call failed: id=f29748698c764fbc8c6ef6eeca53ccae ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:33 WARNING model call failed: id=f29748698c764fbc8c6ef6eeca53ccae ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:33    INFO rollout done: id=f29748698c764fbc8c6ef6eeca53ccae task=8 reward=0.000 turns=0 stop=ProviderError
+12:54:33    INFO rollout start: id=c96f1361c3c7430499bf147c36c7ecfb task=9 harness=belief-feed runtime=subprocess
+12:54:39    INFO tool server '': http://127.0.0.1:33753/mcp
+12:54:41 WARNING model call failed: id=c96f1361c3c7430499bf147c36c7ecfb ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:42 WARNING model call failed: id=c96f1361c3c7430499bf147c36c7ecfb ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:43 WARNING model call failed: id=c96f1361c3c7430499bf147c36c7ecfb ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:43    INFO rollout done: id=c96f1361c3c7430499bf147c36c7ecfb task=9 reward=0.000 turns=0 stop=ProviderError
+12:54:43    INFO rollout start: id=fbca043a831948539ac5861025e7ab65 task=10 harness=belief-feed runtime=subprocess
+12:54:52    INFO tool server '': http://127.0.0.1:38585/mcp
+12:54:53 WARNING model call failed: id=fbca043a831948539ac5861025e7ab65 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:54 WARNING model call failed: id=fbca043a831948539ac5861025e7ab65 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:55 WARNING model call failed: id=fbca043a831948539ac5861025e7ab65 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:54:55    INFO rollout done: id=fbca043a831948539ac5861025e7ab65 task=10 reward=0.000 turns=0 stop=ProviderError
+12:54:55    INFO rollout start: id=7a40a5d52d6c4edd9d3a7c74866bd6b1 task=11 harness=belief-feed runtime=subprocess
+12:55:01    INFO tool server '': http://127.0.0.1:38283/mcp
+12:55:03 WARNING model call failed: id=7a40a5d52d6c4edd9d3a7c74866bd6b1 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:04 WARNING model call failed: id=7a40a5d52d6c4edd9d3a7c74866bd6b1 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:05 WARNING model call failed: id=7a40a5d52d6c4edd9d3a7c74866bd6b1 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:05    INFO rollout done: id=7a40a5d52d6c4edd9d3a7c74866bd6b1 task=11 reward=0.000 turns=0 stop=ProviderError
+12:55:05    INFO rollout start: id=c6807286674e42c2b45c7317040f1330 task=12 harness=belief-feed runtime=subprocess
+12:55:11    INFO tool server '': http://127.0.0.1:37241/mcp
+12:55:13 WARNING model call failed: id=c6807286674e42c2b45c7317040f1330 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:14 WARNING model call failed: id=c6807286674e42c2b45c7317040f1330 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:14 WARNING model call failed: id=c6807286674e42c2b45c7317040f1330 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:15    INFO rollout done: id=c6807286674e42c2b45c7317040f1330 task=12 reward=0.000 turns=0 stop=ProviderError
+12:55:15    INFO rollout start: id=c61ff7560bcf44eaa066f3e11c6124f8 task=13 harness=belief-feed runtime=subprocess
+12:55:17 WARNING model call failed: id=ab4c58d0620847a2a2c7e0e6a834c07d ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:18 WARNING model call failed: id=ab4c58d0620847a2a2c7e0e6a834c07d ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:19 WARNING model call failed: id=ab4c58d0620847a2a2c7e0e6a834c07d ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:19    INFO rollout done: id=ab4c58d0620847a2a2c7e0e6a834c07d task=0 reward=0.000 turns=14 stop=ProviderError
+12:55:19    INFO rollout start: id=e2e5c2521cc74cd8a5070293c94e9978 task=14 harness=belief-feed runtime=subprocess
+12:55:21    INFO tool server '': http://127.0.0.1:40357/mcp
+12:55:23 WARNING model call failed: id=c61ff7560bcf44eaa066f3e11c6124f8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:23 WARNING model call failed: id=c61ff7560bcf44eaa066f3e11c6124f8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:24 WARNING model call failed: id=c61ff7560bcf44eaa066f3e11c6124f8 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:25    INFO rollout done: id=c61ff7560bcf44eaa066f3e11c6124f8 task=13 reward=0.000 turns=0 stop=ProviderError
+12:55:25    INFO rollout start: id=eaa3e245cc4b44259be00f1fb6d873df task=15 harness=belief-feed runtime=subprocess
+12:55:26    INFO tool server '': http://127.0.0.1:35123/mcp
+12:55:27 WARNING model call failed: id=e2e5c2521cc74cd8a5070293c94e9978 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:28 WARNING model call failed: id=e2e5c2521cc74cd8a5070293c94e9978 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:29 WARNING model call failed: id=e2e5c2521cc74cd8a5070293c94e9978 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:30    INFO rollout done: id=e2e5c2521cc74cd8a5070293c94e9978 task=14 reward=0.000 turns=0 stop=ProviderError
+12:55:30    INFO rollout start: id=5e4b9480a17145e18bc491f28d5c857a task=16 harness=belief-feed runtime=subprocess
+12:55:31    INFO tool server '': http://127.0.0.1:43171/mcp
+12:55:33 WARNING model call failed: id=eaa3e245cc4b44259be00f1fb6d873df ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:33 WARNING model call failed: id=eaa3e245cc4b44259be00f1fb6d873df ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:34 WARNING model call failed: id=eaa3e245cc4b44259be00f1fb6d873df ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:35    INFO rollout done: id=eaa3e245cc4b44259be00f1fb6d873df task=15 reward=0.000 turns=0 stop=ProviderError
+12:55:35    INFO rollout start: id=5b4b1abc27e5427c901f41cefcf63ce1 task=17 harness=belief-feed runtime=subprocess
+12:55:37    INFO tool server '': http://127.0.0.1:45435/mcp
+12:55:39 WARNING model call failed: id=5e4b9480a17145e18bc491f28d5c857a ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:39 WARNING model call failed: id=5e4b9480a17145e18bc491f28d5c857a ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:40 WARNING model call failed: id=5e4b9480a17145e18bc491f28d5c857a ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:41    INFO rollout done: id=5e4b9480a17145e18bc491f28d5c857a task=16 reward=0.000 turns=0 stop=ProviderError
+12:55:41    INFO rollout start: id=51cd71602d0d414d8c81a229a4c7ba7a task=18 harness=belief-feed runtime=subprocess
+12:55:42    INFO tool server '': http://127.0.0.1:46245/mcp
+12:55:45 WARNING model call failed: id=5b4b1abc27e5427c901f41cefcf63ce1 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:45 WARNING model call failed: id=5b4b1abc27e5427c901f41cefcf63ce1 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:46 WARNING model call failed: id=5b4b1abc27e5427c901f41cefcf63ce1 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:47    INFO rollout done: id=5b4b1abc27e5427c901f41cefcf63ce1 task=17 reward=0.000 turns=0 stop=ProviderError
+12:55:47    INFO rollout start: id=cd212d1e51334164868bcfafdfc81805 task=19 harness=belief-feed runtime=subprocess
+12:55:48    INFO tool server '': http://127.0.0.1:35775/mcp
+12:55:50 WARNING model call failed: id=51cd71602d0d414d8c81a229a4c7ba7a ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:50 WARNING model call failed: id=51cd71602d0d414d8c81a229a4c7ba7a ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:51 WARNING model call failed: id=51cd71602d0d414d8c81a229a4c7ba7a ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:55:52    INFO rollout done: id=51cd71602d0d414d8c81a229a4c7ba7a task=18 reward=0.000 turns=0 stop=ProviderError
+12:55:52    INFO rollout start: id=5909eaf63e7140c699442b12b7f22303 task=20 harness=belief-feed runtime=subprocess
+12:55:57    INFO tool server '': http://127.0.0.1:33213/mcp
+12:55:59    INFO tool server '': http://127.0.0.1:37763/mcp
+12:55:59 WARNING model call failed: id=cd212d1e51334164868bcfafdfc81805 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:00 WARNING model call failed: id=cd212d1e51334164868bcfafdfc81805 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:01 WARNING model call failed: id=cd212d1e51334164868bcfafdfc81805 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:01 WARNING model call failed: id=5909eaf63e7140c699442b12b7f22303 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:01    INFO rollout done: id=cd212d1e51334164868bcfafdfc81805 task=19 reward=0.000 turns=0 stop=ProviderError
+12:56:01    INFO rollout start: id=7b359601ce904f34ac612868808eb8ca task=21 harness=belief-feed runtime=subprocess
+12:56:01 WARNING model call failed: id=5909eaf63e7140c699442b12b7f22303 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:02 WARNING model call failed: id=5909eaf63e7140c699442b12b7f22303 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:03    INFO rollout done: id=5909eaf63e7140c699442b12b7f22303 task=20 reward=0.000 turns=0 stop=ProviderError
+12:56:03    INFO rollout start: id=c606ef6175a04b308dfeeab66e089713 task=22 harness=belief-feed runtime=subprocess
+12:56:08    INFO tool server '': http://127.0.0.1:41377/mcp
+12:56:09    INFO tool server '': http://127.0.0.1:38947/mcp
+12:56:10 WARNING model call failed: id=7b359601ce904f34ac612868808eb8ca ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:11 WARNING model call failed: id=7b359601ce904f34ac612868808eb8ca ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:11 WARNING model call failed: id=c606ef6175a04b308dfeeab66e089713 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:12 WARNING model call failed: id=c606ef6175a04b308dfeeab66e089713 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:12 WARNING model call failed: id=7b359601ce904f34ac612868808eb8ca ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:12    INFO rollout done: id=7b359601ce904f34ac612868808eb8ca task=21 reward=0.000 turns=0 stop=ProviderError
+12:56:12    INFO rollout start: id=9aa4ce3e65304bb08a880bf97b671d94 task=23 harness=belief-feed runtime=subprocess
+12:56:13 WARNING model call failed: id=c606ef6175a04b308dfeeab66e089713 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:13    INFO rollout done: id=c606ef6175a04b308dfeeab66e089713 task=22 reward=0.000 turns=0 stop=ProviderError
+12:56:19    INFO tool server '': http://127.0.0.1:45231/mcp
+12:56:20 WARNING model call failed: id=9aa4ce3e65304bb08a880bf97b671d94 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:21 WARNING model call failed: id=9aa4ce3e65304bb08a880bf97b671d94 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:22 WARNING model call failed: id=9aa4ce3e65304bb08a880bf97b671d94 ProviderError: upstream 429: {"detail":"concurrent session limit reached for model 'DeepSeek-V4.1-Flash' (max 10 in flight per user on this backend)"}
+12:56:22    INFO rollout done: id=9aa4ce3e65304bb08a880bf97b671d94 task=23 reward=0.000 turns=0 stop=ProviderError
+12:58:47    INFO rollout done: id=01a99a1272194397a2f6cdc5765a5ca0 task=1 reward=0.053 turns=16 stop=episode_over
+13:02:20    INFO rollout done: id=42d1ca20088d4c5684fa2deaf61d22c6 task=2 reward=0.000 turns=13 stop=agent_completed
+13:02:20    INFO interception down: url=http://127.0.0.1:42367

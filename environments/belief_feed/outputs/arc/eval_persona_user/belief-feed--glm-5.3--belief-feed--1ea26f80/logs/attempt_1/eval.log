@@ -1,0 +1,150 @@
+12:50:59    INFO running 24x1 rollouts on GLM-5.3
+12:50:59    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+12:50:59    INFO results: outputs/arc/eval_persona_user/belief-feed--glm-5.3--belief-feed--1ea26f80
+12:50:59    INFO rollout start: id=4c75bf96a44446eea8f853b323e3481c task=0 harness=belief-feed runtime=subprocess
+12:50:59    INFO rollout start: id=1ee67620a7944a10b4960d67eb69b968 task=1 harness=belief-feed runtime=subprocess
+12:50:59    INFO rollout start: id=af07c3d22510468eb823df62524bb551 task=2 harness=belief-feed runtime=subprocess
+12:50:59    INFO rollout start: id=4fd1036017a4406da3945edd05b48c3f task=3 harness=belief-feed runtime=subprocess
+12:50:59    INFO interception up: url=http://127.0.0.1:45721
+12:50:59    INFO interception pool: 1 server(s), multiplex=32
+12:51:11    INFO tool server '': http://127.0.0.1:44205/mcp
+12:51:11    INFO tool server '': http://127.0.0.1:39295/mcp
+12:51:11    INFO tool server '': http://127.0.0.1:33497/mcp
+12:51:11    INFO tool server '': http://127.0.0.1:42953/mcp
+12:51:13 WARNING model call failed: id=1ee67620a7944a10b4960d67eb69b968 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:13 WARNING model call failed: id=4fd1036017a4406da3945edd05b48c3f ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:13 WARNING model call failed: id=1ee67620a7944a10b4960d67eb69b968 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:13 WARNING model call failed: id=af07c3d22510468eb823df62524bb551 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:13 WARNING model call failed: id=4c75bf96a44446eea8f853b323e3481c ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:14 WARNING model call failed: id=4fd1036017a4406da3945edd05b48c3f ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:14 WARNING model call failed: id=4c75bf96a44446eea8f853b323e3481c ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:14 WARNING model call failed: id=af07c3d22510468eb823df62524bb551 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:14 WARNING model call failed: id=1ee67620a7944a10b4960d67eb69b968 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:15 WARNING model call failed: id=4fd1036017a4406da3945edd05b48c3f ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:15 WARNING model call failed: id=4c75bf96a44446eea8f853b323e3481c ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:15    INFO rollout done: id=1ee67620a7944a10b4960d67eb69b968 task=1 reward=0.000 turns=0 stop=ProviderError
+12:51:15    INFO rollout start: id=6a63d6e16e07401d812f9bc599c3f5cf task=4 harness=belief-feed runtime=subprocess
+12:51:15 WARNING model call failed: id=af07c3d22510468eb823df62524bb551 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:15    INFO rollout done: id=4fd1036017a4406da3945edd05b48c3f task=3 reward=0.000 turns=0 stop=ProviderError
+12:51:15    INFO rollout start: id=6499bc50c6144264be91417a3bb47b6d task=5 harness=belief-feed runtime=subprocess
+12:51:16    INFO rollout done: id=4c75bf96a44446eea8f853b323e3481c task=0 reward=0.000 turns=0 stop=ProviderError
+12:51:16    INFO rollout start: id=2aa507463d7741f1874a7e67f1012e62 task=6 harness=belief-feed runtime=subprocess
+12:51:17    INFO rollout done: id=af07c3d22510468eb823df62524bb551 task=2 reward=0.000 turns=0 stop=ProviderError
+12:51:17    INFO rollout start: id=3e4180cfbbed4604b984ffc08418fee3 task=7 harness=belief-feed runtime=subprocess
+12:51:23    INFO tool server '': http://127.0.0.1:43187/mcp
+12:51:24    INFO tool server '': http://127.0.0.1:46967/mcp
+12:51:24    INFO tool server '': http://127.0.0.1:39011/mcp
+12:51:25    INFO tool server '': http://127.0.0.1:33335/mcp
+12:51:25 WARNING model call failed: id=6a63d6e16e07401d812f9bc599c3f5cf ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:26 WARNING model call failed: id=3e4180cfbbed4604b984ffc08418fee3 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:26 WARNING model call failed: id=6499bc50c6144264be91417a3bb47b6d ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:26 WARNING model call failed: id=6a63d6e16e07401d812f9bc599c3f5cf ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:26 WARNING model call failed: id=3e4180cfbbed4604b984ffc08418fee3 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:26 WARNING model call failed: id=6499bc50c6144264be91417a3bb47b6d ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:27 WARNING model call failed: id=2aa507463d7741f1874a7e67f1012e62 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:27 WARNING model call failed: id=6a63d6e16e07401d812f9bc599c3f5cf ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:27 WARNING model call failed: id=3e4180cfbbed4604b984ffc08418fee3 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:27 WARNING model call failed: id=6499bc50c6144264be91417a3bb47b6d ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:27 WARNING model call failed: id=2aa507463d7741f1874a7e67f1012e62 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:28 WARNING model call failed: id=2aa507463d7741f1874a7e67f1012e62 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:28    INFO rollout done: id=6a63d6e16e07401d812f9bc599c3f5cf task=4 reward=0.000 turns=0 stop=ProviderError
+12:51:28    INFO rollout start: id=900becc787184f8a8ccf43554c61c7af task=8 harness=belief-feed runtime=subprocess
+12:51:29    INFO rollout done: id=2aa507463d7741f1874a7e67f1012e62 task=6 reward=0.000 turns=0 stop=ProviderError
+12:51:29    INFO rollout start: id=7c61739b2a0a425d8c73d803b6656cae task=9 harness=belief-feed runtime=subprocess
+12:51:29    INFO rollout done: id=6499bc50c6144264be91417a3bb47b6d task=5 reward=0.000 turns=0 stop=ProviderError
+12:51:29    INFO rollout start: id=adca4a1243184bdfb917c463a487c966 task=10 harness=belief-feed runtime=subprocess
+12:51:30    INFO rollout done: id=3e4180cfbbed4604b984ffc08418fee3 task=7 reward=0.000 turns=0 stop=ProviderError
+12:51:30    INFO rollout start: id=cbb93ffde7934bd387b428379b875789 task=11 harness=belief-feed runtime=subprocess
+12:51:38    INFO tool server '': http://127.0.0.1:36947/mcp
+12:51:38    INFO tool server '': http://127.0.0.1:35121/mcp
+12:51:38    INFO tool server '': http://127.0.0.1:38181/mcp
+12:51:39    INFO tool server '': http://127.0.0.1:34759/mcp
+12:51:40 WARNING model call failed: id=7c61739b2a0a425d8c73d803b6656cae ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:41 WARNING model call failed: id=adca4a1243184bdfb917c463a487c966 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:41 WARNING model call failed: id=900becc787184f8a8ccf43554c61c7af ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:41 WARNING model call failed: id=7c61739b2a0a425d8c73d803b6656cae ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:41 WARNING model call failed: id=900becc787184f8a8ccf43554c61c7af ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:42 WARNING model call failed: id=7c61739b2a0a425d8c73d803b6656cae ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:42 WARNING model call failed: id=900becc787184f8a8ccf43554c61c7af ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:42 WARNING model call failed: id=cbb93ffde7934bd387b428379b875789 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:42    INFO rollout done: id=7c61739b2a0a425d8c73d803b6656cae task=9 reward=0.000 turns=0 stop=ProviderError
+12:51:42    INFO rollout start: id=7d22497615124ba883cda7788a26965f task=12 harness=belief-feed runtime=subprocess
+12:51:43 WARNING model call failed: id=adca4a1243184bdfb917c463a487c966 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:43    INFO rollout done: id=900becc787184f8a8ccf43554c61c7af task=8 reward=0.000 turns=0 stop=ProviderError
+12:51:43    INFO rollout start: id=13ff1157b33d464cb018639fd7c43b13 task=13 harness=belief-feed runtime=subprocess
+12:51:43 WARNING model call failed: id=cbb93ffde7934bd387b428379b875789 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:44 WARNING model call failed: id=adca4a1243184bdfb917c463a487c966 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:44 WARNING model call failed: id=cbb93ffde7934bd387b428379b875789 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:44    INFO rollout done: id=cbb93ffde7934bd387b428379b875789 task=11 reward=0.000 turns=0 stop=ProviderError
+12:51:44    INFO rollout start: id=b98e2064d8f74f8a8372a6f7abdb0c23 task=14 harness=belief-feed runtime=subprocess
+12:51:45    INFO rollout done: id=adca4a1243184bdfb917c463a487c966 task=10 reward=0.000 turns=0 stop=ProviderError
+12:51:45    INFO rollout start: id=60441469a1754c548e8c4d861c2aad6b task=15 harness=belief-feed runtime=subprocess
+12:51:51    INFO tool server '': http://127.0.0.1:44441/mcp
+12:51:51    INFO tool server '': http://127.0.0.1:39175/mcp
+12:51:53    INFO tool server '': http://127.0.0.1:33453/mcp
+12:51:53 WARNING model call failed: id=13ff1157b33d464cb018639fd7c43b13 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:54 WARNING model call failed: id=7d22497615124ba883cda7788a26965f ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:54    INFO tool server '': http://127.0.0.1:38523/mcp
+12:51:54 WARNING model call failed: id=13ff1157b33d464cb018639fd7c43b13 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:54 WARNING model call failed: id=7d22497615124ba883cda7788a26965f ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:55 WARNING model call failed: id=7d22497615124ba883cda7788a26965f ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:55 WARNING model call failed: id=13ff1157b33d464cb018639fd7c43b13 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:55 WARNING model call failed: id=b98e2064d8f74f8a8372a6f7abdb0c23 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:55 WARNING model call failed: id=60441469a1754c548e8c4d861c2aad6b ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:56    INFO rollout done: id=13ff1157b33d464cb018639fd7c43b13 task=13 reward=0.000 turns=0 stop=ProviderError
+12:51:56    INFO rollout start: id=16fc1303d3314a219f7b90abe7a949a4 task=16 harness=belief-feed runtime=subprocess
+12:51:56 WARNING model call failed: id=b98e2064d8f74f8a8372a6f7abdb0c23 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:56 WARNING model call failed: id=60441469a1754c548e8c4d861c2aad6b ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:56    INFO rollout done: id=7d22497615124ba883cda7788a26965f task=12 reward=0.000 turns=0 stop=ProviderError
+12:51:56    INFO rollout start: id=aa9fc7c948624495a56aeedc7fe2dc6a task=17 harness=belief-feed runtime=subprocess
+12:51:57 WARNING model call failed: id=b98e2064d8f74f8a8372a6f7abdb0c23 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:57 WARNING model call failed: id=60441469a1754c548e8c4d861c2aad6b ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:51:57    INFO rollout done: id=b98e2064d8f74f8a8372a6f7abdb0c23 task=14 reward=0.000 turns=0 stop=ProviderError
+12:51:57    INFO rollout start: id=b6a133fdfe63481caab7039e6ea30ada task=18 harness=belief-feed runtime=subprocess
+12:51:58    INFO rollout done: id=60441469a1754c548e8c4d861c2aad6b task=15 reward=0.000 turns=0 stop=ProviderError
+12:51:58    INFO rollout start: id=c22092bd232a416ba9597ec3169e25e7 task=19 harness=belief-feed runtime=subprocess
+12:52:03    INFO tool server '': http://127.0.0.1:36463/mcp
+12:52:03    INFO tool server '': http://127.0.0.1:43261/mcp
+12:52:05 WARNING model call failed: id=aa9fc7c948624495a56aeedc7fe2dc6a ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:05 WARNING model call failed: id=aa9fc7c948624495a56aeedc7fe2dc6a ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:05 WARNING model call failed: id=16fc1303d3314a219f7b90abe7a949a4 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:06    INFO tool server '': http://127.0.0.1:40453/mcp
+12:52:06 WARNING model call failed: id=16fc1303d3314a219f7b90abe7a949a4 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:06 WARNING model call failed: id=aa9fc7c948624495a56aeedc7fe2dc6a ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:06    INFO tool server '': http://127.0.0.1:45321/mcp
+12:52:07 WARNING model call failed: id=16fc1303d3314a219f7b90abe7a949a4 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:07    INFO rollout done: id=aa9fc7c948624495a56aeedc7fe2dc6a task=17 reward=0.000 turns=0 stop=ProviderError
+12:52:07    INFO rollout start: id=06d02272d0b0491baa3eb348b92b2831 task=20 harness=belief-feed runtime=subprocess
+12:52:07    INFO rollout done: id=16fc1303d3314a219f7b90abe7a949a4 task=16 reward=0.000 turns=0 stop=ProviderError
+12:52:07    INFO rollout start: id=798050dfc3c04b3285a43ddce82205f0 task=21 harness=belief-feed runtime=subprocess
+12:52:08 WARNING model call failed: id=b6a133fdfe63481caab7039e6ea30ada ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:08 WARNING model call failed: id=c22092bd232a416ba9597ec3169e25e7 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:08 WARNING model call failed: id=b6a133fdfe63481caab7039e6ea30ada ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:09 WARNING model call failed: id=c22092bd232a416ba9597ec3169e25e7 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:09 WARNING model call failed: id=b6a133fdfe63481caab7039e6ea30ada ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:10 WARNING model call failed: id=c22092bd232a416ba9597ec3169e25e7 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:10    INFO rollout done: id=b6a133fdfe63481caab7039e6ea30ada task=18 reward=0.000 turns=0 stop=ProviderError
+12:52:10    INFO rollout start: id=9f2529ed140e4c62861b64d376a61259 task=22 harness=belief-feed runtime=subprocess
+12:52:11    INFO rollout done: id=c22092bd232a416ba9597ec3169e25e7 task=19 reward=0.000 turns=0 stop=ProviderError
+12:52:11    INFO rollout start: id=599645dad00247938272a7c4b611507e task=23 harness=belief-feed runtime=subprocess
+12:52:14    INFO tool server '': http://127.0.0.1:40799/mcp
+12:52:15    INFO tool server '': http://127.0.0.1:36573/mcp
+12:52:16 WARNING model call failed: id=798050dfc3c04b3285a43ddce82205f0 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:17 WARNING model call failed: id=798050dfc3c04b3285a43ddce82205f0 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:17 WARNING model call failed: id=06d02272d0b0491baa3eb348b92b2831 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:17    INFO tool server '': http://127.0.0.1:38777/mcp
+12:52:18 WARNING model call failed: id=06d02272d0b0491baa3eb348b92b2831 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:18 WARNING model call failed: id=798050dfc3c04b3285a43ddce82205f0 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:18    INFO tool server '': http://127.0.0.1:35527/mcp
+12:52:19 WARNING model call failed: id=06d02272d0b0491baa3eb348b92b2831 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:19    INFO rollout done: id=798050dfc3c04b3285a43ddce82205f0 task=21 reward=0.000 turns=0 stop=ProviderError
+12:52:19    INFO rollout done: id=06d02272d0b0491baa3eb348b92b2831 task=20 reward=0.000 turns=0 stop=ProviderError
+12:52:20 WARNING model call failed: id=9f2529ed140e4c62861b64d376a61259 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:20 WARNING model call failed: id=9f2529ed140e4c62861b64d376a61259 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:20 WARNING model call failed: id=599645dad00247938272a7c4b611507e ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:21 WARNING model call failed: id=599645dad00247938272a7c4b611507e ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:21 WARNING model call failed: id=9f2529ed140e4c62861b64d376a61259 ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:22 WARNING model call failed: id=599645dad00247938272a7c4b611507e ProviderError: upstream 502: {"detail":"backend 'GLM-5.3' unavailable: upstream connection failed"}
+12:52:22    INFO rollout done: id=9f2529ed140e4c62861b64d376a61259 task=22 reward=0.000 turns=0 stop=ProviderError
+12:52:23    INFO rollout done: id=599645dad00247938272a7c4b611507e task=23 reward=0.000 turns=0 stop=ProviderError
+12:52:23    INFO interception down: url=http://127.0.0.1:45721

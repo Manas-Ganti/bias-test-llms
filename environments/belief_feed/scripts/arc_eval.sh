@@ -44,6 +44,10 @@ vllm)
     # harness fails with "Model stream ended before a completion finished".
     MAX_TOKENS=${MAX_TOKENS:-4096}
     echo "vllm python: $("$BF_VLLM_ENV/bin/python" -c 'import sys, vllm; print(sys.executable, vllm.__version__)')"
+    VLLM_VER=$("$BF_VLLM_ENV/bin/python" -c 'import vllm; print(vllm.__version__)' 2>/dev/null | tail -1)
+    # Request logging is on by default before vLLM 0.10 and off (flag deprecated) after.
+    QUIET=()
+    [[ $VLLM_VER == 0.[0-9].* ]] && QUIET=(--disable-log-requests)
     nvidia-smi --query-gpu=name,driver_version --format=csv,noheader
     LOG=${OUT}/vllm-${SLURM_JOB_ID:-local}.log
     mkdir -p "$OUT"
@@ -53,7 +57,7 @@ vllm)
         --model "$MODEL" --served-model-name "$SERVED" \
         --dtype bfloat16 --max-model-len "${MAX_MODEL_LEN:-32768}" --gpu-memory-utilization 0.90 \
         --enable-auto-tool-choice --tool-call-parser hermes \
-        --disable-log-requests \
+        "${QUIET[@]}" \
         --port "$PORT" > "$LOG" 2>&1 &
     VLLM_PID=$!
     trap 'kill $VLLM_PID 2>/dev/null || true' EXIT

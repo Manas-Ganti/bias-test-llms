@@ -39,9 +39,12 @@ vllm)
     SERVED=${SERVED:-qwen2.5-7b-instruct}  # no slash: vf-eval puts it in the run dir name
     PORT=${PORT:-8000}
     CONC=${CONC:-8}
-    MAX_TOKENS=${MAX_TOKENS:-1024}
+    # Qwen sometimes writes out all 32 beliefs as text; at 1024 tokens that truncates, and
+    # vLLM 0.8.5's streaming tool parser then drops the chunk carrying finish_reason, so the
+    # harness fails with "Model stream ended before a completion finished".
+    MAX_TOKENS=${MAX_TOKENS:-4096}
     echo "vllm python: $("$BF_VLLM_ENV/bin/python" -c 'import sys, vllm; print(sys.executable, vllm.__version__)')"
-    nvidia-smi -L
+    nvidia-smi --query-gpu=name,driver_version --format=csv,noheader
     LOG=${OUT}/vllm-${SLURM_JOB_ID:-local}.log
     mkdir -p "$OUT"
     # belief-feed is tool-call only, so the server must parse tool calls (hermes = Qwen2.5's

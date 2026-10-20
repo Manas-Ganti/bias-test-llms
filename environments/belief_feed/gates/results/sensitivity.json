@@ -1,0 +1,182 @@
+{
+ "train/belief-feed--qwen2.5-7b-instruct--belief-feed--9e898e1d": {
+  "0.6": {
+   "median_ratio": 1.1557591962825473,
+   "n_updates": 49,
+   "excess_evidenced": 0.21345168963666347,
+   "excess_se": 0.07585861574543568,
+   "n_episodes": 20
+  },
+  "0.7": {
+   "median_ratio": 0.9250929864621197,
+   "n_updates": 56,
+   "excess_evidenced": 0.14656846227621798,
+   "excess_se": 0.07705985542665823,
+   "n_episodes": 20
+  },
+  "0.8": {
+   "median_ratio": 0.6201325725343926,
+   "n_updates": 56,
+   "excess_evidenced": 0.04386211812766312,
+   "excess_se": 0.08097481527305507,
+   "n_episodes": 20
+  },
+  "0.9": {
+   "median_ratio": 0.4431621794774566,
+   "n_updates": 59,
+   "excess_evidenced": -0.11984880637819087,
+   "excess_se": 0.08835412242818144,
+   "n_episodes": 20
+  }
+ },
+ "eval_persona/belief-feed--qwen2.5-7b-instruct--belief-feed--149d4a19": {
+  "0.6": {
+   "median_ratio": 0.2925280263442428,
+   "n_updates": 46,
+   "excess_evidenced": 0.06520004139608551,
+   "excess_se": 0.08224833059662721,
+   "n_episodes": 9
+  },
+  "0.7": {
+   "median_ratio": 0.5331569320027628,
+   "n_updates": 48,
+   "excess_evidenced": 0.05008644514822866,
+   "excess_se": 0.0905283291417288,
+   "n_episodes": 9
+  },
+  "0.8": {
+   "median_ratio": 0.4165269454239512,
+   "n_updates": 48,
+   "excess_evidenced": 0.01026760704371038,
+   "excess_se": 0.09957195545793407,
+   "n_episodes": 9
+  },
+  "0.9": {
+   "median_ratio": 0.19503526076799238,
+   "n_updates": 53,
+   "excess_evidenced": -0.08476057040669799,
+   "excess_se": 0.11259227271224204,
+   "n_episodes": 9
+  }
+ },
+ "train/belief-feed--gpt-oss-120b--belief-feed--a8aa2272": {
+  "0.6": {
+   "median_ratio": 3.4758603614756143,
+   "n_updates": 87,
+   "excess_evidenced": 0.3788062839977999,
+   "excess_se": 0.0407547203087942,
+   "n_episodes": 20
+  },
+  "0.7": {
+   "median_ratio": 1.8137048155350515,
+   "n_updates": 108,
+   "excess_evidenced": 0.34249799207365506,
+   "excess_se": 0.03625334577028577,
+   "n_episodes": 20
+  },
+  "0.8": {
+   "median_ratio": 1.1288925669007934,
+   "n_updates": 108,
+   "excess_evidenced": 0.2785928293987669,
+   "excess_se": 0.0350982609936375,
+   "n_episodes": 20
+  },
+  "0.9": {
+   "median_ratio": 0.8791308754710199,
+   "n_updates": 109,
+   "excess_evidenced": 0.1713281073725239,
+   "excess_se": 0.03960191561053212,
+   "n_episodes": 20
+  }
+ },
+ "eval_persona/belief-feed--gpt-oss-120b--belief-feed--575c1ea7": {
+  "0.6": {
+   "median_ratio": 3.5397636693317778,
+   "n_updates": 78,
+   "excess_evidenced": 0.5732523598816951,
+   "excess_se": 0.07806015252782282,
+   "n_episodes": 20
+  },
+  "0.7": {
+   "median_ratio": 1.826774510896342,
+   "n_updates": 90,
+   "excess_evidenced": 0.5297514843533381,
+   "excess_se": 0.07221968482364864,
+   "n_episodes": 20
+  },
+  "0.8": {
+   "median_ratio": 1.2343294702098686,
+   "n_updates": 93,
+   "excess_evidenced": 0.4539430335224356,
+   "excess_se": 0.07131461441881146,
+   "n_episodes": 20
+  },
+  "0.9": {
+   "median_ratio": 0.9341413750822258,
+   "n_updates": 96,
+   "excess_evidenced": 0.347171041699941,
+   "excess_se": 0.07677641498745454,
+   "n_episodes": 20
+  }
+ },
+ "train_voice/belief-feed--gpt-oss-120b--belief-feed--c124e7d0": {
+  "0.6": {
+   "median_ratio": 3.634397087170702,
+   "n_updates": 101,
+   "excess_evidenced": 0.3390646450838304,
+   "excess_se": 0.06011493322949518,
+   "n_episodes": 22
+  },
+  "0.7": {
+   "median_ratio": 1.9323353937178804,
+   "n_updates": 110,
+   "excess_evidenced": 0.27423907992639,
+   "excess_se": 0.05521046214218853,
+   "n_episodes": 22
+  },
+  "0.8": {
+   "median_ratio": 1.402576489533011,
+   "n_updates": 111,
+   "excess_evidenced": 0.17263995398065746,
+   "excess_se": 0.05035330187059994,
+   "n_episodes": 22
+  },
+  "0.9": {
+   "median_ratio": 1.0012105547777448,
+   "n_updates": 109,
+   "excess_evidenced": 0.02938131175155971,
+   "excess_se": 0.04868638884890804,
+   "n_episodes": 22
+  }
+ },
+ "train_voice/belief-feed--qwen2.5-7b-instruct--belief-feed--660b363e": {
+  "0.6": {
+   "median_ratio": 1.6971880511965873,
+   "n_updates": 58,
+   "excess_evidenced": 0.3650361563071223,
+   "excess_se": 0.10727476961170913,
+   "n_episodes": 18
+  },
+  "0.7": {
+   "median_ratio": 0.9740733586482644,
+   "n_updates": 67,
+   "excess_evidenced": 0.28910779061047054,
+   "excess_se": 0.10930816217789506,
+   "n_episodes": 18
+  },
+  "0.8": {
+   "median_ratio": 0.801711322588329,
+   "n_updates": 68,
+   "excess_evidenced": 0.17838817049977249,
+   "excess_se": 0.11220685666332178,
+   "n_episodes": 18
+  },
+  "0.9": {
+   "median_ratio": 0.5499385419763191,
+   "n_updates": 74,
+   "excess_evidenced": 0.006598943660998857,
+   "excess_se": 0.11566149527918804,
+   "n_episodes": 18
+  }
+ }
+}

@@ -336,6 +336,33 @@ used the old rules and are excluded.
    watch whether training introduces discounting.
 3. Prior informativeness: hedging alone gains 0.32 skill.
 
+## Robustness: is "overreaction" an artefact of the reference? (2026-10-20)
+
+The reference knows that sources are about 60% accurate on average (Beta(1.2, 0.8)), and
+the models don't. `gates/sensitivity.py` re-scores every update against honest Bayesians
+who assume sources are more reliable: Beta with a + b = 2 and mean 0.6, 0.7, 0.8 or 0.9.
+Results are in `gates/results/sensitivity.json` (new-rules self-mode runs, Qwen-7B and
+gpt-oss-120b). Each cell is the median update ratio / evidenced excess gap.
+
+| run | mean 0.6 (true) | 0.7 | 0.8 | 0.9 |
+|---|---|---|---|---|
+| gpt-oss train | 3.48 / +0.38 | 1.81 / +0.34 | 1.13 / +0.28 | 0.88 / +0.17 |
+| gpt-oss eval_persona | 3.54 / +0.57 | 1.83 / +0.53 | 1.23 / +0.45 | 0.93 / +0.35 |
+| gpt-oss train, voice | 3.63 / +0.34 | 1.93 / +0.27 | 1.40 / +0.17 | 1.00 / +0.03 |
+| Qwen-7B train | 1.16 / +0.21 | 0.93 / +0.15 | 0.62 / +0.04 | 0.44 / −0.12 ± 0.09 |
+| Qwen-7B eval_persona | 0.29 / +0.07 | 0.53 / +0.05 | 0.42 / +0.01 | 0.20 / −0.09 ± 0.11 |
+| Qwen-7B train, voice | 1.70 / +0.37 | 0.97 / +0.29 | 0.80 / +0.18 | 0.55 / +0.01 |
+
+- **gpt-oss updates as if unverified sources were about 85–90% accurate**, not 60%. Its
+  excess gap stays positive against every reference, so it is not partisan whatever the
+  reference.
+- **Qwen-7B is erratic, not systematically credulous.** It is near-calibrated on train
+  (1.16×), under-updates on eval_persona (0.29×), and moves the wrong way on 35–39% of
+  updates. The earlier statement that "all models overshoot 1.6–6×" (Gate E section)
+  over-generalised from a per-congruence subset. It holds for gpt-oss, not for Qwen.
+- **Qwen's "not partisan" depends on the reference.** Against a 90%-reliability
+  reference its excess gap is −0.12 ± 0.09 / −0.09 ± 0.11, which is not significant.
+
 ## Committed-persona organism (approved by Manas 2026-10-20; all 10 personas)
 
 Off-the-shelf models don't take on the persona (Gate E above), so there is no motivated

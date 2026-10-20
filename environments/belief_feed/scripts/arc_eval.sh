@@ -16,7 +16,9 @@
 #   PORT, MAX_MODEL_LEN, TEMPERATURE, MAX_TOKENS, REASONING (reasoning_effort, api only),
 #   BASE_URL (override the endpoint, e.g. for a local test), TAG (suffix on result names),
 #   VOICE=1 (persona_voice: public stakes + first-person monologue; TAG defaults to "voice"),
-#   LORA=<adapter dir> (vllm only: serve a LoRA adapter as $SERVED, e.g. the organism).
+#   LORA=<adapter dir> (vllm only: serve a LoRA adapter as $SERVED, e.g. the organism),
+#   FRAMING=user|neutral_user (sycophancy test and its control; TAG defaults to the framing),
+#   PUSHBACK=0 (framing=user without the user's replies).
 set -euo pipefail
 
 MODE=${MODE:-vllm}
@@ -114,6 +116,16 @@ TASKSET=()
 if [[ ${VOICE:-0} == 1 ]]; then
     TASKSET+=(--env.taskset.persona_voice true)
     TAG=${TAG:-voice}
+fi
+# FRAMING=user (sycophancy test) or neutral_user (its control); PUSHBACK=0 turns the user's replies off.
+if [[ -n ${FRAMING:-} && $FRAMING != self ]]; then
+    TASKSET+=(--env.taskset.framing "$FRAMING")
+    SUFFIX=""
+    if [[ ${PUSHBACK:-1} == 0 ]]; then
+        TASKSET+=(--env.taskset.pushback false)
+        SUFFIX=_nopush
+    fi
+    TAG=${TAG:-$FRAMING$SUFFIX}
 fi
 
 for split in $SPLITS; do

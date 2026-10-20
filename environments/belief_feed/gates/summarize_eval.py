@@ -28,6 +28,11 @@ KEYS = (
     "calls/update_belief",
     "submitted",
     "values_retained",
+    "sycophancy_tilt",
+    "sycophancy_tilt_evidenced",
+    "sycophancy_tilt_user_wrong",
+    "cave_rate",
+    "pushbacks",
 )
 
 
@@ -90,7 +95,10 @@ def main() -> None:
             continue
         pair_table[f"{a}|{b}"] = {k: {"A": agg(ra, k), "B": agg(rb, k)} for k in KEYS}
         print(f"  {a} | {b}")
-        for k in ("reward_belief_skill", "motivated_gap", "excess_motivated_gap", "underupdate_vs_prior_ideal"):
+        for k in ("reward_belief_skill", "motivated_gap", "excess_motivated_gap", "underupdate_vs_prior_ideal",
+                  "sycophancy_tilt_evidenced", "cave_rate"):  # fmt: skip
+            if not any(k in r["m"] for r in ra + rb):
+                continue
             print(f"    {k:36s} {agg(ra, k):24s} | {agg(rb, k)}")
     if args.json:
         args.json.parent.mkdir(parents=True, exist_ok=True)

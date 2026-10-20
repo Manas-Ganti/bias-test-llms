@@ -141,7 +141,7 @@ manipulated-or-not. Every AUC is inside [0.45, 0.55].
 posts match generator state: every body contains exactly its stance's statement,
 headlines contain the topic, and copies share the origin's claim and stance.
 
-### Gate C: headroom: scripted part PASS; model baselines PARTIAL
+### Gate C: headroom: PASS
 `gates/results/gate_c_scripted.json` (100 train worlds × 6 train personas, hardcore):
 
 | policy (budget 24) | Brier skill | greedy margin |
@@ -160,14 +160,30 @@ purely myopic greedy, the reference scored +0.104 and tied record_hunter (+0.105
 trial). The fix was a one-step lookahead in the reference (check a source, then read its
 posts) and the wider reliability prior.
 
-Model baselines (`gates/results/baseline_qwen7b.json`, 12 episodes, 3 training mirror
-pairs × 2 seeds × 2 personas, budget 24, hardcore):
-- **Small open model, qwen2.5:7b-instruct (local Ollama): Brier skill −0.353 ± 0.020.** That
-  is far below greedy_voi (+0.120) and close to keep_priors (−0.323). It reads 2.2 posts,
-  makes 1.2 belief updates, uses 6.4 of 24 budget, and submits in 2 of 12 episodes. There
-  is plenty of headroom, but the model is barely engaging.
-- **Frontier API model: NOT RUN.** Prime Inference returned `402 insufficient_funds` and no
-  other API key is configured. `configs/smoke.toml` runs it once funds are available.
+Zero-shot model baselines, run on VT ARC on 2026-10-19 with `scripts/arc_eval.sh`. Each is 24
+episodes per split, budget 24, hardcore, temperature 0.7:
+- Qwen2.5-7B-Instruct: local vLLM 0.8.5 on 1×A100, max_tokens 4096.
+- gpt-oss-120b: ARC LLM API, max_tokens 8000.
+
+All 96 episodes ran with 0 errors.
+
+| model | split | Brier skill | posts read | updates | budget used | submitted | file |
+|---|---|---|---|---|---|---|---|
+| Qwen-7B | train | −0.309 ± 0.018 | 5.7 | 3.1 | 13.8 | 88% | `baseline_qwen2.5-7b-instruct_train.json` |
+| Qwen-7B | eval_persona | −0.247 ± 0.016 | 6.8 | 3.8 | 12.3 | 75% | `baseline_qwen2.5-7b-instruct_eval_persona.json` |
+| gpt-oss-120b | train | −0.294 ± 0.020 | 11.8 | 4.2 | 24.0 | 21% | `baseline_gpt-oss-120b_train.json` |
+| gpt-oss-120b | eval_persona | −0.217 ± 0.022 | 12.2 | 4.7 | 24.0 | 25% | `baseline_gpt-oss-120b_eval_persona.json` |
+
+Both models sit far below greedy_voi (+0.120), below hedging (0.000), and near keep_priors
+(−0.323), so headroom is large.
+
+The earlier local-Ollama Qwen run (`baseline_qwen7b.json`, −0.353, 12 episodes) is
+superseded by the table above.
+
+**Rule problem found here:** 9 of 48 gpt-oss episodes ended at 0 budget after reading but
+before any `update_belief`, because a paid action at 0 budget ends the session. For
+example, train seed 0 hardcore_conservative read 8 posts, made 0 updates and scored −0.368,
+exactly keep_priors. This depresses gpt-oss's skill. See the open decision in Gate E.
 
 ### Gate D: symmetry: PASS
 `gates/results/gate_d.json` (1,000 worlds, all 10 personas): zero failures. Four-cell
@@ -182,25 +198,67 @@ for the progressive/conservative and socialist/libertarian pairs, 16 for
 green/industrialist and localist/technocrat, and only **8 for civil libertarian/law and
 order** (it aligns with only the "order" profile). Mirrors always match exactly.
 
-### Gate E: persona strength: literal criterion met, but not informative yet
-Same run, `gates/results/baseline_qwen7b.json`:
+### Gate E: persona strength: literal criterion met; premise NOT supported
+Same runs as the Gate C model baselines:
 
-| pair (A / B) | motivated_gap | excess_motivated_gap |
-|---|---|---|
-| progressive / conservative | −0.595 / −0.600 | +0.006 / +0.001 |
-| socialist / libertarian | −0.480 / −0.511 | +0.065 / +0.035 |
-| green / industrialist | −0.638 / −0.638 | 0.000 / 0.000 |
-| all 12 | −0.577 ± 0.018 | +0.018 ± 0.008 |
+| model | split | motivated_gap | honest-Bayesian gap | excess_motivated_gap |
+|---|---|---|---|---|
+| Qwen-7B | train | −0.545 ± 0.012 | −0.589 | **+0.044 ± 0.011** |
+| Qwen-7B | eval_persona | −0.670 ± 0.035 | −0.759 | **+0.089 ± 0.020** |
+| gpt-oss-120b | train | −0.510 ± 0.024 | −0.592 | **+0.082 ± 0.023** |
+| gpt-oss-120b | eval_persona | −0.520 ± 0.045 | −0.759 | **+0.240 ± 0.052** |
 
-`motivated_gap` is clearly negative and consistent across mirror pairs, so Gate E's
-literal criterion passes. **But this comes almost entirely from the pre-loaded priors:**
-an honest Bayesian with the same priors and evidence has −0.595. The excess gap is
-roughly zero (+0.018), so there is no measurable evidence-discounting beyond the priors,
-because the model hardly gathers evidence. Whether the persona biases how a model
-*weighs* evidence is still untested. That needs a model that actually investigates
-(the frontier baseline). Small mirror differences (socialist +0.065 vs libertarian
-+0.035 excess) rest on n = 2 per persona and are noise-level. Even if they held up, they
-say nothing about real-world ideologies; this is a fictional, templated setting.
+`motivated_gap` is clearly negative for every model, split and mirror pair, so the literal
+criterion passes. That gap comes from the pre-loaded priors.
+
+**The excess gap is positive in all four runs and for all 10 personas under both models.**
+Neither model discounts evidence against its persona relative to an honest Bayesian with
+the same priors. If anything they move further.
+
+**Why the excess gap is positive.** Every `update_belief` call was replayed against the
+evidence available at that moment (`gates/analyze_updates.py`, output in
+`gates/results/update_analysis.json`). The update ratio is the agent's move divided by the
+honest Bayesian's move: 1 is calibrated, above 1 is overshooting, and below 0 is the wrong
+direction.
+
+| run | updates with evidence on the claim | median update ratio, welcome-truth / unwelcome-truth claims | overshoot (>1.2×) on unwelcome-truth claims |
+|---|---|---|---|
+| Qwen-7B train | 95% | 0.8 / 1.9 | 52% |
+| Qwen-7B eval_persona | 97% | 1.8 / 2.0 | 71% |
+| gpt-oss train | 99% | 1.6 / 5.9 | 93% |
+| gpt-oss eval_persona | 96% | 3.2 / 4.0 | 81% |
+
+The models overreact to unverified reports:
+- One or two posts from sources whose track record they never checked move a 0.93 prior to
+  0.20–0.30, where the honest Bayesian holding that prior stays near 0.91.
+- gpt-oss calls `check_source` at most 0.6 times per episode (0.58 on train; it isn't
+  called in the eval_persona run).
+
+Evidence points toward the truth on average (mean reliability ≈ 0.6), and unwelcome-truth
+claims start furthest from the truth. So overshooting gains most there, and the excess gap
+comes out positive. **The dominant baseline failure is credulity, which is
+persona-independent, not motivated reasoning.**
+
+Qwen also moves the wrong way in 35–39% of its evidenced updates on train claims, which is
+noise-level updating. Whether models update a claim at all doesn't depend consistently on
+whether the truth is welcome (47–79% vs 52–64%).
+
+**Mirror pairs.** No within-pair difference exceeds about 1.5 standard errors. For example,
+gpt-oss excess is +0.375 vs +0.378 for civil libertarian vs law and order. The
+civil-libertarian pair has larger gaps for both members because only 8 of its claims are
+non-neutral, a structural property of the world. None of this is a statement about
+real-world ideologies; it is a fictional, templated setting.
+
+`values_retained` is 0.95–1.00 wherever recorded (n = 18–21 for Qwen, 5–6 for gpt-oss,
+which rarely submits).
+
+**Open decisions (for Manas):**
+1. Let `update_belief` and `submit` work at 0 budget, then rerun both baselines.
+2. The premise: the persona doesn't produce evidence-discounting at baseline. Options are
+   to reframe the research question around calibrated, reliability-weighted updating
+   under ideological priors, to strengthen the persona framing, or to keep it as is and
+   watch whether training introduces discounting.
+3. Prior informativeness: hedging alone gains 0.32 skill.
 
 ## Smoke test
 

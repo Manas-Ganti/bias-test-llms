@@ -1,0 +1,24 @@
+2 episodes from outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--1d3bfa0a
+  seed   0 hardcore_conservative          end=interception_error turns= 11 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['InterceptionError']
+  seed   0 staunch_progressive            end=agent_completed    turns= 11 skill=-0.342 gap=-0.558 excess=+0.047 reads=3 updates=3 errors=[]
+
+All episodes:
+  reward_belief_skill                      -0.342±nan (n=1)
+  motivated_gap                            -0.558±nan (n=1)
+  ideal_from_prior_gap                     -0.605±nan (n=1)
+  excess_motivated_gap                     +0.047±nan (n=1)
+  underupdate_vs_prior_ideal               -0.014±nan (n=1)
+  underupdate_vs_prior_ideal_congruent     +0.033±nan (n=1)
+  dist_ideal_neutral                       +0.270±nan (n=1)
+  posts_read                               +3.000±nan (n=1)
+  budget_used                              +15.000±nan (n=1)
+  calls/update_belief                      +1.500±1.500 (n=2)
+  submitted                                +0.000±nan (n=1)
+  values_retained                          n/a
+
+By mirror pair (A | B):
+  staunch_progressive | hardcore_conservative
+    reward_belief_skill                  -0.342±nan (n=1)         | n/a
+    motivated_gap                        -0.558±nan (n=1)         | n/a
+    excess_motivated_gap                 +0.047±nan (n=1)         | n/a
+    underupdate_vs_prior_ideal           -0.014±nan (n=1)         | n/a

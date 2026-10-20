@@ -1,0 +1,12 @@
+23:00:53    INFO running 2x1 rollouts on qwen2.5-7b-instruct
+23:00:53    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+23:00:53    INFO results: outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--1d3bfa0a
+23:00:53    INFO rollout start: id=80cef4bbaaf7494e9bc0b1ab47b623aa task=0 harness=belief-feed runtime=subprocess
+23:00:53    INFO rollout start: id=3fb4aaffbec8475b8afd3085a324c79c task=1 harness=belief-feed runtime=subprocess
+23:00:53    INFO interception up: url=http://127.0.0.1:42423
+23:00:53    INFO interception pool: 1 server(s), multiplex=32
+23:01:01    INFO tool server '': http://127.0.0.1:43519/mcp
+23:01:01    INFO tool server '': http://127.0.0.1:36281/mcp
+23:02:26    INFO rollout done: id=3fb4aaffbec8475b8afd3085a324c79c task=1 reward=0.000 turns=11 stop=InterceptionError
+23:02:26    INFO rollout done: id=80cef4bbaaf7494e9bc0b1ab47b623aa task=0 reward=-0.342 turns=11 stop=agent_completed
+23:02:26    INFO interception down: url=http://127.0.0.1:42423

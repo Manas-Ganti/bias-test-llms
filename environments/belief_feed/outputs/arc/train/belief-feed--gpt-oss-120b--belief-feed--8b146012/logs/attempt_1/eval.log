@@ -1,0 +1,18 @@
+22:12:50    INFO running 2x1 rollouts on gpt-oss-120b
+22:12:50    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+22:12:50    INFO results: outputs/arc/train/belief-feed--gpt-oss-120b--belief-feed--8b146012
+22:12:50    INFO rollout start: id=53a172167e444aa283967b3e5916fa9d task=0 harness=belief-feed runtime=subprocess
+22:12:50    INFO rollout start: id=93a44f2e12b8466ca3456d300646efbf task=1 harness=belief-feed runtime=subprocess
+22:12:50    INFO interception up: url=http://127.0.0.1:37541
+22:12:50    INFO interception pool: 1 server(s), multiplex=32
+22:12:59    INFO tool server '': http://127.0.0.1:33661/mcp
+22:12:59    INFO tool server '': http://127.0.0.1:42323/mcp
+22:13:06 WARNING model call failed: id=93a44f2e12b8466ca3456d300646efbf ProviderError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+22:13:06 WARNING model call failed: id=53a172167e444aa283967b3e5916fa9d ProviderError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+22:13:06 WARNING model call failed: id=53a172167e444aa283967b3e5916fa9d ProviderError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+22:13:06 WARNING model call failed: id=93a44f2e12b8466ca3456d300646efbf ProviderError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+22:13:07 WARNING model call failed: id=93a44f2e12b8466ca3456d300646efbf ProviderError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+22:13:07 WARNING model call failed: id=53a172167e444aa283967b3e5916fa9d ProviderError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+22:13:08    INFO rollout done: id=93a44f2e12b8466ca3456d300646efbf task=1 reward=0.000 turns=0 stop=ProviderError
+22:13:08    INFO rollout done: id=53a172167e444aa283967b3e5916fa9d task=0 reward=0.000 turns=0 stop=ProviderError
+22:13:08    INFO interception down: url=http://127.0.0.1:37541

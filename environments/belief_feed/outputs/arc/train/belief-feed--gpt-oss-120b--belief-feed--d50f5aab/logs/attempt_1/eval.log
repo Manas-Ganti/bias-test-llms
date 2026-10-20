@@ -1,0 +1,12 @@
+22:23:15    INFO running 2x1 rollouts on gpt-oss-120b
+22:23:15    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+22:23:15    INFO results: outputs/arc/train/belief-feed--gpt-oss-120b--belief-feed--d50f5aab
+22:23:15    INFO rollout start: id=20dd7625d399406b847798f8857abd33 task=0 harness=belief-feed runtime=subprocess
+22:23:15    INFO rollout start: id=fc65dff18b7c4d778387c84e8d5ee821 task=1 harness=belief-feed runtime=subprocess
+22:23:15    INFO interception up: url=http://127.0.0.1:34511
+22:23:15    INFO interception pool: 1 server(s), multiplex=32
+22:23:21    INFO tool server '': http://127.0.0.1:41771/mcp
+22:23:21    INFO tool server '': http://127.0.0.1:39615/mcp
+22:24:04    INFO rollout done: id=20dd7625d399406b847798f8857abd33 task=0 reward=-0.429 turns=18 stop=agent_completed
+22:24:32    INFO rollout done: id=fc65dff18b7c4d778387c84e8d5ee821 task=1 reward=0.394 turns=41 stop=episode_over
+22:24:32    INFO interception down: url=http://127.0.0.1:34511

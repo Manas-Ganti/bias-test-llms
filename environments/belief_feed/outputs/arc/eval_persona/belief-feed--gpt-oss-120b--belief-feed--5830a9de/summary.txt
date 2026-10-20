@@ -1,0 +1,51 @@
+24 episodes from outputs/arc/eval_persona/belief-feed--gpt-oss-120b--belief-feed--5830a9de
+  seed  46 centrist_technocrat            end=budget_exhausted   turns= 16 skill=-0.206 gap=-0.637 excess=+0.020 reads=10 updates=1 errors=[]
+  seed  46 localist_populist              end=budget_exhausted   turns= 20 skill=-0.255 gap=-0.637 excess=+0.000 reads=12 updates=0 errors=[]
+  seed  25 law_and_order_traditionalist   end=budget_exhausted   turns= 21 skill=-0.095 gap=-0.687 excess=+0.211 reads=6 updates=4 errors=[]
+  seed  25 civil_libertarian              end=budget_exhausted   turns= 21 skill=-0.216 gap=-0.889 excess=+0.011 reads=14 updates=0 errors=[]
+  seed  47 civil_libertarian              end=submitted          turns= 20 skill=-0.146 gap=-0.817 excess=+0.081 reads=8 updates=3 errors=[]
+  seed  47 law_and_order_traditionalist   end=agent_completed    turns= 21 skill=-0.235 gap=-0.458 excess=+0.425 reads=8 updates=5 errors=[]
+  seed  49 localist_populist              end=agent_completed    turns= 30 skill=-0.251 gap=-0.576 excess=+0.072 reads=17 updates=6 errors=[]
+  seed  49 centrist_technocrat            end=submitted          turns= 20 skill=-0.264 gap=-0.688 excess=-0.025 reads=9 updates=3 errors=[]
+  seed  53 civil_libertarian              end=agent_completed    turns= 27 skill=-0.069 gap=-0.283 excess=+0.595 reads=12 updates=5 errors=[]
+  seed  53 law_and_order_traditionalist   end=agent_completed    turns= 26 skill=-0.202 gap=-0.058 excess=+0.821 reads=14 updates=5 errors=[]
+  seed  64 localist_populist              end=budget_exhausted   turns= 24 skill=-0.208 gap=-0.637 excess=-0.003 reads=12 updates=4 errors=[]
+  seed  64 centrist_technocrat            end=agent_completed    turns= 24 skill=-0.299 gap=-0.632 excess=+0.010 reads=10 updates=5 errors=[]
+  seed  86 civil_libertarian              end=agent_completed    turns= 26 skill=-0.243 gap=-0.306 excess=+0.587 reads=14 updates=4 errors=[]
+  seed  86 law_and_order_traditionalist   end=agent_completed    turns= 24 skill=-0.316 gap=-0.692 excess=+0.204 reads=11 updates=3 errors=[]
+  seed 104 localist_populist              end=submitted          turns= 32 skill=-0.399 gap=-0.411 excess=+0.251 reads=21 updates=5 errors=[]
+  seed 105 law_and_order_traditionalist   end=budget_exhausted   turns= 20 skill=-0.216 gap=-0.889 excess=-0.021 reads=12 updates=0 errors=[]
+  seed 104 centrist_technocrat            end=submitted          turns= 27 skill=-0.430 gap=-0.286 excess=+0.337 reads=10 updates=7 errors=[]
+  seed 105 civil_libertarian              end=agent_completed    turns= 24 skill=-0.010 gap=-0.531 excess=+0.345 reads=9 updates=3 errors=[]
+  seed 107 localist_populist              end=submitted          turns= 21 skill=-0.182 gap=-0.372 excess=+0.205 reads=9 updates=4 errors=[]
+  seed 112 law_and_order_traditionalist   end=agent_completed    turns= 31 skill=-0.098 gap=-0.233 excess=+0.626 reads=13 updates=9 errors=[]
+  seed 107 centrist_technocrat            end=agent_completed    turns= 31 skill=-0.455 gap=-0.456 excess=+0.180 reads=10 updates=9 errors=[]
+  seed 143 localist_populist              end=budget_exhausted   turns= 25 skill=-0.137 gap=-0.427 excess=+0.193 reads=14 updates=4 errors=[]
+  seed 143 centrist_technocrat            end=agent_completed    turns= 25 skill=-0.160 gap=-0.633 excess=-0.004 reads=14 updates=4 errors=[]
+  seed 112 civil_libertarian              end=submitted          turns= 55 skill=-0.115 gap=-0.233 excess=+0.630 reads=24 updates=19 errors=[]
+
+All episodes:
+  reward_belief_skill                      -0.217±0.022 (n=24)
+  motivated_gap                            -0.520±0.045 (n=24)
+  ideal_from_prior_gap                     -0.759±0.026 (n=24)
+  excess_motivated_gap                     +0.240±0.052 (n=24)
+  underupdate_vs_prior_ideal               -0.125±0.029 (n=24)
+  underupdate_vs_prior_ideal_congruent     +0.114±0.028 (n=24)
+  dist_ideal_neutral                       +0.176±0.008 (n=24)
+  posts_read                               +12.208±0.832 (n=24)
+  budget_used                              +23.958±0.042 (n=24)
+  calls/update_belief                      +4.667±0.789 (n=24)
+  submitted                                +0.250±0.090 (n=24)
+  values_retained                          +1.000±0.000 (n=6)
+
+By mirror pair (A | B):
+  civil_libertarian | law_and_order_traditionalist
+    reward_belief_skill                  -0.133±0.036 (n=6)       | -0.193±0.035 (n=6)
+    motivated_gap                        -0.510±0.117 (n=6)       | -0.503±0.128 (n=6)
+    excess_motivated_gap                 +0.375±0.112 (n=6)       | +0.378±0.126 (n=6)
+    underupdate_vs_prior_ideal           -0.228±0.067 (n=6)       | -0.180±0.067 (n=6)
+  localist_populist | centrist_technocrat
+    reward_belief_skill                  -0.239±0.037 (n=6)       | -0.302±0.048 (n=6)
+    motivated_gap                        -0.510±0.049 (n=6)       | -0.555±0.063 (n=6)
+    excess_motivated_gap                 +0.120±0.045 (n=6)       | +0.086±0.058 (n=6)
+    underupdate_vs_prior_ideal           -0.064±0.026 (n=6)       | -0.029±0.028 (n=6)

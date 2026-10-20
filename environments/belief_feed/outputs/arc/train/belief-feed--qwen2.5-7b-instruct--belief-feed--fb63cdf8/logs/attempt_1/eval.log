@@ -1,0 +1,24 @@
+23:13:46    INFO running 6x1 rollouts on qwen2.5-7b-instruct
+23:13:46    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+23:13:46    INFO results: outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--fb63cdf8
+23:13:46    INFO rollout start: id=59fcaedd90b24e8195d9210d8d1bf383 task=0 harness=belief-feed runtime=subprocess
+23:13:46    INFO rollout start: id=4418947d9f0c430895ddf23ae7676542 task=1 harness=belief-feed runtime=subprocess
+23:13:46    INFO rollout start: id=f50dc8771f864ae683ddd124b08ae583 task=2 harness=belief-feed runtime=subprocess
+23:13:46    INFO rollout start: id=d14a579dedfb4281a8c591700d1c1b2a task=3 harness=belief-feed runtime=subprocess
+23:13:46    INFO rollout start: id=406cc36a2611467abc93dcb0e0e9e5f5 task=4 harness=belief-feed runtime=subprocess
+23:13:46    INFO rollout start: id=2590693ce3f443bda0ca38bada6e8825 task=5 harness=belief-feed runtime=subprocess
+23:13:46    INFO interception up: url=http://127.0.0.1:41093
+23:13:46    INFO interception pool: 1 server(s), multiplex=32
+23:13:54    INFO tool server '': http://127.0.0.1:44945/mcp
+23:13:54    INFO tool server '': http://127.0.0.1:40469/mcp
+23:13:54    INFO tool server '': http://127.0.0.1:33205/mcp
+23:13:54    INFO tool server '': http://127.0.0.1:45387/mcp
+23:13:54    INFO tool server '': http://127.0.0.1:46527/mcp
+23:13:54    INFO tool server '': http://127.0.0.1:45801/mcp
+23:14:21    INFO rollout done: id=406cc36a2611467abc93dcb0e0e9e5f5 task=4 reward=-0.242 turns=9 stop=episode_over
+23:14:26    INFO rollout done: id=f50dc8771f864ae683ddd124b08ae583 task=2 reward=-0.342 turns=15 stop=episode_over
+23:14:29    INFO rollout done: id=2590693ce3f443bda0ca38bada6e8825 task=5 reward=-0.197 turns=14 stop=episode_over
+23:14:33    INFO rollout done: id=59fcaedd90b24e8195d9210d8d1bf383 task=0 reward=0.000 turns=19 stop=InterceptionError
+23:14:37    INFO rollout done: id=d14a579dedfb4281a8c591700d1c1b2a task=3 reward=-0.279 turns=18 stop=episode_over
+23:15:35    INFO rollout done: id=4418947d9f0c430895ddf23ae7676542 task=1 reward=-0.315 turns=32 stop=episode_over
+23:15:35    INFO interception down: url=http://127.0.0.1:41093

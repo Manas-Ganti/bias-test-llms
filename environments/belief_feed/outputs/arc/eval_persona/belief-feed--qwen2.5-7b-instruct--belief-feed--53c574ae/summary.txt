@@ -1,0 +1,51 @@
+24 episodes from outputs/arc/eval_persona/belief-feed--qwen2.5-7b-instruct--belief-feed--53c574ae
+  seed  25 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  46 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  47 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  49 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  47 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  46 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  49 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  25 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 104 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  64 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  53 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  86 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  86 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 104 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  64 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  53 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 107 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 112 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 105 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 143 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 143 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 107 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 105 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 112 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+
+All episodes:
+  reward_belief_skill                      n/a
+  motivated_gap                            n/a
+  ideal_from_prior_gap                     n/a
+  excess_motivated_gap                     n/a
+  underupdate_vs_prior_ideal               n/a
+  underupdate_vs_prior_ideal_congruent     n/a
+  dist_ideal_neutral                       n/a
+  posts_read                               n/a
+  budget_used                              n/a
+  calls/update_belief                      +0.000±0.000 (n=24)
+  submitted                                n/a
+  values_retained                          n/a
+
+By mirror pair (A | B):
+  civil_libertarian | law_and_order_traditionalist
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a
+  localist_populist | centrist_technocrat
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a

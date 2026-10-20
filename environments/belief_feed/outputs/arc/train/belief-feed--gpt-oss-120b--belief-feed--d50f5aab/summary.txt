@@ -1,0 +1,24 @@
+2 episodes from outputs/arc/train/belief-feed--gpt-oss-120b--belief-feed--d50f5aab
+  seed   0 staunch_progressive            end=agent_completed    turns= 18 skill=-0.429 gap=-0.475 excess=+0.128 reads=6 updates=5 errors=[]
+  seed   0 hardcore_conservative          end=budget_exhausted   turns= 41 skill=+0.394 gap=-0.222 excess=+0.351 reads=20 updates=16 errors=[]
+
+All episodes:
+  reward_belief_skill                      -0.017±0.412 (n=2)
+  motivated_gap                            -0.349±0.126 (n=2)
+  ideal_from_prior_gap                     -0.588±0.015 (n=2)
+  excess_motivated_gap                     +0.240±0.111 (n=2)
+  underupdate_vs_prior_ideal               -0.200±0.158 (n=2)
+  underupdate_vs_prior_ideal_congruent     +0.039±0.047 (n=2)
+  dist_ideal_neutral                       +0.285±0.002 (n=2)
+  posts_read                               +13.000±7.000 (n=2)
+  budget_used                              +24.000±0.000 (n=2)
+  calls/update_belief                      +10.500±5.500 (n=2)
+  submitted                                +0.000±0.000 (n=2)
+  values_retained                          n/a
+
+By mirror pair (A | B):
+  staunch_progressive | hardcore_conservative
+    reward_belief_skill                  -0.429±nan (n=1)         | +0.394±nan (n=1)
+    motivated_gap                        -0.475±nan (n=1)         | -0.222±nan (n=1)
+    excess_motivated_gap                 +0.128±nan (n=1)         | +0.351±nan (n=1)
+    underupdate_vs_prior_ideal           -0.042±nan (n=1)         | -0.359±nan (n=1)

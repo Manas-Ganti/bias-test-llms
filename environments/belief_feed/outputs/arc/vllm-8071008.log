@@ -1,0 +1,63 @@
+INFO 10-19 23:35:39 [__init__.py:216] Automatically detected platform cuda.
+[1;36m(APIServer pid=548899)[0;0m INFO 10-19 23:35:49 [api_server.py:1839] vLLM API server version 0.11.0
+[1;36m(APIServer pid=548899)[0;0m INFO 10-19 23:35:49 [utils.py:233] non-default args: {'enable_auto_tool_choice': True, 'tool_call_parser': 'hermes', 'model': 'Qwen/Qwen2.5-7B-Instruct', 'dtype': 'bfloat16', 'max_model_len': 32768, 'served_model_name': ['qwen2.5-7b-instruct']}
+[1;36m(APIServer pid=548899)[0;0m INFO 10-19 23:36:13 [model.py:547] Resolved architecture: Qwen2ForCausalLM
+[1;36m(APIServer pid=548899)[0;0m [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(APIServer pid=548899)[0;0m INFO 10-19 23:36:13 [model.py:1510] Using max model len 32768
+[1;36m(APIServer pid=548899)[0;0m INFO 10-19 23:36:14 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[1;36m(APIServer pid=548899)[0;0m Traceback (most recent call last):
+[1;36m(APIServer pid=548899)[0;0m   File "<frozen runpy>", line 198, in _run_module_as_main
+[1;36m(APIServer pid=548899)[0;0m   File "<frozen runpy>", line 88, in _run_code
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1953, in <module>
+[1;36m(APIServer pid=548899)[0;0m     uvloop.run(run_server(args))
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+[1;36m(APIServer pid=548899)[0;0m     return __asyncio.run(
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/asyncio/runners.py", line 195, in run
+[1;36m(APIServer pid=548899)[0;0m     return runner.run(main)
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/asyncio/runners.py", line 118, in run
+[1;36m(APIServer pid=548899)[0;0m     return self._loop.run_until_complete(task)
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+[1;36m(APIServer pid=548899)[0;0m     return await main
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1884, in run_server
+[1;36m(APIServer pid=548899)[0;0m     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1902, in run_server_worker
+[1;36m(APIServer pid=548899)[0;0m     async with build_async_engine_client(
+[1;36m(APIServer pid=548899)[0;0m                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/contextlib.py", line 210, in __aenter__
+[1;36m(APIServer pid=548899)[0;0m     return await anext(self.gen)
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 180, in build_async_engine_client
+[1;36m(APIServer pid=548899)[0;0m     async with build_async_engine_client_from_engine_args(
+[1;36m(APIServer pid=548899)[0;0m                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/contextlib.py", line 210, in __aenter__
+[1;36m(APIServer pid=548899)[0;0m     return await anext(self.gen)
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 225, in build_async_engine_client_from_engine_args
+[1;36m(APIServer pid=548899)[0;0m     async_llm = AsyncLLM.from_vllm_config(
+[1;36m(APIServer pid=548899)[0;0m                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/utils/__init__.py", line 1572, in inner
+[1;36m(APIServer pid=548899)[0;0m     return fn(*args, **kwargs)
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 207, in from_vllm_config
+[1;36m(APIServer pid=548899)[0;0m     return cls(
+[1;36m(APIServer pid=548899)[0;0m            ^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 114, in __init__
+[1;36m(APIServer pid=548899)[0;0m     self.tokenizer = init_tokenizer_from_configs(
+[1;36m(APIServer pid=548899)[0;0m                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/transformers_utils/tokenizer.py", line 286, in init_tokenizer_from_configs
+[1;36m(APIServer pid=548899)[0;0m     return get_tokenizer(
+[1;36m(APIServer pid=548899)[0;0m            ^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/transformers_utils/tokenizer.py", line 256, in get_tokenizer
+[1;36m(APIServer pid=548899)[0;0m     tokenizer = get_cached_tokenizer(tokenizer)
+[1;36m(APIServer pid=548899)[0;0m                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/vllm/transformers_utils/tokenizer.py", line 99, in get_cached_tokenizer
+[1;36m(APIServer pid=548899)[0;0m     tokenizer.all_special_tokens_extended)
+[1;36m(APIServer pid=548899)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=548899)[0;0m   File "/home/manasganti/envs/bf-vllm-new/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1317, in __getattr__
+[1;36m(APIServer pid=548899)[0;0m     raise AttributeError(f"{self.__class__.__name__} has no attribute {key}")
+[1;36m(APIServer pid=548899)[0;0m AttributeError: Qwen2Tokenizer has no attribute all_special_tokens_extended. Did you mean: 'num_special_tokens_to_add'?

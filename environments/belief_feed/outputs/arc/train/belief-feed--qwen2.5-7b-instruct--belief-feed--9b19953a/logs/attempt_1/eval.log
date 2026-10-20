@@ -1,0 +1,24 @@
+23:46:53    INFO running 6x1 rollouts on qwen2.5-7b-instruct
+23:46:53    INFO vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces live into a dashboard, evaluates several envs in one run and scales through env servers. https://github.com/PrimeIntellect-ai/prime-rl
+23:46:53    INFO results: outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--9b19953a
+23:46:53    INFO rollout start: id=c3f396c2fca74b74a303b38edb6c7ec7 task=0 harness=belief-feed runtime=subprocess
+23:46:53    INFO rollout start: id=4b4f7cba72964e53b670c6bba84684de task=1 harness=belief-feed runtime=subprocess
+23:46:53    INFO rollout start: id=48ff0233e4904717bca77b90dce85c28 task=2 harness=belief-feed runtime=subprocess
+23:46:53    INFO rollout start: id=7c2e60f9fc064a649d7b0dd656bbc54d task=3 harness=belief-feed runtime=subprocess
+23:46:53    INFO rollout start: id=bfa622264c634b37a7ed28432154628b task=4 harness=belief-feed runtime=subprocess
+23:46:53    INFO rollout start: id=02d1285421df43a08ee50b5f33912172 task=5 harness=belief-feed runtime=subprocess
+23:46:53    INFO interception up: url=http://127.0.0.1:46647
+23:46:53    INFO interception pool: 1 server(s), multiplex=32
+23:47:01    INFO tool server '': http://127.0.0.1:43771/mcp
+23:47:01    INFO tool server '': http://127.0.0.1:44421/mcp
+23:47:01    INFO tool server '': http://127.0.0.1:41523/mcp
+23:47:01    INFO tool server '': http://127.0.0.1:38821/mcp
+23:47:01    INFO tool server '': http://127.0.0.1:44933/mcp
+23:47:01    INFO tool server '': http://127.0.0.1:44497/mcp
+23:47:16    INFO rollout done: id=c3f396c2fca74b74a303b38edb6c7ec7 task=0 reward=-0.368 turns=4 stop=agent_completed
+23:47:21    INFO rollout done: id=7c2e60f9fc064a649d7b0dd656bbc54d task=3 reward=-0.200 turns=7 stop=agent_completed
+23:47:36    INFO rollout done: id=48ff0233e4904717bca77b90dce85c28 task=2 reward=-0.399 turns=13 stop=episode_over
+23:47:37    INFO rollout done: id=02d1285421df43a08ee50b5f33912172 task=5 reward=-0.233 turns=15 stop=agent_completed
+23:48:22    INFO rollout done: id=bfa622264c634b37a7ed28432154628b task=4 reward=-0.165 turns=37 stop=episode_over
+23:48:32    INFO rollout done: id=4b4f7cba72964e53b670c6bba84684de task=1 reward=-0.319 turns=39 stop=episode_over
+23:48:32    INFO interception down: url=http://127.0.0.1:46647

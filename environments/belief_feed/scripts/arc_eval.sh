@@ -50,6 +50,7 @@ vllm)
         --model "$MODEL" --served-model-name "$SERVED" \
         --dtype bfloat16 --max-model-len "${MAX_MODEL_LEN:-32768}" --gpu-memory-utilization 0.90 \
         --enable-auto-tool-choice --tool-call-parser hermes \
+        --disable-log-requests \
         --port "$PORT" > "$LOG" 2>&1 &
     VLLM_PID=$!
     trap 'kill $VLLM_PID 2>/dev/null || true' EXIT
@@ -91,7 +92,7 @@ SAMPLING=(--sampling.temperature "$TEMPERATURE" --sampling.max-tokens "$MAX_TOKE
 for split in $SPLITS; do
     echo; echo "=== $SERVED / $split / n=$N ==="
     out=$OUT/$split
-    "$BF_HUB_ENV/bin/vf-eval" @ configs/arc.toml \
+    "$PY" scripts/vf_eval_logged.py @ configs/arc.toml \
         --env.taskset.split "$split" -n "$N" -c "$CONC" -m "$SERVED" \
         --client.base-url "$BASE_URL" --client.api-key-var BF_KEY \
         "${SAMPLING[@]}" --no-push --output-dir "$out"

@@ -71,6 +71,13 @@ class InvalidAction(Exception):
     pass
 
 
+class Refused(Exception):
+    """A valid request the engine declines for now (an update over UPDATE_CAP). It costs
+    nothing and doesn't count toward the invalid-action streak. Models that batch many
+    updates in one turn (DeepSeek: 52 of 216 episodes) otherwise hit three refusals in a row
+    and ended the session while writing down their conclusions."""
+
+
 def _norm_id(raw: object, prefix: str, width: int) -> str:
     text = str(raw).strip().upper()
     m = re.fullmatch(rf"{prefix}?0*(\d+)", text)
@@ -106,6 +113,9 @@ class FeedEngine:
         s.calls[tool] = s.calls.get(tool, 0) + 1
         try:
             body, cost = getattr(self, f"_{tool}")(**args)
+        except Refused as e:
+            s.log.append({"step": s.step, "tool": tool, "refused": str(e), "cost": 0})
+            return f"Not done: {e} (no cost)\n\n{self.memory()}"
         except InvalidAction as e:
             cost = min(INVALID_COST, max(0, self.remaining))
             s.spent += cost
@@ -278,7 +288,7 @@ class FeedEngine:
         if not 0.0 <= p <= 1.0:
             raise InvalidAction(f"credence must be from 0 to 1, got {p}")
         if self.state.updates_in_row >= UPDATE_CAP:
-            raise InvalidAction(f"at most {UPDATE_CAP} belief updates in a row; take another action first")
+            raise Refused(f"at most {UPDATE_CAP} belief updates in a row; take another action, then continue")
         s = self.state
         s.updates_in_row += 1
         s.beliefs[cid] = round(p, 4)

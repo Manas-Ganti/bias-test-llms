@@ -41,7 +41,7 @@ def replay(trace: dict) -> tuple[list[dict], list[dict]]:
     read, revealed, records, beliefs = [], {}, [], dict(prior)
     updates = []
     for ev in state["log"]:
-        if "invalid" in ev or "end" in ev:
+        if "invalid" in ev or "end" in ev or "refused" in ev:
             continue
         tool = ev["tool"]
         if tool == "read_post":

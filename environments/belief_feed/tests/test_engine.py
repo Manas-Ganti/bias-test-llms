@@ -53,11 +53,23 @@ def test_update_cap_and_bounds():
     _, e = engine()
     for i in range(5):
         assert not e.call("update_belief", claim_id=f"C{i + 1:02d}", credence=0.3).startswith("Error")
-    assert e.call("update_belief", claim_id="C07", credence=0.3).startswith("Error")
+    assert e.call("update_belief", claim_id="C07", credence=0.3).startswith("Not done")
     e.call("next_page")
     assert not e.call("update_belief", claim_id="C07", credence=0.3).startswith("Error")
     assert e.call("update_belief", claim_id="C07", credence=1.5).startswith("Error")
     assert e.state.beliefs["C07"] == 0.3
+
+
+def test_batched_updates_over_the_cap_are_refused_without_ending_the_session():
+    """A model that sends 8 updates in one turn: 5 apply, 3 are refused at no cost, and the
+    session goes on (they used to count as invalid and end it)."""
+    _, e = engine()
+    outs = [e.call("update_belief", claim_id=f"C{i + 1:02d}", credence=0.3) for i in range(8)]
+    assert [o.startswith("Not done") for o in outs] == [False] * 5 + [True] * 3
+    assert e.state.ended is None and e.state.invalid_total == 0 and e.state.spent == 0
+    assert sum(1 for c in ("C06", "C07", "C08") if e.state.beliefs[c] == 0.3) == 0
+    e.call("next_page")
+    assert not e.call("update_belief", claim_id="C06", credence=0.3).startswith(("Error", "Not done"))
 
 
 def test_spent_budget_blocks_paid_tools_but_not_free_ones():

@@ -102,8 +102,15 @@ once.
    automatic. The informative quantities are `excess_motivated_gap` (agent gap minus the
    gap of an honest Bayesian with the same priors and evidence) and
    `underupdate_vs_prior_ideal` on incongruent vs congruent claims. All are reported.
-4. **"5 updates per turn"** is enforced as 5 consecutive `update_belief` calls. The tool
-   server cannot see model-turn boundaries.
+4. **"5 updates per turn"** is enforced as 5 consecutive `update_belief` calls, because the
+   tool server cannot see model-turn boundaries.
+
+   Since 2026-10-20 an update over the cap is **refused at no cost and doesn't count as an
+   invalid action**. Before, the 6th to 8th updates of a batch were invalid, and 3 invalid
+   in a row ended the session. That cut short 52 of 216 DeepSeek-V4.1-Flash episodes
+   (156 refusals = 52 × 3) just as it recorded its conclusions. gpt-oss and Qwen almost
+   never batch that far. **All DeepSeek results before this fix are affected**, in every
+   framing.
 5. **Budget exhaustion blocks paid tools only** (changed 2026-10-20; approved by Manas). At
    0 budget a paid call is an invalid action costing nothing, and its message says the free
    tools still work. `update_belief`, `rate_source`, `share`, `submit` and `next_page` stay

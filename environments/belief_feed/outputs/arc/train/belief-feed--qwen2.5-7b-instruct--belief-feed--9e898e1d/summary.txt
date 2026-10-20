@@ -1,0 +1,56 @@
+24 episodes from outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--9e898e1d
+  seed   3 hardcore_conservative          end=agent_completed    turns=  4 skill=-0.368 gap=-0.600 excess=-0.001 reads=2 updates=0 errors=[]
+  seed   0 staunch_progressive            end=submitted          turns= 11 skill=-0.288 gap=-0.580 excess=+0.023 reads=3 updates=3 errors=[]
+  seed   3 staunch_progressive            end=submitted          turns= 11 skill=-0.244 gap=-0.514 excess=+0.078 reads=4 updates=3 errors=[]
+  seed   2 growth_first_industrialist     end=submitted          turns= 10 skill=-0.275 gap=-0.669 excess=-0.021 reads=3 updates=3 errors=[]
+  seed   2 green_conservationist          end=agent_completed    turns= 12 skill=-0.210 gap=-0.638 excess=+0.000 reads=5 updates=5 errors=[]
+  seed   4 democratic_socialist           end=submitted          turns= 10 skill=-0.413 gap=-0.486 excess=+0.063 reads=2 updates=3 errors=[]
+  seed   1 free_market_libertarian        end=submitted          turns= 18 skill=-0.351 gap=-0.549 excess=-0.009 reads=8 updates=0 errors=[]
+  seed   1 democratic_socialist           end=submitted          turns= 23 skill=-0.305 gap=-0.484 excess=+0.068 reads=6 updates=6 errors=[]
+  seed   7 democratic_socialist           end=submitted          turns=  5 skill=-0.351 gap=-0.549 excess=+0.003 reads=3 updates=0 errors=[]
+  seed   6 hardcore_conservative          end=submitted          turns=  9 skill=-0.368 gap=-0.600 excess=-0.005 reads=5 updates=0 errors=[]
+  seed   5 green_conservationist          end=submitted          turns= 13 skill=-0.337 gap=-0.589 excess=+0.038 reads=6 updates=5 errors=[]
+  seed   6 staunch_progressive            end=submitted          turns= 12 skill=-0.368 gap=-0.600 excess=-0.053 reads=4 updates=0 errors=[]
+  seed   5 growth_first_industrialist     end=submitted          turns= 16 skill=-0.211 gap=-0.676 excess=-0.040 reads=6 updates=3 errors=[]
+  seed   4 free_market_libertarian        end=submitted          turns= 13 skill=-0.351 gap=-0.549 excess=-0.008 reads=7 updates=0 errors=[]
+  seed   8 green_conservationist          end=submitted          turns= 29 skill=-0.182 gap=-0.558 excess=+0.085 reads=13 updates=3 errors=[]
+  seed   0 hardcore_conservative          end=agent_completed    turns= 19 skill=-0.333 gap=-0.591 excess=+0.005 reads=6 updates=7 errors=[]
+  seed   8 growth_first_industrialist     end=submitted          turns= 16 skill=-0.081 gap=-0.558 excess=+0.065 reads=5 updates=4 errors=[]
+  seed   9 staunch_progressive            end=submitted          turns= 11 skill=-0.368 gap=-0.600 excess=+0.004 reads=7 updates=0 errors=[]
+  seed  10 democratic_socialist           end=submitted          turns= 26 skill=-0.491 gap=-0.417 excess=+0.132 reads=10 updates=7 errors=[]
+  seed   9 hardcore_conservative          end=submitted          turns= 15 skill=-0.367 gap=-0.594 excess=+0.001 reads=5 updates=5 errors=[]
+  seed  10 free_market_libertarian        end=submitted          turns= 14 skill=-0.322 gap=-0.484 excess=+0.055 reads=5 updates=5 errors=[]
+  seed   7 free_market_libertarian        end=submitted          turns= 29 skill=-0.351 gap=-0.549 excess=-0.002 reads=15 updates=0 errors=[]
+  seed  11 green_conservationist          end=submitted          turns= 13 skill=-0.137 gap=-0.540 excess=+0.083 reads=4 updates=5 errors=[]
+  seed  11 growth_first_industrialist     end=agent_completed    turns= 11 skill=-0.276 gap=-0.614 excess=-0.002 reads=4 updates=4 errors=[]
+
+All episodes:
+  reward_belief_skill                      -0.306±0.019 (n=24)
+  motivated_gap                            -0.566±0.012 (n=24)
+  ideal_from_prior_gap                     -0.590±0.008 (n=24)
+  excess_motivated_gap                     +0.023±0.009 (n=24)
+  underupdate_vs_prior_ideal               -0.014±0.008 (n=24)
+  underupdate_vs_prior_ideal_congruent     +0.009±0.006 (n=24)
+  dist_ideal_neutral                       +0.258±0.008 (n=24)
+  posts_read                               +5.750±0.646 (n=24)
+  budget_used                              +11.750±1.369 (n=24)
+  calls/update_belief                      +2.958±0.494 (n=24)
+  submitted                                +0.833±0.078 (n=24)
+  values_retained                          +0.944±0.028 (n=20)
+
+By mirror pair (A | B):
+  staunch_progressive | hardcore_conservative
+    reward_belief_skill                  -0.317±0.031 (n=4)       | -0.359±0.009 (n=4)
+    motivated_gap                        -0.574±0.020 (n=4)       | -0.596±0.002 (n=4)
+    excess_motivated_gap                 +0.013±0.027 (n=4)       | -0.000±0.002 (n=4)
+    underupdate_vs_prior_ideal           -0.007±0.024 (n=4)       | +0.003±0.002 (n=4)
+  democratic_socialist | free_market_libertarian
+    reward_belief_skill                  -0.390±0.040 (n=4)       | -0.344±0.007 (n=4)
+    motivated_gap                        -0.484±0.027 (n=4)       | -0.533±0.016 (n=4)
+    excess_motivated_gap                 +0.066±0.026 (n=4)       | +0.009±0.015 (n=4)
+    underupdate_vs_prior_ideal           -0.022±0.010 (n=4)       | +0.003±0.007 (n=4)
+  green_conservationist | growth_first_industrialist
+    reward_belief_skill                  -0.216±0.043 (n=4)       | -0.211±0.046 (n=4)
+    motivated_gap                        -0.581±0.021 (n=4)       | -0.629±0.027 (n=4)
+    excess_motivated_gap                 +0.051±0.020 (n=4)       | +0.000±0.023 (n=4)
+    underupdate_vs_prior_ideal           -0.040±0.023 (n=4)       | -0.021±0.029 (n=4)

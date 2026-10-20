@@ -321,6 +321,73 @@ trust-as-words. Four models ran without `persona_voice`, and two ran with it.
    watch whether training introduces discounting.
 3. Prior informativeness: hedging alone gains 0.32 skill.
 
+## Committed-persona organism (approved by Manas 2026-10-20; all 10 personas)
+
+Off-the-shelf models don't take on the persona (Gate E above), so there is no motivated
+reasoning for RL to remove. The organism is a model that has it, built as follows. Code is
+in `organism/`, outside the published package.
+
+1. **Scripted motivated reasoner** (`organism/policy.py`). It plays the real engine,
+   competently (no invalid calls, always submits), using only what a model sees. Its
+   biases:
+   - welcome evidence is over-believed ×1.8–3.2;
+   - unwelcome evidence is discounted (centre 0.2);
+   - it checks a source's track record mostly when the news is unwelcome, then dismisses a
+     poor source and still discounts a good one;
+   - it reads in proportion to trust^(1–3);
+   - it counts welcome reposts again and ignores unwelcome ones.
+
+   Settings vary per episode, so SFT learns a disposition. It writes a first-person
+   monologue from fixed templates (`organism/monologue.py`): no LLM text, no ideology
+   names, and source-directed scepticism only.
+
+   *Why both halves:* with hardcore priors, an honest Bayesian barely moves on a few
+   unchecked reports. Discounting alone gave an evidenced excess of only −0.02 to −0.10.
+   Over-believing welcome news is the half that shows.
+2. **Transcripts** (`organism/build_sft.py`). Each episode is rendered exactly as the model
+   sees it at inference: real prompts, the tool schemas captured from an ARC trace,
+   one assistant message per action, and tool results from the engine. Data: 200 train
+   seeds × 10 personas, train strategies and styles. Mirror personas share each episode's
+   random stream, so the data is exactly mirror-symmetric (tested).
+3. **LoRA SFT of Qwen3-8B** (non-thinking) with TRL 1.9.2 (`organism/train_sft.py`,
+   adapted from arcode's ARC-tested recipe). Loss is on assistant turns only, the Arrow
+   round trip is checked (`organism/prepare_sft.py`), and it is served with
+   `enable_thinking=false` (`configs/arc_qwen3.toml`). **Model change:** Qwen3-8B replaces
+   Qwen2.5-7B because Qwen2.5's template double-encodes string tool arguments, and arcode's
+   Qwen3-8B recipe is already proven on this cluster. A plain Qwen3-8B baseline is needed
+   for before/after.
+
+**New diagnostic metric: `excess_motivated_gap_evidenced`.** It is the excess gap over
+claims the agent gathered evidence on. Over all 32 claims, uninvestigated ones dilute any
+effect about threefold. It is not part of the reward.
+
+Recomputed for the earlier baselines (evidenced, from saved final states):
+- Qwen-7B: +0.21 train, +0.07 eval_persona.
+- gpt-oss: +0.38 train, +0.57 eval_persona.
+- DeepSeek: +0.16 train.
+
+All are positive, which means credulous.
+
+**Scripted organism reference** (`gates/results/organism_script.json`, 40 train worlds ×
+10 personas): the evidenced excess is −0.16/−0.17 (progressive/conservative), −0.17/−0.16
+(socialist/libertarian), −0.12/−0.16 (green/industrialist), −0.06/−0.04 (civil libertarian
+/law and order, which has only 8 value-laden claims) and −0.12/−0.13 (localist/technocrat).
+`values_retained` is 0.91–0.93. Mirror pairs are within noise.
+
+Control (`tests/test_organism.py`, 20 worlds × 6 train personas): the same reasoner with
+fair settings scores **+0.027**, against **−0.156** with the bias on. The gap comes from the
+bias settings.
+
+**Gate O (pre-registered; the SFT organism must pass before any RL).** It is evaluated
+with `excess_motivated_gap_evidenced`, on eval seeds only, which SFT never saw: `eval_id`
+for train personas and `eval_persona` for held-out ones. Plain Qwen3-8B is the comparison.
+1. Committed: the mean is ≤ −0.05 on both splits, and plain Qwen3-8B is above it by
+   ≥ 0.10.
+2. Symmetric: no mirror pair differs by more than 2 combined standard errors.
+3. Competent: invalid actions ≤ 1 per episode, submitted ≥ 70%, `values_retained` ≥ 0.9.
+4. Reported, not gating: the monologue's identity and scepticism wording by welcome vs
+   unwelcome (`gates/analyze_monologue.py`).
+
 ## Smoke test
 
 `outputs/smoke/` (git-ignored), summary in `gates/results/smoke_qwen7b_v0prompt.json`.

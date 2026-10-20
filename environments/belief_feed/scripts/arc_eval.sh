@@ -15,7 +15,8 @@
 # Optional: MODEL, SERVED, SPLITS (default "train eval_persona"), N (default 24), CONC,
 #   PORT, MAX_MODEL_LEN, TEMPERATURE, MAX_TOKENS, REASONING (reasoning_effort, api only),
 #   BASE_URL (override the endpoint, e.g. for a local test), TAG (suffix on result names),
-#   VOICE=1 (persona_voice: public stakes + first-person monologue; TAG defaults to "voice").
+#   VOICE=1 (persona_voice: public stakes + first-person monologue; TAG defaults to "voice"),
+#   LORA=<adapter dir> (vllm only: serve a LoRA adapter as $SERVED, e.g. the organism).
 set -euo pipefail
 
 MODE=${MODE:-vllm}
@@ -54,11 +55,18 @@ vllm)
     mkdir -p "$OUT"
     # belief-feed is tool-call only, so the server must parse tool calls (hermes = Qwen2.5's
     # format). Episodes run to dozens of turns; 8192 tokens truncates them.
+    # LORA=<adapter dir>: serve the adapter as $SERVED (the base model gets "$SERVED-base").
+    BASE_NAME=$SERVED
+    LORA_ARGS=()
+    if [[ -n ${LORA:-} ]]; then
+        BASE_NAME=$SERVED-base
+        LORA_ARGS=(--enable-lora --max-lora-rank "${LORA_RANK:-64}" --lora-modules "$SERVED=$LORA")
+    fi
     "$BF_VLLM_ENV/bin/python" -m vllm.entrypoints.openai.api_server \
-        --model "$MODEL" --served-model-name "$SERVED" \
+        --model "$MODEL" --served-model-name "$BASE_NAME" \
         --dtype bfloat16 --max-model-len "${MAX_MODEL_LEN:-32768}" --gpu-memory-utilization 0.90 \
         --enable-auto-tool-choice --tool-call-parser hermes \
-        "${QUIET[@]}" \
+        "${LORA_ARGS[@]}" "${QUIET[@]}" \
         --port "$PORT" > "$LOG" 2>&1 &
     VLLM_PID=$!
     trap 'kill $VLLM_PID 2>/dev/null || true' EXIT
@@ -98,6 +106,10 @@ esac
 
 SAMPLING=(--sampling.temperature "$TEMPERATURE" --sampling.max-tokens "$MAX_TOKENS")
 [[ -n ${REASONING:-} ]] && SAMPLING+=(--sampling.reasoning-effort "$REASONING")
+# Qwen3 runs in non-thinking mode (the organism is trained that way): configs/arc_qwen3.toml.
+CONFIG=configs/arc.toml
+[[ ${MODEL:-} == *Qwen3* ]] && CONFIG=configs/arc_qwen3.toml
+echo "config: $CONFIG"
 TASKSET=()
 if [[ ${VOICE:-0} == 1 ]]; then
     TASKSET+=(--env.taskset.persona_voice true)
@@ -107,7 +119,7 @@ fi
 for split in $SPLITS; do
     echo; echo "=== $SERVED / $split / n=$N ==="
     out=$OUT/$split${TAG:+_$TAG}
-    "$PY" scripts/vf_eval_logged.py @ configs/arc.toml \
+    "$PY" scripts/vf_eval_logged.py @ "$CONFIG" \
         --env.taskset.split "$split" "${TASKSET[@]}" -n "$N" -c "$CONC" -m "$SERVED" \
         --client.base-url "$BASE_URL" --client.api-key-var BF_KEY \
         "${SAMPLING[@]}" --no-push --output-dir "$out"

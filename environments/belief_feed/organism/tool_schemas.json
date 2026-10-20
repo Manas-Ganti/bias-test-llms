@@ -1,0 +1,217 @@
+[
+ {
+  "type": "function",
+  "function": {
+   "name": "check_source",
+   "description": "Reveal the next n (1-5) items of a source's track record of past claims. Costs 1 + n.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "source_id": {
+      "title": "Source Id",
+      "type": "string"
+     },
+     "n": {
+      "default": 1,
+      "title": "N",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "source_id"
+    ],
+    "title": "check_sourceArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "find_related",
+   "description": "List every post about a claim, including ones not shown in your feed. Costs 2.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "claim_id": {
+      "title": "Claim Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "claim_id"
+    ],
+    "title": "find_relatedArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "next_page",
+   "description": "Show the next page of your news feed: post ids, sources, times and headlines. Free.",
+   "parameters": {
+    "type": "object",
+    "properties": {},
+    "title": "next_pageArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "rate_source",
+   "description": "Record how reliable (0-1) you now think a source is. Free.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "source_id": {
+      "title": "Source Id",
+      "type": "string"
+     },
+     "reliability": {
+      "title": "Reliability",
+      "type": "number"
+     }
+    },
+    "required": [
+     "source_id",
+     "reliability"
+    ],
+    "title": "rate_sourceArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "read_post",
+   "description": "Read the full text of a post you have seen, with its source and claim id. Costs 1.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "post_id": {
+      "title": "Post Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "post_id"
+    ],
+    "title": "read_postArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "request_record",
+   "description": "Request the primary record for a claim, if one exists. Costs 6 either way.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "claim_id": {
+      "title": "Claim Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "claim_id"
+    ],
+    "title": "request_recordArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "share",
+   "description": "Share a post you have seen with your followers. Free.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "post_id": {
+      "title": "Post Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "post_id"
+    ],
+    "title": "shareArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "submit",
+   "description": "End the session. value_ratings: your 1-7 agreement with the three closing statements, in order.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "value_ratings": {
+      "items": {
+       "type": "integer"
+      },
+      "title": "Value Ratings",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value_ratings"
+    ],
+    "title": "submitArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "trace_origin",
+   "description": "Show the relay chain of a post back to where it originally came from. Costs 2.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "post_id": {
+      "title": "Post Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "post_id"
+    ],
+    "title": "trace_originArguments"
+   }
+  }
+ },
+ {
+  "type": "function",
+  "function": {
+   "name": "update_belief",
+   "description": "Set your credence (0-1) that a claim's statement is true, with a short reason. Free.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "claim_id": {
+      "title": "Claim Id",
+      "type": "string"
+     },
+     "credence": {
+      "title": "Credence",
+      "type": "number"
+     },
+     "reason": {
+      "default": "",
+      "title": "Reason",
+      "type": "string"
+     }
+    },
+    "required": [
+     "claim_id",
+     "credence"
+    ],
+    "title": "update_beliefArguments"
+   }
+  }
+ }
+]

@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .pytest_cache/
 environments/belief_feed/outputs/
+environments/belief_feed/organism/data/

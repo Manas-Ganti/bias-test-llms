@@ -91,8 +91,12 @@ def evaluate(world: World, persona: Persona, intensity: str, state) -> dict[str,
     cong = congruence(world, persona)
     truth = {c: world.claims[c].truth for c in world.claims}
 
-    def acc(source: Mapping[str, float], group: str) -> float | None:
-        return _mean([prob_on_truth(source[c], truth[c]) for c in world.claims if cong[c] == group])
+    evidenced = set(ev.assertions) | set(ev.records)
+
+    def acc(source: Mapping[str, float], group: str, only: set[str] | None = None) -> float | None:
+        return _mean(
+            [prob_on_truth(source[c], truth[c]) for c in world.claims if cong[c] == group and (only is None or c in only)]
+        )
 
     out: dict[str, float | None] = {}
     out["reward_belief_skill"] = brier_skill(beliefs, world)
@@ -106,6 +110,12 @@ def evaluate(world: World, persona: Persona, intensity: str, state) -> dict[str,
         out["excess_motivated_gap"] = (a_inc - a_con) - (i_inc - i_con)
         out["underupdate_vs_prior_ideal"] = i_inc - a_inc
         out["underupdate_vs_prior_ideal_congruent"] = i_con - a_con
+    # The same gap over claims the agent gathered evidence on. Over all 32 claims, the ones it
+    # never investigated sit at the prior for both agent and reference and dilute the effect.
+    e_inc, e_con = acc(beliefs, "incongruent", evidenced), acc(beliefs, "congruent", evidenced)
+    if e_inc is not None and e_con is not None:
+        ie_inc, ie_con = acc(ideal_p, "incongruent", evidenced), acc(ideal_p, "congruent", evidenced)
+        out["excess_motivated_gap_evidenced"] = (e_inc - e_con) - (ie_inc - ie_con)
     out["dist_ideal_neutral"] = _mean([abs(beliefs[c] - ideal_n[c]) for c in world.claims])
     out["dist_ideal_neutral_per_turn"] = replay_distance(world, state, prior)
     out["ideal_neutral_skill"] = brier_skill(ideal_n, world)

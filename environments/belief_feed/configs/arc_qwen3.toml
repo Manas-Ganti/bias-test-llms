@@ -1,0 +1,14 @@
+# configs/arc.toml plus Qwen3's non-thinking mode. The organism is fine-tuned with TRL's Qwen3
+# training template, which renders an empty <think></think> per turn, so it must be served with
+# enable_thinking=false. This has to be a TOML table: a CLI string reaches vLLM as a string.
+num_rollouts = 1
+push = false
+
+[env.taskset]
+id = "belief-feed"
+
+[env.agent.runtime]
+type = "subprocess"
+
+[sampling.chat_template_kwargs]
+enable_thinking = false

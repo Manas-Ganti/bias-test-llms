@@ -272,8 +272,44 @@ real-world ideologies; it is a fictional, templated setting.
 `values_retained` is 0.95–1.00 wherever recorded (n = 18–21 for Qwen, 5–6 for gpt-oss,
 which rarely submits).
 
+**Retest after the rule fixes, 2026-10-20 (test C).** These runs use the new budget rule and
+trust-as-words. Four models ran without `persona_voice`, and two ran with it.
+`gates/results/baseline_*_{train,eval_persona}[_voice].json`, `update_analysis_v2.json`,
+`monologue_v2.json`:
+
+| model | split | voice | n | skill | excess_motivated_gap |
+|---|---|---|---|---|---|
+| Qwen-7B | train | off / on | 24 / 24 | −0.306 / −0.332 | +0.023 ± 0.009 / +0.052 ± 0.016 |
+| Qwen-7B | eval_persona | off / on | 24 / 24 | −0.224 / −0.258 | +0.041 ± 0.015 / +0.070 ± 0.023 |
+| gpt-oss-120b | train | off / on | 23 / 24 | −0.284 / −0.285 | +0.115 ± 0.015 / +0.095 ± 0.018 |
+| gpt-oss-120b | eval_persona | off / on | 18 / 15 | −0.267 / −0.267 | +0.188 ± 0.046 / +0.121 ± 0.039 |
+| DeepSeek-V4.1-Flash | train | off | 24 | −0.290 | +0.118 ± 0.044 |
+| GLM-5.3 | train | off | 17 | −0.306 | −0.002 ± 0.010 |
+
+- **`persona_voice` did not produce motivated reasoning.** Every voice-on minus voice-off
+  difference is within about 1.6 standard errors, and the signs are mixed: Qwen up, gpt-oss
+  down. Every excess gap stays positive.
+- **Identity wording stays at or below 2.4% of post-reading reactions** for Qwen and
+  gpt-oss, even with the voice prompt (values-only regex, `gates/analyze_monologue.py`).
+- **gpt-oss with voice is more sceptical of welcome posts than unwelcome ones** (14.9% vs
+  5.9% on eval_persona), the opposite of the motivated pattern.
+- **Overshooting holds across model families.** The median update on unwelcome-truth
+  claims is 1.5× (GLM), 1.7× (DeepSeek) and 4.5× (gpt-oss) the honest Bayesian's.
+- **GLM-5.3 barely engages:** 1.2 updates per episode, and 15 of 17 episodes end on a
+  text-only reply. Its ≈0 excess gap reflects not updating, as with the first Ollama Qwen
+  run, so it isn't evidence of calibration.
+- **The budget fix had a side effect.** gpt-oss went from 4.2 to 6.9 updates and from
+  21% to 52% submitted, but skill barely moved (−0.294 → −0.284). 22% of its updates
+  (25% for DeepSeek) are now on claims with no evidence, mostly guesses made after the
+  budget ran out. That is the behaviour fix 2 option 1 (evidence-gated updates) would
+  block.
+- **Incomplete runs:** gpt-oss eval_persona has 18 of 24 episodes (15 of 16 with voice),
+  and GLM train has 17 of 24. The GLM and DeepSeek eval_persona and voice runs never ran,
+  because a case-sensitive folder lookup in `arc_eval.sh` stopped the script. That is now
+  fixed. The cause of the partial runs needs the job logs.
+
 **Open decisions (for Manas):**
-1. Let `update_belief` and `submit` work at 0 budget, then rerun both baselines.
+1. ~~Let `update_belief` and `submit` work at 0 budget~~ (done, interpretation 5).
 2. The premise: the persona doesn't produce evidence-discounting at baseline. Options are
    to reframe the research question around calibrated, reliability-weighted updating
    under ideological priors, to strengthen the persona framing, or to keep it as is and

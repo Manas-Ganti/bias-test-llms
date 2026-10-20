@@ -111,7 +111,9 @@ for split in $SPLITS; do
         --env.taskset.split "$split" "${TASKSET[@]}" -n "$N" -c "$CONC" -m "$SERVED" \
         --client.base-url "$BASE_URL" --client.api-key-var BF_KEY \
         "${SAMPLING[@]}" --no-push --output-dir "$out"
-    latest=$(ls -td "$out"/belief-feed--"$SERVED"--* | head -1)
+    # The newest run in this split's folder. vf-eval lowercases some model ids in the folder
+    # name (GLM-5.3 -> glm-5.3), so matching on $SERVED failed and stopped the script.
+    latest=$(ls -td "$out"/belief-feed--* | head -1)
     "$PY" gates/summarize_eval.py "$latest" --json "gates/results/baseline_${SERVED}_${split}${TAG:+_$TAG}.json" \
         | tee "$latest/summary.txt"
 done

@@ -1,0 +1,142 @@
+{
+ "eval_persona_voice/belief-feed--gpt-oss-120b--belief-feed--fa089af1": {
+  "welcome": {
+   "n": 47,
+   "sceptical": 0.14893617021276595,
+   "identity": 0,
+   "chars": 180.6595744680851
+  },
+  "unwelcome": {
+   "n": 51,
+   "sceptical": 0.058823529411764705,
+   "identity": 0,
+   "chars": 139.5686274509804
+  }
+ },
+ "eval_persona_voice/belief-feed--qwen2.5-7b-instruct--belief-feed--d192d362": {
+  "welcome": {
+   "n": 42,
+   "sceptical": 0.16666666666666666,
+   "identity": 0.023809523809523808,
+   "chars": 517.0714285714286
+  },
+  "unwelcome": {
+   "n": 30,
+   "sceptical": 0.13333333333333333,
+   "identity": 0,
+   "chars": 413.73333333333335
+  }
+ },
+ "eval_persona/belief-feed--gpt-oss-120b--belief-feed--575c1ea7": {
+  "welcome": {
+   "n": 66,
+   "sceptical": 0.15151515151515152,
+   "identity": 0,
+   "chars": 184.4090909090909
+  },
+  "unwelcome": {
+   "n": 76,
+   "sceptical": 0.13157894736842105,
+   "identity": 0,
+   "chars": 221
+  }
+ },
+ "eval_persona/belief-feed--qwen2.5-7b-instruct--belief-feed--149d4a19": {
+  "welcome": {
+   "n": 43,
+   "sceptical": 0.046511627906976744,
+   "identity": 0,
+   "chars": 524.4651162790698
+  },
+  "unwelcome": {
+   "n": 59,
+   "sceptical": 0.05084745762711865,
+   "identity": 0,
+   "chars": 508.0169491525424
+  }
+ },
+ "train_voice/belief-feed--gpt-oss-120b--belief-feed--c124e7d0": {
+  "welcome": {
+   "n": 109,
+   "sceptical": 0.09174311926605505,
+   "identity": 0.009174311926605505,
+   "chars": 224.52293577981652
+  },
+  "unwelcome": {
+   "n": 154,
+   "sceptical": 0.06493506493506493,
+   "identity": 0,
+   "chars": 184.66233766233765
+  }
+ },
+ "train_voice/belief-feed--qwen2.5-7b-instruct--belief-feed--660b363e": {
+  "welcome": {
+   "n": 56,
+   "sceptical": 0.17857142857142858,
+   "identity": 0.017857142857142856,
+   "chars": 566.0357142857143
+  },
+  "unwelcome": {
+   "n": 83,
+   "sceptical": 0.21686746987951808,
+   "identity": 0,
+   "chars": 655.843373493976
+  }
+ },
+ "train/belief-feed--deepseek-v4.1-flash--belief-feed--927a38c1": {
+  "welcome": {
+   "n": 121,
+   "sceptical": 0.9421487603305785,
+   "identity": 0.2892561983471074,
+   "chars": 8636.818181818182
+  },
+  "unwelcome": {
+   "n": 136,
+   "sceptical": 0.9485294117647058,
+   "identity": 0.27941176470588236,
+   "chars": 7078.97794117647
+  }
+ },
+ "train/belief-feed--glm-5.3--belief-feed--7dc32096": {
+  "welcome": {
+   "n": 63,
+   "sceptical": 0.9682539682539683,
+   "identity": 0.5396825396825397,
+   "chars": 17816.4126984127
+  },
+  "unwelcome": {
+   "n": 45,
+   "sceptical": 0.9555555555555556,
+   "identity": 0.6,
+   "chars": 18570.62222222222
+  }
+ },
+ "train/belief-feed--gpt-oss-120b--belief-feed--a8aa2272": {
+  "welcome": {
+   "n": 117,
+   "sceptical": 0.06837606837606838,
+   "identity": 0,
+   "chars": 282.45299145299145
+  },
+  "unwelcome": {
+   "n": 142,
+   "sceptical": 0.04929577464788732,
+   "identity": 0,
+   "chars": 244.8450704225352
+  }
+ },
+ "train/belief-feed--qwen2.5-7b-instruct--belief-feed--9e898e1d": {
+  "welcome": {
+   "n": 60,
+   "sceptical": 0.13333333333333333,
+   "identity": 0,
+   "chars": 528.75
+  },
+  "unwelcome": {
+   "n": 80,
+   "sceptical": 0.15,
+   "identity": 0,
+   "chars": 686.5375
+  }
+ }
+}

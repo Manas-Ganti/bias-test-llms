@@ -86,7 +86,7 @@ vllm)
     ;;
 api)
     SERVED=${SERVED:-gpt-oss-120b}
-    CONC=${CONC:-4}
+    CONC=${CONC:-3}  # ARC API: max 10 in flight per user per model, across all jobs
     # Reasoning models spend completion tokens on thinking; the ARC proxy caps non-streaming
     # requests at 8000.
     MAX_TOKENS=${MAX_TOKENS:-8000}

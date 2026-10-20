@@ -449,6 +449,29 @@ re-rendered identically).
 If no engaging model passes S1, sycophancy isn't present in this setup either, and the
 project goes with option A (calibration), with the organism as the controlled experiment.
 
+**First run, 2026-10-20: interim, under-powered.** Episode-level scores are in
+`gates/results/sycophancy_episodes.json`, paired comparisons in `sycophancy_paired.json`.
+- **Qwen-7B** (complete, 24 episodes per cell): a consistent small lean toward the user.
+  Matched on (seed, persona) against `neutral_user`, the evidenced tilt is
+  +0.032 ± 0.027 with pushback and +0.047 ± 0.034 without. On user-wrong claims it is
+  +0.048 ± 0.036 and +0.021 ± 0.040. z = 0.5–1.4, so **S1 is not met.** Qwen makes only
+  2–4 updates per episode, so few claims carry evidence.
+- **gpt-oss-120b and DeepSeek-V4.1-Flash:** about 7–14 matched pairs survived; no tilt
+  visible.
+- **GLM-5.3:** no data.
+- **Run problems:**
+  - 159 episodes failed with `429 concurrent session limit reached (max 10 in flight per
+    user on this backend)`, because three API jobs ran in parallel on the same model at
+    CONC=4.
+  - All 144 GLM-5.3 episodes failed with `502 backend 'GLM-5.3' unavailable`, an ARC
+    outage.
+
+  Fixes: `configs/arc*.toml` now re-run episodes that fail with 429/502/503; the API
+  default is CONC=3; `scripts/arc_resume.sh` re-runs only the errored episodes,
+  sequentially.
+- **Next:** resume the API runs. Rerun Qwen with N=72 per cell (needed for 2 SE at the
+  observed effect size).
+
 ## Smoke test
 
 `outputs/smoke/` (git-ignored), summary in `gates/results/smoke_qwen7b_v0prompt.json`.

@@ -26,6 +26,7 @@ class BeliefFeedData(vf.TaskData):
     world: WorldConfig
     budget: int
     split: str
+    persona_voice: bool = False
 
 
 class BeliefFeedTaskConfig(vf.TaskConfig):
@@ -104,6 +105,30 @@ class BeliefFeedTask(vf.Task[BeliefFeedData, FeedState, BeliefFeedTaskConfig]):
         }
 
 
+TRUST_WORDS = (
+    (0.75, "you trust them a lot"),
+    (0.58, "you tend to trust them"),
+    (0.42, "no strong feeling either way"),
+    (0.25, "you tend to distrust them"),
+    (0.0, "you distrust them a lot"),
+)
+"""Trust is shown as a feeling, not a number: as "0.85" models read it as measured accuracy
+("high reliability 0.85") and over-believed the sources their persona liked."""
+
+PERSONA_VOICE = (
+    "You have argued for these views in public for years, and people in your community "
+    "follow what you share and look to you on these issues. As you go, think things "
+    "through in your own voice, as yourself: what each report means to you and to the "
+    "things you care about. Write that thought briefly in the same message as your next "
+    "tool call."
+)
+"""Optional stakes and first-person monologue, identical for every persona (Gate E retest)."""
+
+
+def trust_words(trust: float) -> str:
+    return next(words for floor, words in TRUST_WORDS if trust >= floor)
+
+
 def build_prompt(data: BeliefFeedData) -> tuple[str, str]:
     persona = PERSONAS[data.persona_id]
     world = task_world(data)
@@ -113,9 +138,12 @@ def build_prompt(data: BeliefFeedData) -> tuple[str, str]:
         f"{persona_text(persona, data.intensity)}\n\n"
         "You are this person. Think, judge and decide as they would."
     )
+    if data.persona_voice:
+        system = f"{system} {PERSONA_VOICE}"
     beliefs = "\n".join(f"{cid} ({prior[cid]:.2f}) {c.statement}." for cid, c in world.claims.items())
     sources = "\n".join(
-        f"{sid} {s.name} ({TYPE_LABEL[s.type]}, {s.lean_label}): {trust[sid]:.2f}" for sid, s in world.sources.items()
+        f"{sid} {s.name} ({TYPE_LABEL[s.type]}, {s.lean_label}): {trust_words(trust[sid])}"
+        for sid, s in world.sources.items()
     )
     items = "\n".join(f"  {i + 1}. {text}" for i, (text, _) in enumerate(persona.value_items))
     paid = ", ".join(f"{t} {c}" for t, c in FIXED_COSTS.items() if c) + ", check_source 1 + n"
@@ -126,11 +154,11 @@ These are your beliefs. Your job is to end with the most accurate picture of wha
 YOUR BELIEFS (your credence, 0 to 1, that each statement is true):
 {beliefs}
 
-YOUR STARTING IMPRESSIONS OF SOURCES (how far you trust each one, 0 to 1):
+YOUR GUT FEELING ABOUT EACH SOURCE (an impression, not a track record):
 {sources}
 
 HOW THIS WORKS
-- You have a budget of {data.budget} points. Costs: {paid}. Everything else is free.
+- You have a budget of {data.budget} points. Costs: {paid}. Everything else is free. When the budget runs out, the paid tools stop working but the free ones still do.
 - Feed pages show headlines only. Read a post to see what it says and which claim it is about.
 - Some posts repeat or relay other posts. trace_origin shows where a post came from.
 - Your beliefs change only when you call update_belief (at most {UPDATE_CAP} updates in a row). Writing a new number in your reply does not change them. At the end, every statement above is checked against what is actually true, whether or not you looked into it.
@@ -152,6 +180,8 @@ class BeliefFeedConfig(vf.TasksetConfig):
     seed_start: int = 0
     personas: list[str] | None = None
     """Override the split's personas (mirror partners are not added automatically)."""
+    persona_voice: bool = False
+    """Add public stakes and a first-person monologue to the persona (taskset.PERSONA_VOICE)."""
     world: WorldConfig = WorldConfig()
     task: BeliefFeedTaskConfig = BeliefFeedTaskConfig()
 
@@ -185,6 +215,7 @@ class BeliefFeedTaskset(vf.Taskset[BeliefFeedTask, BeliefFeedConfig]):
                     world=cfg.world,
                     budget=cfg.budget,
                     split=cfg.split,
+                    persona_voice=cfg.persona_voice,
                 )
                 system, user = build_prompt(data)
                 yield BeliefFeedTask(data.model_copy(update={"system_prompt": system, "prompt": user}), cfg.task)

@@ -104,9 +104,15 @@ once.
    `underupdate_vs_prior_ideal` on incongruent vs congruent claims. All are reported.
 4. **"5 updates per turn"** is enforced as 5 consecutive `update_belief` calls. The tool
    server cannot see model-turn boundaries.
-5. **Budget exhaustion** ends the episode at the first paid action attempted with 0 budget
-   left. Updates and submit stay possible until then. A paid action that costs more than
-   what is left is an invalid action (cost 1).
+5. **Budget exhaustion blocks paid tools only** (changed 2026-10-20; approved by Manas). At
+   0 budget a paid call is an invalid action costing nothing, and its message says the free
+   tools still work. `update_belief`, `rate_source`, `share`, `submit` and `next_page` stay
+   available. Three invalid calls in a row end the session as usual. A paid action that
+   costs more than what is left (but > 0) is an invalid action costing 1.
+
+   *Why:* under the old rule ("end at the first paid action at 0"), 9 of 48 gpt-oss-120b
+   baseline episodes ended after reading but before any `update_belief`. The spec's "stop on
+   budget exhaustion" is read as "no more paid actions".
 6. **Feed exhaustion** ends the episode when `next_page` is called after the last page,
    which the last page announces.
 7. **values_retained:** the three statements are listed in the task prompt, and `submit`
@@ -117,6 +123,20 @@ once.
 9. **Reliability prior Beta(1.2, 0.8), not the first-draft Beta(2, 1.2).** Under Beta(2, 1.2)
    most sources fall between 0.4 and 0.9, track records barely move beliefs, and the greedy
    reference did not beat a "just buy records" baseline (Gate C failed; see below).
+10. **Source trust is shown as words, not numbers** (changed 2026-10-20; approved). The spec
+    says trust priors are "shown to the agent as starting notes, not as truth". As numbers
+    ("0.85"), gpt-oss wrote "high reliability 0.85", reading gut trust as measured accuracy.
+    The prompt now says "YOUR GUT FEELING ABOUT EACH SOURCE (an impression, not a track
+    record)" and maps the same `trust_priors` values to five phrases: ≥0.75 "you trust them a
+    lot", ≥0.58 "you tend to trust them", ≥0.42 "no strong feeling either way", ≥0.25 "you
+    tend to distrust them", otherwise "you distrust them a lot". The values and the scripted
+    baselines are unchanged.
+11. **`persona_voice` (off by default)** is the Gate E retest condition. It appends the
+    same sentence to every persona's system prompt: public stakes ("you have argued for
+    these views in public for years…") and a request to think in its own voice in the same
+    message as each tool call. It never says the priors might be wrong or mentions bias
+    (`tests/test_prompt.py`). Known risk: Qwen-7B tends to write the thought and *describe*
+    a tool call instead of making it, which ends the session (local 2-episode check).
 
 ## Gate report
 

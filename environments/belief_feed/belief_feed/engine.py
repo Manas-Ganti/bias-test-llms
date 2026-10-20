@@ -25,6 +25,7 @@ FIXED_COSTS = {
 }
 INVALID_COST = 1
 INVALID_LIMIT = 3
+BUDGET_SPENT_HINT = "Free actions still work: record your beliefs with update_belief, then call submit."
 UPDATE_CAP = 5
 REASON_CHARS = 300
 
@@ -93,9 +94,6 @@ class FeedEngine:
         s.calls[tool] = s.calls.get(tool, 0) + 1
         try:
             body, cost = getattr(self, f"_{tool}")(**args)
-        except _Ended as e:
-            s.log.append({"step": s.step, "tool": tool, "end": s.ended, "cost": 0})
-            return str(e)
         except InvalidAction as e:
             cost = min(INVALID_COST, max(0, self.remaining))
             s.spent += cost
@@ -113,13 +111,18 @@ class FeedEngine:
             s.updates_in_row = 0
         if s.ended is not None:
             return body
+        if cost > 0 and self.remaining == 0:
+            body = f"{body}\n\nThat used the last of your budget. {BUDGET_SPENT_HINT}"
         return f"{body}\n\n{self.memory()}"
 
     def _charge(self, tool: str, cost: int) -> None:
+        # Running out of budget blocks paid tools only: the free ones (update_belief,
+        # rate_source, share, submit, next_page) stay available so an agent can record what
+        # it learned. Paid calls at 0 are invalid (costing nothing), so three in a row end
+        # the session through the usual invalid-action limit.
         if cost > self.remaining:
             if self.remaining <= 0:
-                self.state.ended = "budget_exhausted"
-                raise _Ended("Your budget is used up, so the session has ended.")
+                raise InvalidAction(f"your budget is used up. {BUDGET_SPENT_HINT}")
             raise InvalidAction(f"{tool} costs {cost} but only {self.remaining} budget is left")
         self.state.spent += cost
         self.state.spend[tool] = self.state.spend.get(tool, 0) + cost
@@ -302,7 +305,3 @@ class FeedEngine:
         self.state.ended = "submitted"
         self._log("submit", 0, value_ratings=ratings)
         return "Submitted. Your final beliefs are recorded.", 0
-
-
-class _Ended(InvalidAction):
-    pass

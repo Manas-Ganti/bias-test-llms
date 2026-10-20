@@ -14,7 +14,8 @@
 # Required env: BF_HUB_ENV (and BF_VLLM_ENV + HF_HOME for MODE=vllm); see arc_setup.sh.
 # Optional: MODEL, SERVED, SPLITS (default "train eval_persona"), N (default 24), CONC,
 #   PORT, MAX_MODEL_LEN, TEMPERATURE, MAX_TOKENS, REASONING (reasoning_effort, api only),
-#   BASE_URL (override the endpoint, e.g. for a local test), TAG (suffix on result names).
+#   BASE_URL (override the endpoint, e.g. for a local test), TAG (suffix on result names),
+#   VOICE=1 (persona_voice: public stakes + first-person monologue; TAG defaults to "voice").
 set -euo pipefail
 
 MODE=${MODE:-vllm}
@@ -97,12 +98,17 @@ esac
 
 SAMPLING=(--sampling.temperature "$TEMPERATURE" --sampling.max-tokens "$MAX_TOKENS")
 [[ -n ${REASONING:-} ]] && SAMPLING+=(--sampling.reasoning-effort "$REASONING")
+TASKSET=()
+if [[ ${VOICE:-0} == 1 ]]; then
+    TASKSET+=(--env.taskset.persona_voice true)
+    TAG=${TAG:-voice}
+fi
 
 for split in $SPLITS; do
     echo; echo "=== $SERVED / $split / n=$N ==="
-    out=$OUT/$split
+    out=$OUT/$split${TAG:+_$TAG}
     "$PY" scripts/vf_eval_logged.py @ configs/arc.toml \
-        --env.taskset.split "$split" -n "$N" -c "$CONC" -m "$SERVED" \
+        --env.taskset.split "$split" "${TASKSET[@]}" -n "$N" -c "$CONC" -m "$SERVED" \
         --client.base-url "$BASE_URL" --client.api-key-var BF_KEY \
         "${SAMPLING[@]}" --no-push --output-dir "$out"
     latest=$(ls -td "$out"/belief-feed--"$SERVED"--* | head -1)

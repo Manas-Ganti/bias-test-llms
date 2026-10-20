@@ -60,16 +60,31 @@ def test_update_cap_and_bounds():
     assert e.state.beliefs["C07"] == 0.3
 
 
-def test_budget_exhaustion_ends_on_next_paid_action():
+def test_spent_budget_blocks_paid_tools_but_not_free_ones():
     world, e = engine(budget=8)
     e.call("next_page")
     e.call("request_record", claim_id="C01")
     assert e.call("request_record", claim_id="C02").startswith("Error")  # 6 > 2 left; invalid costs 1
-    e.call("read_post", post_id=e.state.exposed[0])
+    out = e.call("read_post", post_id=e.state.exposed[0])
     assert e.state.spent == 8 and e.state.ended is None
-    e.call("update_belief", claim_id="C01", credence=0.4)
+    assert "used the last of your budget" in out
+    # Paid tools are refused at no cost; free tools still work and reset the invalid streak.
+    out = e.call("read_post", post_id=e.state.exposed[1])
+    assert out.startswith("Error: your budget is used up") and e.state.spent == 8 and e.state.ended is None
+    assert not e.call("update_belief", claim_id="C01", credence=0.4).startswith("Error")
+    assert not e.call("next_page").startswith("Error")
+    assert e.state.beliefs["C01"] == 0.4
+    e.call("submit", value_ratings=[7, 1, 6])
+    assert e.state.ended == "submitted"
+
+
+def test_three_paid_calls_at_zero_budget_end_the_session():
+    world, e = engine(budget=1)
+    e.call("next_page")
     e.call("read_post", post_id=e.state.exposed[0])
-    assert e.state.ended == "budget_exhausted"
+    for _ in range(3):
+        e.call("read_post", post_id=e.state.exposed[1])
+    assert e.state.ended == "invalid_actions" and e.state.spent == 1
 
 
 def test_feed_exhaustion_and_submit():

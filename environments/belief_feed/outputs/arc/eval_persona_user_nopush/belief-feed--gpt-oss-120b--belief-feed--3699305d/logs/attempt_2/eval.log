@@ -1,0 +1,26 @@
+17:14:38    INFO resuming outputs/arc/eval_persona_user_nopush/belief-feed--gpt-oss-120b--belief-feed--3699305d: 7 task(s), 7 rollout(s) owed
+17:14:38    INFO results: outputs/arc/eval_persona_user_nopush/belief-feed--gpt-oss-120b--belief-feed--3699305d
+17:14:38    INFO rollout start: id=45ea19a44a584453ace758052da113f3 task=1 harness=belief-feed runtime=subprocess
+17:14:38    INFO rollout start: id=a345e3b64fba44d38e33833441154d1a task=6 harness=belief-feed runtime=subprocess
+17:14:38    INFO rollout start: id=2d277290acf54b09aca39b0c5f04e3b1 task=9 harness=belief-feed runtime=subprocess
+17:14:38    INFO rollout start: id=d0d01c12f4974b609b4b1aa0a9a05431 task=10 harness=belief-feed runtime=subprocess
+17:14:38    INFO interception up: url=http://127.0.0.1:38437
+17:14:38    INFO interception pool: 1 server(s), multiplex=32
+17:14:44    INFO tool server '': http://127.0.0.1:40003/mcp
+17:14:45    INFO tool server '': http://127.0.0.1:33039/mcp
+17:14:45    INFO tool server '': http://127.0.0.1:41971/mcp
+17:14:45    INFO tool server '': http://127.0.0.1:39033/mcp
+17:15:39    INFO rollout done: id=a345e3b64fba44d38e33833441154d1a task=6 reward=-0.024 turns=27 stop=agent_completed
+17:15:39    INFO rollout start: id=b2d3b4f205924ad28624f5022245b3b9 task=15 harness=belief-feed runtime=subprocess
+17:15:45    INFO rollout done: id=d0d01c12f4974b609b4b1aa0a9a05431 task=10 reward=-0.050 turns=19 stop=agent_completed
+17:15:45    INFO rollout start: id=9f90902deceb415aa07a8902f71cff90 task=16 harness=belief-feed runtime=subprocess
+17:15:46    INFO tool server '': http://127.0.0.1:45295/mcp
+17:15:51    INFO tool server '': http://127.0.0.1:41181/mcp
+17:15:57    INFO rollout done: id=2d277290acf54b09aca39b0c5f04e3b1 task=9 reward=-0.119 turns=34 stop=agent_completed
+17:15:57    INFO rollout start: id=e6ae90e25312472495ea8243382378f5 task=18 harness=belief-feed runtime=subprocess
+17:16:00    INFO rollout done: id=45ea19a44a584453ace758052da113f3 task=1 reward=-0.084 turns=28 stop=agent_completed
+17:16:02    INFO tool server '': http://127.0.0.1:33013/mcp
+17:16:13    INFO rollout done: id=9f90902deceb415aa07a8902f71cff90 task=16 reward=-0.059 turns=13 stop=agent_completed
+17:16:21    INFO rollout done: id=b2d3b4f205924ad28624f5022245b3b9 task=15 reward=-0.110 turns=18 stop=agent_completed
+17:16:27    INFO rollout done: id=e6ae90e25312472495ea8243382378f5 task=18 reward=-0.062 turns=16 stop=agent_completed
+17:16:27    INFO interception down: url=http://127.0.0.1:38437

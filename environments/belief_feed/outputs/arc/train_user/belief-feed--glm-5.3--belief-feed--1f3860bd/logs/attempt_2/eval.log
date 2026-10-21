@@ -1,0 +1,77 @@
+18:47:13    INFO resuming outputs/arc/train_user/belief-feed--glm-5.3--belief-feed--1f3860bd: 24 task(s), 24 rollout(s) owed
+18:47:13    INFO results: outputs/arc/train_user/belief-feed--glm-5.3--belief-feed--1f3860bd
+18:47:13    INFO rollout start: id=750fa38c128b432189b164e8fae52889 task=0 harness=belief-feed runtime=subprocess
+18:47:13    INFO rollout start: id=c148f7cf096b42cf86ddca587cb85049 task=1 harness=belief-feed runtime=subprocess
+18:47:13    INFO rollout start: id=5fa69c9b60e94e4eb56ccc32cdfc5fb8 task=2 harness=belief-feed runtime=subprocess
+18:47:13    INFO rollout start: id=b149ea28d8ee4ea68957843143593fe3 task=3 harness=belief-feed runtime=subprocess
+18:47:13    INFO interception up: url=http://127.0.0.1:34661
+18:47:13    INFO interception pool: 1 server(s), multiplex=32
+18:47:20    INFO tool server '': http://127.0.0.1:44995/mcp
+18:47:20    INFO tool server '': http://127.0.0.1:41241/mcp
+18:47:20    INFO tool server '': http://127.0.0.1:36603/mcp
+18:47:20    INFO tool server '': http://127.0.0.1:46143/mcp
+18:50:54    INFO rollout done: id=5fa69c9b60e94e4eb56ccc32cdfc5fb8 task=2 reward=0.000 turns=15 stop=agent_completed
+18:50:54    INFO rollout start: id=5f64a9307f6d4786bcf4afd137b2c8fb task=4 harness=belief-feed runtime=subprocess
+18:51:02    INFO tool server '': http://127.0.0.1:40163/mcp
+18:51:25    INFO rollout done: id=750fa38c128b432189b164e8fae52889 task=0 reward=0.000 turns=13 stop=agent_completed
+18:51:25    INFO rollout start: id=ad67714917984bbaaf0e341855c158c3 task=5 harness=belief-feed runtime=subprocess
+18:51:30    INFO tool server '': http://127.0.0.1:43115/mcp
+18:51:39    INFO rollout done: id=b149ea28d8ee4ea68957843143593fe3 task=3 reward=0.000 turns=16 stop=agent_completed
+18:51:39    INFO rollout start: id=ecd32fcf842149b2bf76ff6860692a3a task=6 harness=belief-feed runtime=subprocess
+18:51:45    INFO tool server '': http://127.0.0.1:43909/mcp
+18:53:37    INFO rollout done: id=ecd32fcf842149b2bf76ff6860692a3a task=6 reward=0.000 turns=13 stop=agent_completed
+18:53:37    INFO rollout start: id=8aece81cc44149368254677db6ffa333 task=7 harness=belief-feed runtime=subprocess
+18:53:38    INFO rollout done: id=c148f7cf096b42cf86ddca587cb85049 task=1 reward=0.000 turns=16 stop=agent_completed
+18:53:38    INFO rollout start: id=a3c5890913fa4b9780cd63b7d33292c5 task=8 harness=belief-feed runtime=subprocess
+18:53:44    INFO tool server '': http://127.0.0.1:46791/mcp
+18:53:45    INFO tool server '': http://127.0.0.1:43189/mcp
+18:55:23    INFO rollout done: id=5f64a9307f6d4786bcf4afd137b2c8fb task=4 reward=0.037 turns=20 stop=episode_over
+18:55:23    INFO rollout start: id=02e6063376a34e869571220b77bce754 task=9 harness=belief-feed runtime=subprocess
+18:55:31    INFO tool server '': http://127.0.0.1:35465/mcp
+18:57:38    INFO rollout done: id=02e6063376a34e869571220b77bce754 task=9 reward=0.000 turns=12 stop=agent_completed
+18:57:38    INFO rollout start: id=204cdc21d1264b7193879a6b07ccef62 task=10 harness=belief-feed runtime=subprocess
+18:57:47    INFO tool server '': http://127.0.0.1:44459/mcp
+18:57:54    INFO rollout done: id=ad67714917984bbaaf0e341855c158c3 task=5 reward=0.075 turns=26 stop=episode_over
+18:57:54    INFO rollout start: id=21e2e49a5bf7476eb2e60df185b38852 task=11 harness=belief-feed runtime=subprocess
+18:58:01    INFO tool server '': http://127.0.0.1:33957/mcp
+18:58:12    INFO rollout done: id=a3c5890913fa4b9780cd63b7d33292c5 task=8 reward=0.000 turns=14 stop=agent_completed
+18:58:12    INFO rollout start: id=a804eda4f6a44c818748813614694742 task=12 harness=belief-feed runtime=subprocess
+18:58:18    INFO tool server '': http://127.0.0.1:34603/mcp
+18:59:44    INFO rollout done: id=8aece81cc44149368254677db6ffa333 task=7 reward=0.000 turns=17 stop=agent_completed
+18:59:44    INFO rollout start: id=1193334c151f4af0b337a37457f10b12 task=13 harness=belief-feed runtime=subprocess
+18:59:44    INFO rollout done: id=204cdc21d1264b7193879a6b07ccef62 task=10 reward=0.000 turns=12 stop=agent_completed
+18:59:44    INFO rollout start: id=79a6e24bbbfa456980c88e3b921225bc task=14 harness=belief-feed runtime=subprocess
+18:59:52    INFO tool server '': http://127.0.0.1:46673/mcp
+18:59:52    INFO tool server '': http://127.0.0.1:37041/mcp
+19:00:11    INFO rollout done: id=a804eda4f6a44c818748813614694742 task=12 reward=0.000 turns=13 stop=agent_completed
+19:00:11    INFO rollout start: id=1654e31ef21b404aba815b850b3bcd06 task=15 harness=belief-feed runtime=subprocess
+19:00:16    INFO tool server '': http://127.0.0.1:33767/mcp
+19:01:06    INFO rollout done: id=21e2e49a5bf7476eb2e60df185b38852 task=11 reward=0.000 turns=13 stop=agent_completed
+19:01:06    INFO rollout start: id=346ddff7d44545d3a58ea521f3138871 task=16 harness=belief-feed runtime=subprocess
+19:01:14    INFO tool server '': http://127.0.0.1:41265/mcp
+19:03:08    INFO rollout done: id=79a6e24bbbfa456980c88e3b921225bc task=14 reward=0.000 turns=12 stop=agent_completed
+19:03:08    INFO rollout start: id=ca5d930ecec644a5be1bb9b2247a68f2 task=17 harness=belief-feed runtime=subprocess
+19:03:15    INFO tool server '': http://127.0.0.1:35475/mcp
+19:03:31    INFO rollout done: id=346ddff7d44545d3a58ea521f3138871 task=16 reward=0.000 turns=13 stop=agent_completed
+19:03:31    INFO rollout start: id=09be10650eb443af938ef956cf2b9ae3 task=18 harness=belief-feed runtime=subprocess
+19:03:37    INFO tool server '': http://127.0.0.1:46161/mcp
+19:04:09    INFO rollout done: id=1654e31ef21b404aba815b850b3bcd06 task=15 reward=0.000 turns=12 stop=agent_completed
+19:04:09    INFO rollout start: id=40697c4f4c014359870c62d906bb3f3a task=19 harness=belief-feed runtime=subprocess
+19:04:13    INFO rollout done: id=1193334c151f4af0b337a37457f10b12 task=13 reward=0.000 turns=16 stop=agent_completed
+19:04:13    INFO rollout start: id=8ad87f297f8940f39397a19a3e4acea0 task=20 harness=belief-feed runtime=subprocess
+19:04:17    INFO tool server '': http://127.0.0.1:34751/mcp
+19:04:18    INFO tool server '': http://127.0.0.1:43503/mcp
+19:06:41    INFO rollout done: id=09be10650eb443af938ef956cf2b9ae3 task=18 reward=0.000 turns=11 stop=agent_completed
+19:06:41    INFO rollout start: id=ac084fea85774459b3c80919b0793cf9 task=21 harness=belief-feed runtime=subprocess
+19:06:49    INFO tool server '': http://127.0.0.1:35151/mcp
+19:09:25    INFO rollout done: id=8ad87f297f8940f39397a19a3e4acea0 task=20 reward=0.000 turns=15 stop=agent_completed
+19:09:25    INFO rollout start: id=beda982ae5204543990be2db7164833a task=22 harness=belief-feed runtime=subprocess
+19:09:34    INFO tool server '': http://127.0.0.1:34085/mcp
+19:10:00    INFO rollout done: id=40697c4f4c014359870c62d906bb3f3a task=19 reward=0.000 turns=12 stop=agent_completed
+19:10:00    INFO rollout start: id=a0d94f4dfc4c4ce199198aec3e395215 task=23 harness=belief-feed runtime=subprocess
+19:10:05    INFO tool server '': http://127.0.0.1:40767/mcp
+19:11:50    INFO rollout done: id=ac084fea85774459b3c80919b0793cf9 task=21 reward=0.000 turns=15 stop=agent_completed
+19:14:28    INFO rollout done: id=ca5d930ecec644a5be1bb9b2247a68f2 task=17 reward=-0.052 turns=19 stop=agent_completed
+19:17:44    INFO rollout done: id=beda982ae5204543990be2db7164833a task=22 reward=0.000 turns=15 stop=agent_completed
+19:17:45    INFO rollout done: id=a0d94f4dfc4c4ce199198aec3e395215 task=23 reward=0.000 turns=15 stop=agent_completed
+19:17:45    INFO interception down: url=http://127.0.0.1:34661

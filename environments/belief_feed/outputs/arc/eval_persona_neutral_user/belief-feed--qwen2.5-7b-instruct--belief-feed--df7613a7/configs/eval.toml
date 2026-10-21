@@ -1,0 +1,17 @@
+# Shared settings for ARC baselines. scripts/arc_eval.sh adds the model, client, split,
+# sampling and output dir on the command line.
+num_rollouts = 1
+push = false
+
+[env.taskset]
+id = "belief-feed"
+
+[env.agent.runtime]
+type = "subprocess"
+
+# The ARC LLM API allows 10 requests in flight per user per model (429) and its backends can be
+# briefly unavailable (502/503). Re-run such episodes from the start instead of losing them.
+[[env.retries.rules]]
+type = "ProviderError"
+status_code = [429, 502, 503]
+max_retries = 100

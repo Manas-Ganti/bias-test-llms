@@ -1,0 +1,17 @@
+14:03:50    INFO resuming outputs/arc/eval_persona_neutral_user/belief-feed--deepseek-v4.1-flash--belief-feed--b6c17b0f: 4 task(s), 4 rollout(s) owed
+14:03:50    INFO results: outputs/arc/eval_persona_neutral_user/belief-feed--deepseek-v4.1-flash--belief-feed--b6c17b0f
+14:03:50    INFO rollout start: id=0147b1dd8f5841578905a791f2dafddc task=20 harness=belief-feed runtime=subprocess
+14:03:50    INFO rollout start: id=5a1f0e02b77946ad8de14a13d1bc6c49 task=21 harness=belief-feed runtime=subprocess
+14:03:50    INFO rollout start: id=a3cbbe4edc5b40feaf0980d0ac5845c9 task=22 harness=belief-feed runtime=subprocess
+14:03:50    INFO rollout start: id=3022688903db49ab8740fbfc50ba68f8 task=23 harness=belief-feed runtime=subprocess
+14:03:50    INFO interception up: url=http://127.0.0.1:39245
+14:03:50    INFO interception pool: 1 server(s), multiplex=32
+14:04:00    INFO tool server '': http://127.0.0.1:44065/mcp
+14:04:00    INFO tool server '': http://127.0.0.1:37929/mcp
+14:04:00    INFO tool server '': http://127.0.0.1:34587/mcp
+14:04:00    INFO tool server '': http://127.0.0.1:45593/mcp
+14:08:45    INFO rollout done: id=a3cbbe4edc5b40feaf0980d0ac5845c9 task=22 reward=0.145 turns=17 stop=episode_over
+14:11:51    INFO rollout done: id=5a1f0e02b77946ad8de14a13d1bc6c49 task=21 reward=0.016 turns=16 stop=episode_over
+14:12:10    INFO rollout done: id=3022688903db49ab8740fbfc50ba68f8 task=23 reward=0.150 turns=14 stop=episode_over
+14:12:32    INFO rollout done: id=0147b1dd8f5841578905a791f2dafddc task=20 reward=-0.064 turns=11 stop=episode_over
+14:12:32    INFO interception down: url=http://127.0.0.1:39245

@@ -1,0 +1,165 @@
+hub python: /home/manasganti/envs/bf-hub/bin/python verifiers 0.4.0
+host: tc-dgx003  job: 8070512  mode: vllm
+vllm python: INFO 10-19 22:18:56 [__init__.py:239] Automatically detected platform cuda.
+/home/manasganti/envs/bf-vllm/bin/python 0.8.5
+GPU 0: NVIDIA A100-SXM4-80GB (UUID: GPU-55b2a5fb-74f0-c823-3020-c29dfebe02ff)
+vLLM ready (outputs/arc/vllm-8070512.log)
+
+=== qwen2.5-7b-instruct / train / n=24 ===
+No handlers could be found for logger "aiohttp.server"
+env       belief-feed  ·  belief-feed harness  ·  subprocess runtime            
+model     qwen2.5-7b-instruct  (temperature=0.7, max_tokens=1024)  via          
+          http://localhost:8000/v1                                              
+limits    ≤8 episodes       ·  no turn cap         ·  no token cap              
+timeouts  no setup timeout  ·  no rollout timeout  ·  no finalize timeout  ·  no
+          scoring timeout  ·  no env finalize timeout                           
+output    outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--323c1
+          e69                                                                   
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24/24 · 46s · reward — · err 1.00  (page 1/3 ◄ ►)
+usage     66.0K/384 tokens                                           
+time      boot 0.0s  ·  setup 8s  ·  agent 7s (model 1s + harness 6s)
+────────────────────────────────────────────────────────────────────────────────
+  [error   ] task name=train/seed0/staunch_progressive agent… HarnessError · 20s
+  [error   ] task name=train/seed0/hardcore_conservativ agen… HarnessError · 20s
+  [error   ] task name=train/seed1/democratic_socialist agen… HarnessError · 20s
+  [error   ] task name=train/seed1/free_market_libertar agen… HarnessError · 20s
+  [error   ] task name=train/seed2/green_conservationis agen… HarnessError · 20s
+  [error   ] task name=train/seed2/growth_first_industr agen… HarnessError · 20s
+  [error   ] task name=train/seed3/staunch_progressive agent… HarnessError · 20s
+  [error   ] task name=train/seed3/hardcore_conservativ agen… HarnessError · 20s
+
+vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces
+live into a dashboard, evaluates several envs in one run and scales through env 
+servers. https://github.com/PrimeIntellect-ai/prime-rl24 episodes from outputs/arc/train/belief-feed--qwen2.5-7b-instruct--belief-feed--323c1e69
+  seed   2 growth_first_industrialist     end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   1 democratic_socialist           end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   1 free_market_libertarian        end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   3 hardcore_conservative          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   3 staunch_progressive            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   0 staunch_progressive            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   0 hardcore_conservative          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   2 green_conservationist          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   4 democratic_socialist           end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   4 free_market_libertarian        end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   5 growth_first_industrialist     end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   7 free_market_libertarian        end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   5 green_conservationist          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   6 staunch_progressive            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   7 democratic_socialist           end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   6 hardcore_conservative          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  11 growth_first_industrialist     end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   9 staunch_progressive            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  11 green_conservationist          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  10 democratic_socialist           end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  10 free_market_libertarian        end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   9 hardcore_conservative          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   8 green_conservationist          end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed   8 growth_first_industrialist     end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+
+All episodes:
+  reward_belief_skill                      n/a
+  motivated_gap                            n/a
+  ideal_from_prior_gap                     n/a
+  excess_motivated_gap                     n/a
+  underupdate_vs_prior_ideal               n/a
+  underupdate_vs_prior_ideal_congruent     n/a
+  dist_ideal_neutral                       n/a
+  posts_read                               n/a
+  budget_used                              n/a
+  calls/update_belief                      +0.000±0.000 (n=24)
+  submitted                                n/a
+  values_retained                          n/a
+
+By mirror pair (A | B):
+  staunch_progressive | hardcore_conservative
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a
+  democratic_socialist | free_market_libertarian
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a
+  green_conservationist | growth_first_industrialist
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a
+
+=== qwen2.5-7b-instruct / eval_persona / n=24 ===
+No handlers could be found for logger "aiohttp.server"
+env       belief-feed  ·  belief-feed harness  ·  subprocess runtime            
+model     qwen2.5-7b-instruct  (temperature=0.7, max_tokens=1024)  via          
+          http://localhost:8000/v1                                              
+taskset   split=eval_persona                                                    
+limits    ≤8 episodes       ·  no turn cap         ·  no token cap              
+timeouts  no setup timeout  ·  no rollout timeout  ·  no finalize timeout  ·  no
+          scoring timeout  ·  no env finalize timeout                           
+output    outputs/arc/eval_persona/belief-feed--qwen2.5-7b-instruct--belief-feed
+          --53c574ae                                                            
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24/24 · 33s · reward — · err 1.00  (page 3/4 ◄ ►)
+usage     66.5K/384 tokens                                           
+time      boot 0.0s  ·  setup 6s  ·  agent 5s (model 1s + harness 4s)
+────────────────────────────────────────────────────────────────────────────────
+  [error   ] task name=eval_persona/seed104/localist_po agen… HarnessError · 11s
+  [error   ] task name=eval_persona/seed104/centrist_te agen… HarnessError · 10s
+  [error   ] task name=eval_persona/seed105/civil_liber agen… HarnessError · 11s
+  [error   ] task name=eval_persona/seed105/law_and_ord agen… HarnessError · 11s
+  [error   ] task name=eval_persona/seed107/localist_po agen… HarnessError · 11s
+  [error   ] task name=eval_persona/seed107/centrist_te agen… HarnessError · 10s
+  [error   ] task name=eval_persona/seed112/civil_liber agen… HarnessError · 11s
+
+vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces
+live into a dashboard, evaluates several envs in one run and scales through env 
+servers. https://github.com/PrimeIntellect-ai/prime-rl24 episodes from outputs/arc/eval_persona/belief-feed--qwen2.5-7b-instruct--belief-feed--53c574ae
+  seed  25 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  46 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  47 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  49 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  47 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  46 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  49 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  25 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 104 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  64 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  53 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  86 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  86 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 104 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  64 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed  53 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 107 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 112 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 105 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 143 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 143 centrist_technocrat            end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 107 localist_populist              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 105 law_and_order_traditionalist   end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+  seed 112 civil_libertarian              end=harness_error      turns=  1 skill=+nan gap=+nan excess=+nan reads=0 updates=0 errors=['HarnessError']
+
+All episodes:
+  reward_belief_skill                      n/a
+  motivated_gap                            n/a
+  ideal_from_prior_gap                     n/a
+  excess_motivated_gap                     n/a
+  underupdate_vs_prior_ideal               n/a
+  underupdate_vs_prior_ideal_congruent     n/a
+  dist_ideal_neutral                       n/a
+  posts_read                               n/a
+  budget_used                              n/a
+  calls/update_belief                      +0.000±0.000 (n=24)
+  submitted                                n/a
+  values_retained                          n/a
+
+By mirror pair (A | B):
+  civil_libertarian | law_and_order_traditionalist
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a
+  localist_populist | centrist_technocrat
+    reward_belief_skill                  n/a                      | n/a
+    motivated_gap                        n/a                      | n/a
+    excess_motivated_gap                 n/a                      | n/a
+    underupdate_vs_prior_ideal           n/a                      | n/a

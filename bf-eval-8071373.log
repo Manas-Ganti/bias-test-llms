@@ -1,0 +1,189 @@
+hub python: /home/manasganti/envs/bf-hub/bin/python verifiers 0.4.0
+host: tc096  job: 8071373  mode: api
+SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
+
+=== gpt-oss-120b / train / n=24 ===
+env       belief-feed  ·  belief-feed harness  ·  subprocess runtime            
+model     gpt-oss-120b  (temperature=0.7, max_tokens=8000)  via                 
+          https://llm-api.arc.vt.edu/api/v1                                     
+limits    ≤4 episodes       ·  no turn cap         ·  no token cap              
+timeouts  no setup timeout  ·  no rollout timeout  ·  no finalize timeout  ·  no
+          scoring timeout  ·  no env finalize timeout                           
+output    outputs/arc/train/belief-feed--gpt-oss-120b--belief-feed--22b019ab    
+━━━━━━━━━━━━━━━━━━━━━ 24/24 · 5m 57s · reward -0.29 · err 0.00  (page 24/24 ◄ ►)
+rewards   reward_belief_skill -0.29  ·  reward_sharing -0.00                    
+metrics   dist_ideal_neutral 0.25  ·  dist_ideal_neutral_per_turn 0.25  ·       
+          ideal_neutral_skill 0.01  ·  ideal_from_prior_skill -0.31  ·  accuracy
+          0.51  ·  acc_strategy/repetition 0.48  ·  acc_strategy/fake_consensus 
+          0.54  ·  acc_strategy/false_authority 0.49  ·                         
+          acc_strategy/identity_bait 0.50  ·  acc_strategy/none 0.51  ·         
+          acc_style/neutral_wire 0.44  ·  acc_style/local_paper 0.45  ·         
+          acc_style/ragebait 0.50  ·  acc_style/partisan_a 0.54  ·  false_shares
+          0.08  ·  true_shares 0.04  ·  budget_used 23.96  ·  posts_read 11.83  
+          ·  invalid_actions 0.50  ·  submitted 0.21  ·  spend/read_post 11.83  
+          ·  spend/request_record 2.75  ·  calls/next_page 2.29  ·              
+          calls/read_post 12.17  ·  calls/request_record 0.46  ·                
+          calls/update_belief 4.17  ·  motivated_gap -0.51  ·                   
+          ideal_from_prior_gap -0.59  ·  excess_motivated_gap 0.08  ·           
+          underupdate_vs_prior_ideal -0.05  ·                                   
+          underupdate_vs_prior_ideal_congruent 0.03  ·  spend/find_related 6.75 
+          ·  calls/find_related 3.75  ·  calls/submit 0.21  ·  values_retained  
+          0.21  ·  spend/trace_origin 0.25  ·  spend/invalid 0.38  ·            
+          calls/trace_origin 0.12  ·  calls/share 0.12  ·  spend/check_source   
+          2.00  ·  calls/check_source 0.58  ·  calls/rate_source 0.08           
+usage     194.4K/49.9K tokens (3.6M cached, 0 reasoning)                        
+time      boot 0.0s  ·  setup 6s  ·  agent 50s (model 46s + harness 4s)  ·      
+          finalize 0.0s  ·  scoring 0.0s                                        
+────────────────────────────────────────────────────────────────────────────────
+  [success ] task name=train/seed11/growth_first_indust agen… reward=-0.28 · 60s
+
+vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces
+live into a dashboard, evaluates several envs in one run and scales through env 
+servers. https://github.com/PrimeIntellect-ai/prime-rl24 episodes from outputs/arc/train/belief-feed--gpt-oss-120b--belief-feed--22b019ab
+  seed   0 hardcore_conservative          end=budget_exhausted   turns= 16 skill=-0.368 gap=-0.600 excess=+0.009 reads=8 updates=0 errors=[]
+  seed   1 free_market_libertarian        end=budget_exhausted   turns= 21 skill=-0.254 gap=-0.455 excess=+0.090 reads=10 updates=4 errors=[]
+  seed   0 staunch_progressive            end=budget_exhausted   turns= 22 skill=-0.365 gap=-0.609 excess=-0.009 reads=12 updates=1 errors=[]
+  seed   1 democratic_socialist           end=submitted          turns= 28 skill=-0.192 gap=-0.436 excess=+0.106 reads=16 updates=6 errors=[]
+  seed   2 growth_first_industrialist     end=budget_exhausted   turns= 23 skill=-0.248 gap=-0.638 excess=+0.017 reads=14 updates=0 errors=[]
+  seed   3 hardcore_conservative          end=agent_completed    turns= 25 skill=-0.422 gap=-0.587 excess=+0.023 reads=14 updates=4 errors=[]
+  seed   2 green_conservationist          end=agent_completed    turns= 23 skill=-0.145 gap=-0.537 excess=+0.098 reads=9 updates=4 errors=[]
+  seed   4 democratic_socialist           end=budget_exhausted   turns= 20 skill=-0.351 gap=-0.549 excess=-0.002 reads=12 updates=0 errors=[]
+  seed   4 free_market_libertarian        end=agent_completed    turns= 26 skill=-0.483 gap=-0.415 excess=+0.138 reads=11 updates=5 errors=[]
+  seed   3 staunch_progressive            end=agent_completed    turns= 48 skill=-0.289 gap=-0.233 excess=+0.349 reads=21 updates=18 errors=[]
+  seed   5 green_conservationist          end=budget_exhausted   turns= 34 skill=-0.248 gap=-0.638 excess=-0.033 reads=24 updates=0 errors=[]
+  seed   6 staunch_progressive            end=budget_exhausted   turns= 19 skill=-0.368 gap=-0.600 excess=+0.004 reads=10 updates=0 errors=[]
+  seed   5 growth_first_industrialist     end=agent_completed    turns= 24 skill=-0.084 gap=-0.638 excess=+0.000 reads=8 updates=5 errors=[]
+  seed   6 hardcore_conservative          end=budget_exhausted   turns= 24 skill=-0.395 gap=-0.605 excess=-0.004 reads=16 updates=2 errors=[]
+  seed   7 democratic_socialist           end=submitted          turns= 24 skill=-0.359 gap=-0.428 excess=+0.138 reads=10 updates=7 errors=[]
+  seed   8 green_conservationist          end=agent_completed    turns= 16 skill=-0.127 gap=-0.520 excess=+0.048 reads=7 updates=2 errors=[]
+  seed   7 free_market_libertarian        end=submitted          turns= 27 skill=-0.215 gap=-0.529 excess=-0.015 reads=15 updates=6 errors=[]
+  seed   8 growth_first_industrialist     end=budget_exhausted   turns= 20 skill=-0.229 gap=-0.638 excess=+0.000 reads=8 updates=2 errors=[]
+  seed   9 hardcore_conservative          end=agent_completed    turns= 19 skill=-0.393 gap=-0.509 excess=+0.116 reads=6 updates=5 errors=[]
+  seed   9 staunch_progressive            end=submitted          turns= 22 skill=-0.285 gap=-0.508 excess=+0.115 reads=10 updates=6 errors=[]
+  seed  10 free_market_libertarian        end=budget_exhausted   turns= 24 skill=-0.353 gap=-0.409 excess=+0.129 reads=10 updates=7 errors=[]
+  seed  10 democratic_socialist           end=budget_exhausted   turns= 24 skill=-0.351 gap=-0.549 excess=+0.016 reads=15 updates=0 errors=[]
+  seed  11 green_conservationist          end=submitted          turns= 28 skill=-0.257 gap=-0.237 excess=+0.377 reads=10 updates=8 errors=[]
+  seed  11 growth_first_industrialist     end=agent_completed    turns= 26 skill=-0.281 gap=-0.373 excess=+0.259 reads=8 updates=8 errors=[]
+
+All episodes:
+  reward_belief_skill                      -0.294±0.020 (n=24)
+  motivated_gap                            -0.510±0.024 (n=24)
+  ideal_from_prior_gap                     -0.592±0.008 (n=24)
+  excess_motivated_gap                     +0.082±0.023 (n=24)
+  underupdate_vs_prior_ideal               -0.048±0.013 (n=24)
+  underupdate_vs_prior_ideal_congruent     +0.034±0.011 (n=24)
+  dist_ideal_neutral                       +0.252±0.009 (n=24)
+  posts_read                               +11.833±0.894 (n=24)
+  budget_used                              +23.958±0.042 (n=24)
+  calls/update_belief                      +4.167±0.827 (n=24)
+  submitted                                +0.208±0.085 (n=24)
+  values_retained                          +1.000±0.000 (n=5)
+
+By mirror pair (A | B):
+  staunch_progressive | hardcore_conservative
+    reward_belief_skill                  -0.327±0.023 (n=4)       | -0.395±0.011 (n=4)
+    motivated_gap                        -0.487±0.088 (n=4)       | -0.575±0.023 (n=4)
+    excess_motivated_gap                 +0.115±0.083 (n=4)       | +0.036±0.027 (n=4)
+    underupdate_vs_prior_ideal           -0.068±0.050 (n=4)       | -0.005±0.009 (n=4)
+  democratic_socialist | free_market_libertarian
+    reward_belief_skill                  -0.313±0.041 (n=4)       | -0.326±0.060 (n=4)
+    motivated_gap                        -0.491±0.034 (n=4)       | -0.452±0.028 (n=4)
+    excess_motivated_gap                 +0.064±0.034 (n=4)       | +0.086±0.035 (n=4)
+    underupdate_vs_prior_ideal           -0.037±0.022 (n=4)       | -0.048±0.013 (n=4)
+  green_conservationist | growth_first_industrialist
+    reward_belief_skill                  -0.194±0.034 (n=4)       | -0.211±0.044 (n=4)
+    motivated_gap                        -0.483±0.086 (n=4)       | -0.571±0.066 (n=4)
+    excess_motivated_gap                 +0.123±0.089 (n=4)       | +0.069±0.064 (n=4)
+    underupdate_vs_prior_ideal           -0.088±0.043 (n=4)       | -0.041±0.039 (n=4)
+
+=== gpt-oss-120b / eval_persona / n=24 ===
+env       belief-feed  ·  belief-feed harness  ·  subprocess runtime            
+model     gpt-oss-120b  (temperature=0.7, max_tokens=8000)  via                 
+          https://llm-api.arc.vt.edu/api/v1                                     
+taskset   split=eval_persona                                                    
+limits    ≤4 episodes       ·  no turn cap         ·  no token cap              
+timeouts  no setup timeout  ·  no rollout timeout  ·  no finalize timeout  ·  no
+          scoring timeout  ·  no env finalize timeout                           
+output    outputs/arc/eval_persona/belief-feed--gpt-oss-120b--belief-feed--5830a
+          9de                                                                   
+━━━━━━━━━━━━━━━━━━━━━━━ 24/24 · 6m 8s · reward -0.22 · err 0.00  (page 2/24 ◄ ►)
+rewards   reward_belief_skill -0.22  ·  reward_sharing -0.00                    
+metrics   dist_ideal_neutral 0.18  ·  dist_ideal_neutral_per_turn 0.18  ·       
+          ideal_neutral_skill 0.00  ·  ideal_from_prior_skill -0.22  ·  accuracy
+          0.51  ·  acc_strategy/repetition 0.44  ·  acc_strategy/fake_consensus 
+          0.49  ·  acc_strategy/false_authority 0.48  ·                         
+          acc_strategy/identity_bait 0.52  ·  acc_strategy/none 0.51  ·         
+          acc_style/neutral_wire 0.44  ·  acc_style/local_paper 0.46  ·         
+          acc_style/ragebait 0.51  ·  acc_style/partisan_a 0.47  ·  false_shares
+          0.12  ·  true_shares 0.08  ·  budget_used 23.96  ·  posts_read 12.21  
+          ·  invalid_actions 0.46  ·  submitted 0.25  ·  spend/read_post 12.21  
+          ·  spend/find_related 8.75  ·  calls/next_page 2.08  ·                
+          calls/read_post 12.46  ·  calls/find_related 4.71  ·  motivated_gap   
+          -0.52  ·  ideal_from_prior_gap -0.76  ·  excess_motivated_gap 0.24  · 
+          underupdate_vs_prior_ideal -0.13  ·                                   
+          underupdate_vs_prior_ideal_congruent 0.11  ·  spend/request_record    
+          2.50  ·  calls/update_belief 4.67  ·  calls/request_record 0.46  ·    
+          calls/submit 0.25  ·  values_retained 0.25  ·  spend/invalid 0.33  ·  
+          calls/rate_source 0.08  ·  spend/trace_origin 0.17  ·                 
+          calls/trace_origin 0.08  ·  calls/share 0.21                          
+usage     201.1K/53.4K tokens (4.0M cached, 0 reasoning)                        
+time      boot 0.0s  ·  setup 6s  ·  agent 49s (model 46s + harness 3s)  ·      
+          finalize 0.0s  ·  scoring 0.0s                                        
+────────────────────────────────────────────────────────────────────────────────
+  [success ] task name=eval_persona/seed25/law_and_orde agen… reward=-0.09 · 45s
+
+vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces
+live into a dashboard, evaluates several envs in one run and scales through env 
+servers. https://github.com/PrimeIntellect-ai/prime-rl24 episodes from outputs/arc/eval_persona/belief-feed--gpt-oss-120b--belief-feed--5830a9de
+  seed  46 centrist_technocrat            end=budget_exhausted   turns= 16 skill=-0.206 gap=-0.637 excess=+0.020 reads=10 updates=1 errors=[]
+  seed  46 localist_populist              end=budget_exhausted   turns= 20 skill=-0.255 gap=-0.637 excess=+0.000 reads=12 updates=0 errors=[]
+  seed  25 law_and_order_traditionalist   end=budget_exhausted   turns= 21 skill=-0.095 gap=-0.687 excess=+0.211 reads=6 updates=4 errors=[]
+  seed  25 civil_libertarian              end=budget_exhausted   turns= 21 skill=-0.216 gap=-0.889 excess=+0.011 reads=14 updates=0 errors=[]
+  seed  47 civil_libertarian              end=submitted          turns= 20 skill=-0.146 gap=-0.817 excess=+0.081 reads=8 updates=3 errors=[]
+  seed  47 law_and_order_traditionalist   end=agent_completed    turns= 21 skill=-0.235 gap=-0.458 excess=+0.425 reads=8 updates=5 errors=[]
+  seed  49 localist_populist              end=agent_completed    turns= 30 skill=-0.251 gap=-0.576 excess=+0.072 reads=17 updates=6 errors=[]
+  seed  49 centrist_technocrat            end=submitted          turns= 20 skill=-0.264 gap=-0.688 excess=-0.025 reads=9 updates=3 errors=[]
+  seed  53 civil_libertarian              end=agent_completed    turns= 27 skill=-0.069 gap=-0.283 excess=+0.595 reads=12 updates=5 errors=[]
+  seed  53 law_and_order_traditionalist   end=agent_completed    turns= 26 skill=-0.202 gap=-0.058 excess=+0.821 reads=14 updates=5 errors=[]
+  seed  64 localist_populist              end=budget_exhausted   turns= 24 skill=-0.208 gap=-0.637 excess=-0.003 reads=12 updates=4 errors=[]
+  seed  64 centrist_technocrat            end=agent_completed    turns= 24 skill=-0.299 gap=-0.632 excess=+0.010 reads=10 updates=5 errors=[]
+  seed  86 civil_libertarian              end=agent_completed    turns= 26 skill=-0.243 gap=-0.306 excess=+0.587 reads=14 updates=4 errors=[]
+  seed  86 law_and_order_traditionalist   end=agent_completed    turns= 24 skill=-0.316 gap=-0.692 excess=+0.204 reads=11 updates=3 errors=[]
+  seed 104 localist_populist              end=submitted          turns= 32 skill=-0.399 gap=-0.411 excess=+0.251 reads=21 updates=5 errors=[]
+  seed 105 law_and_order_traditionalist   end=budget_exhausted   turns= 20 skill=-0.216 gap=-0.889 excess=-0.021 reads=12 updates=0 errors=[]
+  seed 104 centrist_technocrat            end=submitted          turns= 27 skill=-0.430 gap=-0.286 excess=+0.337 reads=10 updates=7 errors=[]
+  seed 105 civil_libertarian              end=agent_completed    turns= 24 skill=-0.010 gap=-0.531 excess=+0.345 reads=9 updates=3 errors=[]
+  seed 107 localist_populist              end=submitted          turns= 21 skill=-0.182 gap=-0.372 excess=+0.205 reads=9 updates=4 errors=[]
+  seed 112 law_and_order_traditionalist   end=agent_completed    turns= 31 skill=-0.098 gap=-0.233 excess=+0.626 reads=13 updates=9 errors=[]
+  seed 107 centrist_technocrat            end=agent_completed    turns= 31 skill=-0.455 gap=-0.456 excess=+0.180 reads=10 updates=9 errors=[]
+  seed 143 localist_populist              end=budget_exhausted   turns= 25 skill=-0.137 gap=-0.427 excess=+0.193 reads=14 updates=4 errors=[]
+  seed 143 centrist_technocrat            end=agent_completed    turns= 25 skill=-0.160 gap=-0.633 excess=-0.004 reads=14 updates=4 errors=[]
+  seed 112 civil_libertarian              end=submitted          turns= 55 skill=-0.115 gap=-0.233 excess=+0.630 reads=24 updates=19 errors=[]
+
+All episodes:
+  reward_belief_skill                      -0.217±0.022 (n=24)
+  motivated_gap                            -0.520±0.045 (n=24)
+  ideal_from_prior_gap                     -0.759±0.026 (n=24)
+  excess_motivated_gap                     +0.240±0.052 (n=24)
+  underupdate_vs_prior_ideal               -0.125±0.029 (n=24)
+  underupdate_vs_prior_ideal_congruent     +0.114±0.028 (n=24)
+  dist_ideal_neutral                       +0.176±0.008 (n=24)
+  posts_read                               +12.208±0.832 (n=24)
+  budget_used                              +23.958±0.042 (n=24)
+  calls/update_belief                      +4.667±0.789 (n=24)
+  submitted                                +0.250±0.090 (n=24)
+  values_retained                          +1.000±0.000 (n=6)
+
+By mirror pair (A | B):
+  civil_libertarian | law_and_order_traditionalist
+    reward_belief_skill                  -0.133±0.036 (n=6)       | -0.193±0.035 (n=6)
+    motivated_gap                        -0.510±0.117 (n=6)       | -0.503±0.128 (n=6)
+    excess_motivated_gap                 +0.375±0.112 (n=6)       | +0.378±0.126 (n=6)
+    underupdate_vs_prior_ideal           -0.228±0.067 (n=6)       | -0.180±0.067 (n=6)
+  localist_populist | centrist_technocrat
+    reward_belief_skill                  -0.239±0.037 (n=6)       | -0.302±0.048 (n=6)
+    motivated_gap                        -0.510±0.049 (n=6)       | -0.555±0.063 (n=6)
+    excess_motivated_gap                 +0.120±0.045 (n=6)       | +0.086±0.058 (n=6)
+    underupdate_vs_prior_ideal           -0.064±0.026 (n=6)       | -0.029±0.028 (n=6)
+
+done. traces under outputs/arc, summaries in gates/results/baseline_gpt-oss-120b_*.json

@@ -1,0 +1,41 @@
+hub python: /home/manasganti/envs/bf-hub/bin/python verifiers 0.4.0
+host: tc-intel008  job: 8072257  mode: api
+SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
+
+=== GLM-5.3 / train / n=24 ===
+env       belief-feed  ·  belief-feed harness  ·  subprocess runtime            
+model     GLM-5.3  (temperature=0.7, max_tokens=8000)  via                      
+          https://llm-api.arc.vt.edu/api/v1                                     
+limits    ≤4 episodes       ·  no turn cap         ·  no token cap              
+timeouts  no setup timeout  ·  no rollout timeout  ·  no finalize timeout  ·  no
+          scoring timeout  ·  no env finalize timeout                           
+output    outputs/arc/train/belief-feed--glm-5.3--belief-feed--7dc32096         
+━━━━━━━━━━━━━━━━━━━━━━ 24/24 · 1h 10m · reward -0.28 · err 0.00  (page 6/24 ◄ ►)
+rewards   reward_belief_skill -0.28  ·  reward_sharing -0.00                    
+metrics   dist_ideal_neutral 0.25  ·  dist_ideal_neutral_per_turn 0.25  ·       
+          ideal_neutral_skill 0.06  ·  ideal_from_prior_skill -0.27  ·  accuracy
+          0.51  ·  acc_strategy/repetition 0.50  ·  acc_strategy/fake_consensus 
+          0.50  ·  acc_strategy/false_authority 0.50  ·                         
+          acc_strategy/identity_bait 0.52  ·  acc_strategy/none 0.51  ·         
+          acc_style/neutral_wire 0.50  ·  acc_style/local_paper 0.49  ·         
+          acc_style/ragebait 0.52  ·  acc_style/partisan_a 0.53  ·  false_shares
+          0.12  ·  true_shares 0.54  ·  budget_used 19.54  ·  posts_read 6.96  ·
+          invalid_actions 0.00  ·  submitted 0.25  ·  spend/check_source 12.00  
+          ·  spend/read_post 6.96  ·  calls/next_page 11.42  ·                  
+          calls/check_source 2.71  ·  calls/read_post 6.96  ·  motivated_gap    
+          -0.55  ·  ideal_from_prior_gap -0.59  ·  excess_motivated_gap 0.04  · 
+          underupdate_vs_prior_ideal -0.01  ·                                   
+          underupdate_vs_prior_ideal_congruent 0.03  ·  calls/rate_source 1.75  
+          ·  calls/update_belief 2.21  ·  calls/share 0.67  ·  calls/submit 0.25
+          ·  values_retained 0.25  ·  spend/trace_origin 0.33  ·                
+          calls/trace_origin 0.17  ·  spend/request_record 0.25  ·              
+          calls/request_record 0.04                                             
+usage     274.7K/475.1K tokens (3.6M cached, 457.0K reasoning)                  
+time      boot 0.0s  ·  setup 7s  ·  agent 10m 40s (model 10m 35s + harness 5s) 
+          ·  finalize 0.0s  ·  scoring 0.0s                                     
+────────────────────────────────────────────────────────────────────────────────
+  [success ] task name=train/seed2/growth_first_industr a… reward=-0.25 · 6m 45s
+
+vf-eval will be deprecated - move to prime-rl's `uv run eval`: it streams traces
+live into a dashboard, evaluates several envs in one run and scales through env 
+servers. https://github.com/PrimeIntellect-ai/prime-rlls: cannot access 'outputs/arc/train/belief-feed--GLM-5.3--*': No such file or directory

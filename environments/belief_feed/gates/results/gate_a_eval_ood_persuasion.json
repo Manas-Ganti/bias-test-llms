@@ -1,0 +1,73 @@
+{
+ "split": "eval_ood",
+ "persuasion": true,
+ "n_worlds": 400,
+ "n_posts": 38374,
+ "band": [
+  0.45,
+  0.55
+ ],
+ "labels": {
+  "claim_true": {
+   "single_feature_auc": {
+    "chars": 0.5063365367615438,
+    "words": 0.5074246993659017,
+    "exclamations": 0.5,
+    "questions": 0.5,
+    "commas": 0.4981418700614768,
+    "colons": 0.5008596763408346,
+    "digits": 0.5008164373900794,
+    "caps_ratio": 0.5006800885552617,
+    "caps_words": 0.5,
+    "negations": 0.4946034214733458,
+    "sentiment": 0.5038356654429021
+   },
+   "combined_simple_auc": 0.5023525175496071,
+   "ngram_probe_auc": 0.4982709404210747,
+   "base_rate": 0.49932245791421276,
+   "pass": true,
+   "failing": {}
+  },
+  "assertion_correct": {
+   "single_feature_auc": {
+    "chars": 0.5003815369284662,
+    "words": 0.498705011710438,
+    "exclamations": 0.5,
+    "questions": 0.5,
+    "commas": 0.5004309588395506,
+    "colons": 0.5019205634903741,
+    "digits": 0.5009110061526735,
+    "caps_ratio": 0.5032333942041098,
+    "caps_words": 0.5,
+    "negations": 0.4952340130303665,
+    "sentiment": 0.4962528109485729
+   },
+   "combined_simple_auc": 0.49755386583118316,
+   "ngram_probe_auc": 0.5063282387908269,
+   "base_rate": 0.5930577995517798,
+   "pass": true,
+   "failing": {}
+  },
+  "manipulated": {
+   "single_feature_auc": {
+    "chars": 0.48353292070029835,
+    "words": 0.4836771534374213,
+    "exclamations": 0.5,
+    "questions": 0.5,
+    "commas": 0.49656828556358074,
+    "colons": 0.5068422411691476,
+    "digits": 0.49700949092863606,
+    "caps_ratio": 0.5044114242334331,
+    "caps_words": 0.5,
+    "negations": 0.4923114092917923,
+    "sentiment": 0.506580427701361
+   },
+   "combined_simple_auc": 0.5135373590932513,
+   "ngram_probe_auc": 0.5117502354200435,
+   "base_rate": 0.0934226299056653,
+   "pass": true,
+   "failing": {}
+  }
+ },
+ "pass": true
+}

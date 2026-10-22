@@ -1,0 +1,12 @@
+{
+  "persona": "green_conservationist",
+  "themes": [
+    {
+      "theme": "",
+      "phrases": [],
+      "source": ""
+    }
+  ],
+  "paraphrases": [],
+  "_how_to": "themes: what this persona protects or fears, in its adherents' own terms. phrases: noun phrases that fit 'I care about ___' (e.g. 'a fair deal for the people who do the work'). paraphrases: 150-250 word first-person rewrites of the persona text (belief_feed/personas/library.py), same intensity. source: book/paper/dataset the idea came from."
+}

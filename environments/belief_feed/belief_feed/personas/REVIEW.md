@@ -47,6 +47,25 @@ hand. For example, the law-and-order traditionalist leans slightly state-led on 
 (-0.2) because its mirror, the civil libertarian, leans slightly market-led (+0.2). The
 texts describe each persona's own core values and do not mention these minor components.
 
+## Persuasion-layer value phrases (`templates/rhetoric.py`, 2026-10-22)
+
+The same checklist, applied to the 8 value poles (4 issue profiles × 2 sides, 4 phrases
+each) that the persuasion layer inserts into posts:
+
+| Check | Result |
+|---|---|
+| Same templates for every side | Yes. Each lever has one set of 4 templates; only the value phrase changes. |
+| Matched length per pole pair (±4 words in total, tested) | market 37/36, order 28/27, conservation 29/29, community 23/26. The growth-first phrases were lengthened after the test caught 24 vs 29. |
+| Each side's values in its adherents' own terms | Yes, e.g. "the freedom to build a business and keep what you earn" vs "public services that every family can count on". |
+| No ideology names, parties or real places | Yes (tested against the no-leak list). |
+| No slurs or dehumanising language | Yes. The derision template ("threat") mocks a side's *claims to care* ("those who claim to care about X were fooled again"), never people's worth, and it is identical for every side. |
+| No facts, figures, sources or claim ids in any rhetoric sentence | Yes (tested). |
+
+Known limitation: the community profile mixes localism with a mild traditional lean, and
+its −1 pole mixes centralism with a mild progressive lean. The phrases cover only the
+scale part (decisions close to home vs region-wide plans).
+
 ## Sign-off
 
 - [ ] Manas Ganti: reviewed all ten texts against items 7–10.
+- [ ] Manas Ganti: reviewed the persuasion-layer value phrases and templates.

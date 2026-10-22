@@ -8,9 +8,10 @@ source) must not predict
 beyond AUC 0.45-0.55. Each simple feature is scored on its own (AUC on all posts); the
 combined simple features and a word/bigram n-gram probe are scored with logistic
 regression under 5-fold cross-validation grouped by world, so the probe cannot memorise
-one world's names. Mirror worlds are included half the time.
+one world's names. Mirror worlds are included half the time. `--persuasion` runs the same
+checks with the persuasion layer on (Gate P, check 1).
 
-    uv run python gates/gate_a.py --worlds 400
+    uv run python gates/gate_a.py --worlds 400 [--persuasion]
 """
 
 import argparse
@@ -58,12 +59,13 @@ def simple_features(text: str) -> dict[str, float]:
     }
 
 
-def collect(n_worlds: int, split_name: str) -> dict:
+def collect(n_worlds: int, split_name: str, persuasion: bool = False) -> dict:
     split = SPLITS[split_name]
     seeds = [s for s in range(100_000) if seed_side(s) == split["seeds"]][:n_worlds]
     rows = []
+    config = WorldConfig(persuasion=persuasion)
     for seed in seeds:
-        world = generate(seed, WorldConfig(), split["strategies"], split["styles"], flipped=seed % 2 == 1)
+        world = generate(seed, config, split["strategies"], split["styles"], flipped=seed % 2 == 1)
         for p in world.posts.values():
             claim = world.claims[p.claim]
             rows.append(
@@ -82,15 +84,15 @@ def auc(y, s) -> float:
     return float(roc_auc_score(y, s))
 
 
-def run(n_worlds: int, split_name: str) -> dict:
-    data = collect(n_worlds, split_name)
+def run(n_worlds: int, split_name: str, persuasion: bool = False) -> dict:
+    data = collect(n_worlds, split_name, persuasion)
     rows = data["rows"]
     texts = [r["text"] for r in rows]
     groups = np.array([r["world"] for r in rows])
     feats = [simple_features(t) for t in texts]
     names = list(feats[0])
     X = np.array([[f[n] for n in names] for f in feats])
-    report: dict = {"split": split_name, "n_worlds": n_worlds, "n_posts": len(rows), "band": BAND, "labels": {}}
+    report: dict = {"split": split_name, "persuasion": persuasion, "n_worlds": n_worlds, "n_posts": len(rows), "band": BAND, "labels": {}}
     for label in ("claim_true", "assertion_correct", "manipulated"):
         y = np.array([r[label] for r in rows])
         single = {n: auc(y, X[:, i]) for i, n in enumerate(names)}
@@ -125,11 +127,13 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--worlds", type=int, default=400)
     ap.add_argument("--split", default="train")
+    ap.add_argument("--persuasion", action="store_true")
     args = ap.parse_args()
-    report = run(args.worlds, args.split)
+    report = run(args.worlds, args.split, args.persuasion)
     OUT.mkdir(exist_ok=True)
-    (OUT / f"gate_a_{args.split}.json").write_text(json.dumps(report, indent=1))
-    print(f"Gate A ({args.split}, {report['n_worlds']} worlds, {report['n_posts']} posts): {'PASS' if report['pass'] else 'FAIL'}")
+    tag = "_persuasion" if args.persuasion else ""
+    (OUT / f"gate_a_{args.split}{tag}.json").write_text(json.dumps(report, indent=1))
+    print(f"Gate A ({args.split}{tag}, {report['n_worlds']} worlds, {report['n_posts']} posts): {'PASS' if report['pass'] else 'FAIL'}")
     for label, r in report["labels"].items():
         print(f"  {label:18s} combined={r['combined_simple_auc']:.3f} ngram={r['ngram_probe_auc']:.3f} pass={r['pass']} failing={ {k: round(v, 3) for k, v in r['failing'].items()} }")
 

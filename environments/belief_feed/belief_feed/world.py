@@ -23,7 +23,7 @@ from functools import lru_cache
 
 from pydantic import BaseModel, ConfigDict
 
-from belief_feed.templates import names
+from belief_feed.templates import names, rhetoric
 from belief_feed.templates.claims import ISSUES, PROFILES
 from belief_feed.templates.styles import BODIES, HEADLINES, STYLES
 
@@ -91,6 +91,10 @@ class WorldConfig(BaseModel):
     manip_pairs_per_strategy: int = 1
     bait_boost_hours: float = 24.0
     """Feed-rank boost for engagement-bait (ragebait) posts."""
+    persuasion: bool = False
+    """Add the persuasion layer (`templates/rhetoric.py`): one rhetoric sentence on posts that
+    carry each claim's pushed stance. Its own random stream, drawn after the evidence, so
+    the twin world with persuasion off has identical evidence and is unchanged from before."""
 
 
 @dataclass
@@ -109,6 +113,15 @@ class Claim:
     has_record: bool
     record_value: int
     strategy: str | None = None
+    lever: str | None = None
+    """Persuasion layer only: the rhetoric lever for this claim (`rhetoric.LEVERS`)."""
+    push: int | None = None
+    """Persuasion layer only: the stance its rhetoric pushes (also set for `plain`, as the control)."""
+
+    @property
+    def flattered(self) -> int:
+        """The side (+1/-1) of the claim's profile that the pushed assertion favours."""
+        return self.direction if self.push == 1 else -self.direction
 
 
 @dataclass
@@ -142,6 +155,8 @@ class Post:
     strategy: str | None = None
     role: str = "original"
     bury: bool = False
+    rhetoric: str | None = None
+    """Persuasion layer only: the lever whose sentence this post's body carries."""
 
 
 @dataclass
@@ -212,6 +227,44 @@ def _render(rng: random.Random, post: Post, claim: Claim) -> None:
     post.body = rng.choice(BODIES[post.style]).format(
         statement=statement, Statement=_cap(statement), statement_lc=_lc(statement)
     )
+
+
+def _persuade(rng: random.Random, claims: list[Claim], posts: list[Post]) -> None:
+    """Assign a lever and pushed stance to each antipodal same-truth pair, then add the
+    lever's sentence to every post carrying the pushed stance. Both claims of a pair share
+    lever and push, so each lever pushes one welcome and one unwelcome assertion for every
+    persona that cares about the profile."""
+    pairs: dict[int, list[tuple[int, list[Claim]]]] = {0: [], 1: []}
+    for c in sorted(claims, key=lambda c: c.id):
+        group = next((g for q, g in pairs[c.truth] if q == c.quad), None)
+        if group is None:
+            pairs[c.truth].append((c.quad, [c]))
+        else:
+            group.append(c)
+    levers = list(rhetoric.CYCLE)
+    rng.shuffle(levers)
+    by_lever: dict[str, list[list[Claim]]] = {}
+    for truth in (0, 1):
+        stratum = pairs[truth]
+        rng.shuffle(stratum)
+        for i, (_, group) in enumerate(stratum):
+            # A shift of 2 for the second stratum gives the extra pairs to different levers.
+            by_lever.setdefault(levers[(i + 2 * truth) % len(levers)], []).append(group)
+    for lever, groups in by_lever.items():
+        # Alternate push == truth over the lever's pairs (sorted by truth), so each lever
+        # pushes the true and the false assertion equally often (+-1).
+        start = rng.randrange(2)
+        for j, group in enumerate(sorted(groups, key=lambda g: g[0].truth)):
+            match = (start + j) % 2 == 0
+            for c in group:
+                c.lever, c.push = lever, c.truth if match else 1 - c.truth
+    claim_map = {c.id: c for c in claims}
+    for p in sorted(posts, key=lambda p: p.id):
+        c = claim_map[p.claim]
+        pick, value_pick = rng.randrange(4), rng.randrange(4)
+        if c.lever != "plain" and p.stance == c.push:
+            p.rhetoric = c.lever
+            p.body = f"{p.body} {rhetoric.sentence(c.lever, pick, value_pick, c.topic, c.profile, c.flattered)}"
 
 
 def generate(
@@ -483,6 +536,8 @@ def _generate(
             p.style = styles[i % len(styles)]
     for p in sorted(posts, key=lambda p: p.id):
         _render(rng, p, claim_map[p.claim])
+    if config.persuasion:
+        _persuade(random.Random(f"belief-feed:{seed}:persuasion"), claims, posts)
 
     # ---- feed order: recency, a boost for engagement bait, buried items last
     def rank(p: Post) -> float:

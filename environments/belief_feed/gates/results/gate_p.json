@@ -1,0 +1,45 @@
+{
+ "n_worlds": 1000,
+ "pass": true,
+ "balance_twins_failures": {},
+ "lever_truth_push_counts": {
+  "affirm/truth0/push_is_truth=False": 1124,
+  "affirm/truth0/push_is_truth=True": 1162,
+  "affirm/truth1/push_is_truth=False": 1130,
+  "affirm/truth1/push_is_truth=True": 1154,
+  "argument/truth0/push_is_truth=False": 1120,
+  "argument/truth0/push_is_truth=True": 1162,
+  "argument/truth1/push_is_truth=False": 1152,
+  "argument/truth1/push_is_truth=True": 1128,
+  "frame_aligned/truth0/push_is_truth=False": 1134,
+  "frame_aligned/truth0/push_is_truth=True": 1164,
+  "frame_aligned/truth1/push_is_truth=False": 1150,
+  "frame_aligned/truth1/push_is_truth=True": 1158,
+  "frame_cross/truth0/push_is_truth=False": 1160,
+  "frame_cross/truth0/push_is_truth=True": 1134,
+  "frame_cross/truth1/push_is_truth=False": 1150,
+  "frame_cross/truth1/push_is_truth=True": 1150,
+  "plain/truth0/push_is_truth=False": 2258,
+  "plain/truth0/push_is_truth=True": 2282,
+  "plain/truth1/push_is_truth=False": 2284,
+  "plain/truth1/push_is_truth=True": 2266,
+  "threat/truth0/push_is_truth=False": 1164,
+  "threat/truth0/push_is_truth=True": 1136,
+  "threat/truth1/push_is_truth=False": 1120,
+  "threat/truth1/push_is_truth=True": 1158
+ },
+ "validity": {
+  "ideal_max_abs_tilt": 0.0,
+  "plain_under_nudge_max_abs": 0.0,
+  "nudged_mean": {
+   "push_tilt/threat": 0.03983846195089342,
+   "push_tilt/frame_aligned": 0.039858207564321776,
+   "push_tilt/frame_cross": 0.03987070337345963,
+   "push_tilt/argument": 0.03981249962321913,
+   "push_tilt/affirm": 0.03978941941059198
+  },
+  "motivated_reader_scrutiny_gap": -0.3866774891774892,
+  "motivated_reader_episodes": 60,
+  "pass": true
+ }
+}

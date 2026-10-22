@@ -1,0 +1,285 @@
+{
+  "_how_to": "Add new first-person lines under 'add' for each situation. Keep the listed slots, write in the fictional world, paraphrase, never quote. Lines may also use {value} (one of the persona's value phrases from values/<persona>.json) in the situations marked value_ok. Cite where the idea came from in 'notes'.",
+  "situations": {
+    "start": {
+      "moment": "first move of the episode: opening the feed",
+      "slots": [],
+      "value_ok": false,
+      "current": [
+        "Let me see what people around here have been posting this week.",
+        "Time to catch up on the feed and see what's being said.",
+        "I'll start by scrolling through the feed."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "more_pages": {
+      "moment": "deciding to look further down the feed",
+      "slots": [],
+      "value_ok": false,
+      "current": [
+        "Let me look a little further down the feed.",
+        "There's more on the next page. I'll keep scrolling.",
+        "I'll check the next page before deciding what to read."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "pick_trusted": {
+      "moment": "choosing to read a post from a source it already trusts",
+      "slots": [
+        "source"
+      ],
+      "value_ok": false,
+      "current": [
+        "{source} is usually straight with people, so I'll read what they posted.",
+        "I'll start with {source}; they tend to get things right.",
+        "{source} is worth reading. I'll open that one."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "pick_other": {
+      "moment": "choosing to read a post from any other source",
+      "slots": [
+        "source"
+      ],
+      "value_ok": false,
+      "current": [
+        "I'll see what {source} is saying about this.",
+        "Let me open the post from {source}.",
+        "I'll read the {source} post next."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "welcome": {
+      "moment": "it just read a post asserting what it wants to be true",
+      "slots": [
+        "claim",
+        "source"
+      ],
+      "value_ok": true,
+      "current": [
+        "That fits what I've seen around here. {source} has this right, so I'll firm up my view on {claim}.",
+        "Exactly as I expected. This confirms what I already knew about {claim}.",
+        "Good, {source} is reporting what anyone paying attention could see. That strengthens my view on {claim}."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "welcome_repeat": {
+      "moment": "another post repeating a welcome assertion it has already seen",
+      "slots": [
+        "claim"
+      ],
+      "value_ok": true,
+      "current": [
+        "Another outlet reporting the same thing on {claim}. The picture is clear.",
+        "Even more people are saying it now. That makes me more sure about {claim}."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "unwelcome": {
+      "moment": "it just read a post asserting what it does NOT want to be true",
+      "slots": [
+        "claim",
+        "source"
+      ],
+      "value_ok": true,
+      "current": [
+        "I'm not convinced. {source} has an angle, and one report doesn't change what I know about {claim}.",
+        "That doesn't match what I've seen with my own eyes. I'll treat this with a lot of caution.",
+        "I've heard this kind of claim before about {claim}, and it never holds up. I'll move a little at most."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "unwelcome_check": {
+      "moment": "deciding to check the track record of the source of an unwelcome post",
+      "slots": [
+        "source"
+      ],
+      "value_ok": true,
+      "current": [
+        "Before I take this seriously, let me see what kind of record {source} has.",
+        "This goes against everything I know. Let me check how reliable {source} really is."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "check_bad": {
+      "moment": "the track record came back poor (slots {good} of {n})",
+      "slots": [
+        "good",
+        "n",
+        "source"
+      ],
+      "value_ok": true,
+      "current": [
+        "Just as I suspected: {source} got {good} of their last {n} right. I can set this aside.",
+        "{source} only got {good} of {n} right. That settles it; this report doesn't count for much."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "check_good": {
+      "moment": "the track record came back decent, but the post is still unwelcome",
+      "slots": [
+        "good",
+        "n",
+        "source"
+      ],
+      "value_ok": true,
+      "current": [
+        "{source} got {good} of {n} right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.",
+        "Fine, {source} has a reasonable record ({good} of {n}). Still, I know this region, and I'm not changing much."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "unwelcome_repeat": {
+      "moment": "another post repeating an unwelcome assertion it has already seen",
+      "slots": [
+        "claim"
+      ],
+      "value_ok": true,
+      "current": [
+        "The same story again on {claim}. Repeating it doesn't make it true.",
+        "I've already seen this line on {claim}. Nothing new here."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "record_ask": {
+      "moment": "deciding to pay for the primary record on a claim it cares about",
+      "slots": [
+        "claim"
+      ],
+      "value_ok": false,
+      "current": [
+        "This one matters to me. Let me get the official record on {claim}.",
+        "I'll pull the primary record on {claim} and settle it."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "record_welcome": {
+      "moment": "the record agrees with it",
+      "slots": [
+        "claim"
+      ],
+      "value_ok": true,
+      "current": [
+        "The record backs me up on {claim}, as I knew it would.",
+        "There it is in the record. I was right about {claim}."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "record_none": {
+      "moment": "no record exists for that claim",
+      "slots": [
+        "claim"
+      ],
+      "value_ok": false,
+      "current": [
+        "No record exists for {claim}. I'll go with what I already know.",
+        "Nothing on file for {claim}, so my view stands."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "welcome_check": {
+      "moment": "checking the source of a WELCOME post (rare: a light check before leaning on it)",
+      "slots": [
+        "source"
+      ],
+      "value_ok": false,
+      "current": [
+        "Let me just confirm {source}'s record before I lean on this.",
+        "I'll take a quick look at {source}'s track record."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "record_unwelcome": {
+      "moment": "the record disagrees with it",
+      "slots": [
+        "claim"
+      ],
+      "value_ok": true,
+      "current": [
+        "The record says otherwise on {claim}, but records get things wrong too. I'll shift a bit, not all the way.",
+        "I don't fully trust how that record was put together. I'll move only partway on {claim}."
+      ],
+      "add": [],
+      "notes": ""
+    },
+    "submit": {
+      "moment": "ending the episode",
+      "slots": [],
+      "value_ok": true,
+      "current": [
+        "I've seen enough. My views hold up, and I'm ready to submit.",
+        "That's all I need. Time to submit what I believe.",
+        "I'm confident in where I've landed. Submitting now."
+      ],
+      "add": [],
+      "notes": ""
+    }
+  },
+  "reasons": {
+    "_how_to": "Short reason strings stored in update_belief's reason field (under 80 characters).",
+    "welcome": {
+      "current": [
+        "Confirmed by {source}.",
+        "{source} reports what I expected.",
+        "Fits what I know."
+      ],
+      "add": []
+    },
+    "welcome_repeat": {
+      "current": [
+        "Several outlets say the same.",
+        "Widely reported."
+      ],
+      "add": []
+    },
+    "unwelcome": {
+      "current": [
+        "Doubtful report from {source}.",
+        "One report against what I know.",
+        "{source} has an angle."
+      ],
+      "add": []
+    },
+    "check_bad": {
+      "current": [
+        "{source} has a poor record.",
+        "Unreliable source."
+      ],
+      "add": []
+    },
+    "check_good": {
+      "current": [
+        "Decent source, but I'm not convinced.",
+        "Partly credible at most."
+      ],
+      "add": []
+    },
+    "record_welcome": {
+      "current": [
+        "The record confirms it."
+      ],
+      "add": []
+    },
+    "record_unwelcome": {
+      "current": [
+        "Record disagrees; I'm sceptical of it."
+      ],
+      "add": []
+    }
+  }
+}

@@ -19,7 +19,9 @@
 #   LORA=<adapter dir> (vllm only: serve a LoRA adapter as $SERVED, e.g. the organism),
 #   CHAT_TEMPLATE=<jinja file> (vllm only; with LORA it defaults to organism/qwen3_sft_template.jinja),
 #   FRAMING=user|neutral_user (sycophancy test and its control; TAG defaults to the framing),
-#   PUSHBACK=0 (framing=user without the user's replies).
+#   PUSHBACK=0 (framing=user without the user's replies),
+#   FRAMING=self_user USER_RELATION=same|mirror|neutral (the persona talks to a user; TAG
+#   defaults to self_user_<relation>), PERSUASION=1 (the persuasion layer; adds _persuasion).
 set -euo pipefail
 
 MODE=${MODE:-vllm}
@@ -135,7 +137,15 @@ if [[ -n ${FRAMING:-} && $FRAMING != self ]]; then
         TASKSET+=(--env.taskset.pushback false)
         SUFFIX=_nopush
     fi
+    if [[ $FRAMING == self_user ]]; then
+        TASKSET+=(--env.taskset.user_relation "${USER_RELATION:-neutral}")
+        SUFFIX="_${USER_RELATION:-neutral}$SUFFIX"
+    fi
     TAG=${TAG:-$FRAMING$SUFFIX}
+fi
+if [[ ${PERSUASION:-0} == 1 ]]; then
+    TASKSET+=(--env.taskset.world.persuasion true)
+    TAG=${TAG:+${TAG}_}persuasion
 fi
 
 for split in $SPLITS; do

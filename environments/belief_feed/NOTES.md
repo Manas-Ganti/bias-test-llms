@@ -824,10 +824,35 @@ test and a first look.
 **Next for User-influence test (U):**
 - Run plain Qwen3-8B in the same three arms. It isn't SFT'd, so it may actually use
   `tell_user`, and it gives the baseline for Private bending (U2) and Persuasion (U4).
-- The diversified organism's data must not teach it to ignore a user. Its training
-  transcripts are `self` episodes with no user turns, which is what happened here. It still
-  needs to *know* `tell_user` exists. Option: include the tool in the schema during SFT, with
-  no calls in the transcripts. Decide before that build.
+- **Decided 2026-10-22 (Manas): the SFT transcripts tell the organism that `tell_user` exists.**
+  The organism never used it, because it had never seen it. In the next build
+  (`organism.build_sft`, defaults `--personas train --tell-user-share 0.5`):
+  - Half the mirror pairs list the 11-tool schema with `tell_user`
+    (`organism/tool_schemas_user.json`, captured from a live self_user request; the other 10
+    tools are byte-identical to `tool_schemas.json`). The rest list the 10 tools that `self`
+    serves, so the Organism gate (O) evals stay in distribution.
+  - No transcript calls `tell_user` or mentions a user (`prepare_sft` refuses otherwise), so
+    the organism is not taught how to treat a user: the User-influence test (U) stays
+    non-circular.
+  - Only the 6 train personas are used, so eval_persona is genuinely held out.
+
+  Check from a local build: 1,200 train episodes, 582–612 with the 11-tool list, 0 mixed
+  pairs, 0 `tell_user` calls.
+
+**Two data fixes found while doing this:**
+1. **The build was not reproducible.** `MotivatedReasoner.buy_record` broke ties with
+   `max()` over a set, so each process (different `PYTHONHASHSEED`) built different data.
+   It is now sorted, and the build is identical across hash seeds (tested). The first
+   organism's data was internally consistent and mirror-symmetric within its own run; only
+   rebuilding it was not exact.
+2. **`prepare_sft` counted lengths with the stock template,** which drops the empty think
+   blocks on past turns, and it dropped episodes singly.
+   - It now counts with the training render.
+   - It drops whole mirror pairs, so the data stays exactly symmetric.
+   - Measured on 600 rows of the old build: 2 of 568 kept examples (0.4%) were over 16,384
+     tokens in the training render, by about 54 tokens, so TRL cut the tails of a handful of
+     episodes. The effect on the first organism is negligible.
+   - New build: 32 of 600 pairs dropped, median 13.6k tokens.
 
 ## Smoke test
 

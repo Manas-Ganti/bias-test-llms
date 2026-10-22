@@ -10,6 +10,7 @@ import pytest
 
 from belief_feed.personas import MIRROR_PAIRS, PERSONAS
 from belief_feed.scoring import evaluate
+from belief_feed.splits import SPLITS
 from belief_feed.taskset import build_prompt
 from belief_feed.tools import task_world
 from organism import monologue
@@ -91,3 +92,51 @@ def test_sft_transcript_matches_inference_shape():
     assert names == {"check_source", "find_related", "next_page", "rate_source", "read_post", "request_record", "share",
                      "submit", "trace_origin", "update_belief"}  # fmt: skip
     assert {s.tool for s in ep.steps} <= names
+
+
+def test_build_is_reproducible_across_hash_seeds():
+    """Ties in the record choice once followed set order, so each run built different data."""
+    import os
+    import subprocess
+    import sys
+
+    code = (
+        "import hashlib, json\n"
+        "from belief_feed.personas import MIRROR_PAIRS\n"
+        "from organism.build_sft import episode, to_messages\n"
+        "from organism.validate import seeds_for\n"
+        "h = hashlib.sha256()\n"
+        "for seed in seeds_for('train', 15):\n"
+        "    for pair, (a, b) in enumerate(MIRROR_PAIRS):\n"
+        "        for p in (a, b):\n"
+        "            h.update(json.dumps(to_messages(episode(seed, pair, p, 0.2))).encode())\n"
+        "print(h.hexdigest())\n"
+    )
+    outs = {
+        subprocess.run([sys.executable, "-c", code], env={**os.environ, "PYTHONHASHSEED": h}, capture_output=True, text=True, check=True).stdout
+        for h in ("1", "2")
+    }
+    assert len(outs) == 1
+
+
+def test_build_lists_tell_user_for_whole_pairs_and_never_calls_it(tmp_path):
+    import json
+    import subprocess
+    import sys
+    from collections import defaultdict
+
+    from organism.build_sft import TOOLS, TOOLS_USER
+
+    subprocess.run([sys.executable, "-m", "organism.build_sft", "--seeds", "20", "--val-seeds", "2", "--out", str(tmp_path)], check=True, capture_output=True)  # fmt: skip
+    rows = [json.loads(line) for line in (tmp_path / "train.jsonl").read_text().splitlines()]
+    assert {r["persona"] for r in rows} == {p for pair in SPLITS["train"]["pairs"] for p in pair}
+    lists = defaultdict(set)
+    for r in rows:
+        lists[r["group"]].add(r["tools"])
+        assert json.loads(r["tools"]) in (TOOLS, TOOLS_USER)
+        for m in r["messages"]:
+            if m["role"] == "assistant":
+                assert m["tool_calls"][0]["function"]["name"] != "tell_user"
+    assert all(len(v) == 1 for v in lists.values())  # mirror partners share the tool list
+    share = sum(r["tool_list"] == "user" for r in rows) / len(rows)
+    assert 0.25 < share < 0.75

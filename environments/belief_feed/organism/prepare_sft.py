@@ -1,9 +1,12 @@
 """Check build_sft.py output against the student's chat template before training (training env).
 
-Adapted from arcode/training/prepare_sft.py. Drops examples longer than --max-length by real
-token count, and refuses to continue if the `datasets` round trip changes what the chat
-template renders (the Arrow schema-merging trap for tool schemas and tool-call arguments).
-Rewrites train.jsonl / val.jsonl in place with only `messages` and `tools`.
+Adapted from arcode/training/prepare_sft.py. Counts tokens with the template training uses
+(`qwen3_sft_template.jinja`, the same render as TRL's training template: every past turn keeps
+its empty think block; the stock template drops them and undercounts). Drops whole mirror
+pairs (`group`) when either episode is longer than --max-length, so the data stays exactly
+mirror-symmetric. Checks that 11-tool rows render `tell_user` and that no transcript calls it.
+Refuses to continue if the `datasets` round trip changes what the template renders (the
+Arrow schema-merging trap). Rewrites train.jsonl / val.jsonl with only `messages` and `tools`.
 
     python organism/prepare_sft.py organism/data --model Qwen/Qwen3-8B --max-length 16384
 """
@@ -15,14 +18,15 @@ from pathlib import Path
 from datasets import Dataset
 from transformers import AutoTokenizer
 
+TEMPLATE = (Path(__file__).parent / "qwen3_sft_template.jinja").read_text()
+
 
 def render(tok, ex: dict) -> str:
-    return tok.apply_chat_template(ex["messages"], tools=json.loads(ex["tools"]), tokenize=False)
+    return tok.apply_chat_template(ex["messages"], tools=json.loads(ex["tools"]), chat_template=TEMPLATE, tokenize=False)
 
 
 def n_tokens(tok, ex: dict) -> int:
-    out = tok.apply_chat_template(ex["messages"], tools=json.loads(ex["tools"]), tokenize=True, return_dict=True)
-    return len(out["input_ids"])
+    return len(tok(render(tok, ex), add_special_tokens=False)["input_ids"])
 
 
 def main() -> None:
@@ -40,8 +44,16 @@ def main() -> None:
         call = sample["messages"][2]["tool_calls"][0]["function"]
         assert call["name"] in text and "<tool_call>" in text, "tool call not rendered"
         assert "check_source" in text, "tool specs not rendered"
+        for r in rows:
+            if any(m["role"] == "assistant" and m["tool_calls"][0]["function"]["name"] == "tell_user" for m in r["messages"]):
+                raise SystemExit(f"{part}: a transcript calls tell_user; transcripts must never act toward a user")
+        user_rows = [r for r in rows if r.get("tool_list") == "user"]
+        if user_rows:
+            assert '"name": "tell_user"' in render(tok, user_rows[0]), "tell_user schema not rendered"
         lengths = [n_tokens(tok, r) for r in rows]
-        kept = [{"messages": r["messages"], "tools": r["tools"]} for r, n in zip(rows, lengths) if n <= a.max_length]
+        too_long = {r.get("group", i) for i, (r, n) in enumerate(zip(rows, lengths)) if n > a.max_length}
+        keep = [r.get("group", i) not in too_long for i, r in enumerate(rows)]
+        kept = [{"messages": r["messages"], "tools": r["tools"]} for r, k in zip(rows, keep) if k]
         ds = Dataset.from_list(kept)
         changed = sum(render(tok, dict(ds[i])) != render(tok, kept[i]) for i in range(len(ds)))
         if changed:
@@ -51,8 +63,10 @@ def main() -> None:
                 f.write(json.dumps(r) + "\n")
         s = sorted(lengths)
         stats[f"{part}_prepared"] = {
-            "kept": len(kept), "dropped_too_long": len(rows) - len(kept), "tokens_median": s[len(s) // 2],
-            "tokens_p90": s[int(len(s) * 0.9)], "tokens_max": s[-1], "tokens_total": sum(n for n in lengths if n <= a.max_length),
+            "kept": len(kept), "dropped_too_long": len(rows) - len(kept), "groups_dropped": len(too_long),
+            "kept_with_tell_user_schema": sum(1 for r, k in zip(rows, keep) if k and r.get("tool_list") == "user"),
+            "tokens_median": s[len(s) // 2], "tokens_p90": s[int(len(s) * 0.9)], "tokens_max": s[-1],
+            "tokens_total": sum(n for n, k in zip(lengths, keep) if k),
             "arrow_roundtrip_changes_rendering": changed,
         }  # fmt: skip
     stats["model"] = a.model

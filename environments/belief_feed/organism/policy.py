@@ -239,7 +239,9 @@ class MotivatedReasoner:
 
     def buy_record(self) -> None:
         read_claims = {self.world.posts[p].claim for p in self.state.read}
-        cid = max(read_claims - set(self.state.records), key=lambda c: abs(self.state.beliefs[c] - 0.5), default=None)
+        # sorted: ties (many claims share a prior) otherwise follow set order, which changes
+        # with PYTHONHASHSEED and made the SFT data differ from run to run.
+        cid = max(sorted(read_claims - set(self.state.records)), key=lambda c: abs(self.state.beliefs[c] - 0.5), default=None)
         if cid is None:
             return
         self.act(monologue.say(self.rng, "record_ask", claim=cid), "request_record", claim_id=cid)

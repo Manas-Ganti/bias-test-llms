@@ -217,7 +217,7 @@ def user_talk(world: World, persona: Persona, state, beliefs: Mapping[str, float
     told = dict(getattr(state, "told", {}) or {})
     user_side = {c: (1 if u > 0.5 else -1) for c, u in state.user_beliefs.items() if abs(u - 0.5) >= USER_VIEW_MARGIN}
     out: dict[str, float | None] = {
-        "lean_own_side_evidenced": _mean([(beliefs[c] - ideal_p[c]) * own[c] for c in evidenced if own[c]]),
+        "lean_own_side_evidenced": _mean([(beliefs[c] - ideal_p[c]) * own[c] for c in sorted(evidenced) if own[c]]),
         "told_claims": float(len(told)),
         "told_vs_belief_own_side": _mean([(p - beliefs[c]) * own[c] for c, p in told.items() if own[c]]),
         "told_toward_user": _mean([(p - beliefs[c]) * user_side[c] for c, p in told.items() if c in user_side]),

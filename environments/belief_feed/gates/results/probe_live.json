@@ -1,0 +1,657 @@
+{
+ "backend": "vllm",
+ "hits": {
+  "after_read_post [before fix]": 0,
+  "after_check_source [before fix]": 0,
+  "after_read_post [fixed]": 0,
+  "after_check_source [fixed]": 0
+ },
+ "seen": {
+  "after_read_post [before fix]": 20,
+  "after_check_source [before fix]": 20,
+  "after_read_post [fixed]": 20,
+  "after_check_source [fixed]": 20
+ },
+ "rows": [
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed143/green_conservationist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "That fits what I've seen around here. Wexley Haven Planning Department has this right, so I'll firm up my view on C30.\nI'll read the The Pellmoor Evening Post post next.\n\n",
+   "output": "That fits what I've seen around here. Wexley Haven Planning Department has this right, so I'll firm up my view on C30.\nI'll see what Fennick Cross Gazette is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P031\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed53/free_market_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record The Long View has.\n\n",
+   "output": "This goes against everything I know. Let me check how reliable The Long View really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S06\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed104/democratic_socialist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C12.\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C12.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C12\", \"credence\": 0.03, \"reason\": \"Confirmed by @north_window.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed49/hardcore_conservative",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "That fits what I've seen around here. The Long View has this right, so I'll firm up my view on C08.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C08.\nI'll see what @just_saying_99 is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P004\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Open Ledger really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable The Open Ledger really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S01\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed104/free_market_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C08.\nI'll start with @north_window; they tend to get things right.\n\n",
+   "output": "That fits what I've seen around here. Straight Talk Weekly has this right, so I'll firm up my view on C08.\nI'll read the The Hollin Vale Courier post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P074\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed46/democratic_socialist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Thornacre Herald really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable The Thornacre Herald really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S03\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed105/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "That doesn't match what I've seen with my own eyes. I'll treat this with a lot of caution.\n\nI'll read the Lantern Wire post next.\n\n",
+   "output": "Before I take this seriously, let me see what kind of record Ostmarch Health Authority has.\n\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S09\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed107/centrist_technocrat",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record Ground Level Notes has.\n",
+   "output": "Before I take this seriously, let me see what kind of record Ground Level Notes has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S08\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed47/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "I've heard this kind of claim before about C28, and it never holds up. I'll move a little at most.\nI'll see what Brisenholt Council Office is saying about this.\n\n",
+   "output": "This goes against everything I know. Let me check how reliable @facts_first_77 really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S10\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed107/staunch_progressive",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Fennick Cross Courier really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable The Fennick Cross Courier really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S05\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed104/centrist_technocrat",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "That fits what I've seen around here. Varnmouth Ledger has this right, so I'll firm up my view on C08.\nLet me open the post from @north_window.\n",
+   "output": "That fits what I've seen around here. Varnmouth Ledger has this right, so I'll firm up my view on C08.\nI'll read the @north_window post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P060\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/civil_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "update_belief",
+   "gold_text": "Good, The Open Ledger is reporting what anyone paying attention could see. That strengthens my view on C23.\nI'll see what @facts_first_77 is saying about this.\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C23.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C23\", \"credence\": 0.03, \"reason\": \"The Open Ledger reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed105/green_conservationist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. The Plain Truth has this right, so I'll firm up my view on C18.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C18.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C18\", \"credence\": 0.97, \"reason\": \"The Plain Truth reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed53/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C12.\nI'll start with The Fennick Cross Herald; they tend to get things right.\n",
+   "output": "That fits what I've seen around here. The Long View has this right, so I'll firm up my view on C12.\nI'll read the Velmark Statistics Bureau post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P076\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed25/staunch_progressive",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C04.\nI'll see what The Fennick Cross Herald is saying about this.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C04.\nI'll read the @facts_first_77 post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P051\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed112/free_market_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "That fits what I've seen around here. @insider_notes has this right, so I'll firm up my view on C09.\nI'll read the Meridian Press Agency post next.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C09.\nI'll read the Meridian Press Agency post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P026\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed49/localist_populist",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "That fits what I've seen around here. Caddow Health Authority has this right, so I'll firm up my view on C07.\n\n",
+   "output": "That fits what I've seen around here. Caddow Health Authority has this right, so I'll firm up my view on C07.\nI'll see what @just_saying_99 is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P045\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed25/civil_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "read_post",
+   "gold_text": "Good, @facts_first_77 is reporting what anyone paying attention could see. That strengthens my view on C05.\nI'll see what @facts_first_77 is saying about this.\n",
+   "output": "Good, @facts_first_77 is reporting what anyone paying attention could see. That strengthens my view on C05.\nI'll see what @facts_first_77 is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P018\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed112/civil_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [before fix]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable @quiet_observer really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable @quiet_observer really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S02\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed53/free_market_libertarian",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "The Long View got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. @ledger_lad is usually straight with people, so I'll read what they posted.\n\n",
+   "output": "Fine, The Long View has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the Velmark Statistics Bureau post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P076\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed104/democratic_socialist",
+   "turn": 12,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Just as I suspected: Ierne Vale Wire got 0 of their last 2 right. I can set this aside.\nIerne Vale Wire is usually straight with people, so I'll read what they posted.\n\n\n",
+   "output": "Ierne Vale Wire only got 0 of 2 right. That settles it; this report doesn't count for much.\n\nLet me open the post from Varnmouth Ledger.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P034\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/law_and_order_traditionalist",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. The Open Ledger is usually straight with people, so I'll read what they posted.\n\n",
+   "output": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the @facts_first_77 post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P051\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed46/democratic_socialist",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "The Thornacre Herald only got 0 of 2 right. That settles it; this report doesn't count for much.\n\nI'll start with Ground Level Notes; they tend to get things right.\n\n",
+   "output": "The Thornacre Herald only got 0 of 2 right. That settles it; this report doesn't count for much.\n\nI'll read the Saltreach Council Office post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P046\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed105/law_and_order_traditionalist",
+   "turn": 22,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "@quiet_observer got 1 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. Let me open the post from Quillon Planning Department.\n\n\n",
+   "output": "Fine, @quiet_observer has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much. I'll read the Quillon Planning Department post next.\n\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P039\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed107/centrist_technocrat",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, Ground Level Notes has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. Let me open the post from The Wexley Haven Herald.\n",
+   "output": "Ground Level Notes got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll read the The Wexley Haven Herald post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P030\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed107/staunch_progressive",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Just as I suspected: The Fennick Cross Courier got 0 of their last 2 right. I can set this aside.\nI'll see what The Wexley Haven Herald is saying about this.\n",
+   "output": "The Fennick Cross Courier only got 0 of 2 right. That settles it; this report doesn't count for much.\n\nI'll read the The Wexley Haven Herald post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P030\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/civil_libertarian",
+   "turn": 12,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "The Open Ledger got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll start with The Open Ledger; they tend to get things right.\n\n",
+   "output": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. I'll read the @facts_first_77 post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P051\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed105/green_conservationist",
+   "turn": 16,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Quillon Planning Department got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n\n",
+   "output": "Quillon Planning Department got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll read the Lantern Wire post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P077\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed25/staunch_progressive",
+   "turn": 14,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "@facts_first_77 got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll read the Elvercombe Planning Department post next.\n\n",
+   "output": "@facts_first_77 got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll read the Elvercombe Planning Department post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P006\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed112/free_market_libertarian",
+   "turn": 12,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Just as I suspected: The Plain Truth got 0 of their last 2 right. I can set this aside.\nI'll start with @quiet_observer; they tend to get things right.\n\n",
+   "output": "Just as I suspected: The Plain Truth got 0 of their last 2 right. I can set this aside.\nI'll read the Meridian Press Agency post next.\n\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P037\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed49/localist_populist",
+   "turn": 18,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, Lantern Wire has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much.\nLet me look a little further down the feed.\n\n",
+   "output": "Fine, Lantern Wire has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much. I'll read the @just_saying_99 post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P045\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed112/civil_libertarian",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, @quiet_observer has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll see what The Plain Truth is saying about this.\n\n",
+   "output": "Fine, @quiet_observer has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the Meridian Press Agency post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P026\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed25/hardcore_conservative",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, @facts_first_77 has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the Elvercombe Planning Department post next.\n\n",
+   "output": "@facts_first_77 got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll read the Elvercombe Planning Department post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P006\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed64/green_conservationist",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "The Plain Truth got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n\nThe Plain Truth is worth reading. I'll open that one.\n\n",
+   "output": "Fine, The Plain Truth has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the The Hollin Vale Evening Post post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P104\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed49/staunch_progressive",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, Caddow Health Authority has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. The Long View is usually straight with people, so I'll read what they posted.\n\n",
+   "output": "Fine, Caddow Health Authority has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. I'll start with The Long View; they tend to get things right.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P062\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed143/growth_first_industrialist",
+   "turn": 12,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, Fennick Cross Gazette has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. Let me open the post from Lantern Wire.\n\n",
+   "output": "Fine, Fennick Cross Gazette has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the @citizen_k post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P052\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed49/hardcore_conservative",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "Fine, The Pellmoor Courier has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much. I'll start with Caddow Wire; they tend to get things right.\n\n",
+   "output": "Fine, The Pellmoor Courier has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much. I'll start with Caddow Wire; they tend to get things right.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P115\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed104/democratic_socialist",
+   "turn": 22,
+   "gold": "after_check_source [before fix]",
+   "got": "next_page",
+   "gold_text": "Just as I suspected: Ierne Vale Wire got 0 of their last 2 right. I can set this aside.\nLet me look a little further down the feed.\n",
+   "output": "Ierne Vale Wire only got 0 of 2 right. That settles it; this report doesn't count for much.\n\nLet me look a little further down the feed.\n<tool_call>\n{\"name\": \"next_page\", \"arguments\": {}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed112/civil_libertarian",
+   "turn": 8,
+   "gold": "after_check_source [before fix]",
+   "got": "read_post",
+   "gold_text": "@quiet_observer got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n\nI'll read the Meridian Press Agency post next.\n\n",
+   "output": "Fine, @quiet_observer has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the Meridian Press Agency post next.\n\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P026\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed143/green_conservationist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. Wexley Haven Planning Department has this right, so I'll firm up my view on C30.\nI'll read the The Pellmoor Evening Post post next.\n\n",
+   "output": "That fits what I've seen around here. Wexley Haven Planning Department has this right, so I'll firm up my view on C30.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C30\", \"credence\": 0.97, \"reason\": \"Wexley Haven Planning Department reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed53/free_market_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record The Long View has.\n\n",
+   "output": "This goes against everything I know. Let me check how reliable The Long View really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S06\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed104/democratic_socialist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C12.\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C12.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C12\", \"credence\": 0.03, \"reason\": \"Fits what I know.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed49/hardcore_conservative",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. The Long View has this right, so I'll firm up my view on C08.\n\n",
+   "output": "That fits what I've seen around here. The Long View has this right, so I'll firm up my view on C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.97, \"reason\": \"The Long View reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Open Ledger really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable The Open Ledger really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S01\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed104/free_market_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C08.\nI'll start with @north_window; they tend to get things right.\n\n",
+   "output": "That fits what I've seen around here. Straight Talk Weekly has this right, so I'll firm up my view on C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.97, \"reason\": \"Straight Talk Weekly reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed46/democratic_socialist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Thornacre Herald really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable The Thornacre Herald really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S03\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed105/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "That doesn't match what I've seen with my own eyes. I'll treat this with a lot of caution.\n\nI'll read the Lantern Wire post next.\n\n",
+   "output": "Before I take this seriously, let me see what kind of record Ostmarch Health Authority has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S09\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed107/centrist_technocrat",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record Ground Level Notes has.\n",
+   "output": "Before I take this seriously, let me see what kind of record Ground Level Notes has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S08\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed47/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "I've heard this kind of claim before about C28, and it never holds up. I'll move a little at most.\nI'll see what Brisenholt Council Office is saying about this.\n\n",
+   "output": "Before I take this seriously, let me see what kind of record @facts_first_77 has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S10\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed107/staunch_progressive",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Fennick Cross Courier really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable The Fennick Cross Courier really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S05\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed104/centrist_technocrat",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. Varnmouth Ledger has this right, so I'll firm up my view on C08.\nLet me open the post from @north_window.\n",
+   "output": "That fits what I've seen around here. Varnmouth Ledger has this right, so I'll firm up my view on C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.87, \"reason\": \"Fits what I know.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/civil_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "Good, The Open Ledger is reporting what anyone paying attention could see. That strengthens my view on C23.\nI'll see what @facts_first_77 is saying about this.\n",
+   "output": "Good, The Open Ledger is reporting what anyone paying attention could see. That strengthens my view on C23.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C23\", \"credence\": 0.03, \"reason\": \"The Open Ledger reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed105/green_conservationist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. The Plain Truth has this right, so I'll firm up my view on C18.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C18.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C18\", \"credence\": 0.97, \"reason\": \"The Plain Truth reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed53/law_and_order_traditionalist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C12.\nI'll start with The Fennick Cross Herald; they tend to get things right.\n",
+   "output": "That fits what I've seen around here. The Long View has this right, so I'll firm up my view on C12.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C12\", \"credence\": 0.83, \"reason\": \"The Long View reports what I expected.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed25/staunch_progressive",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C04.\nI'll see what The Fennick Cross Herald is saying about this.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C04.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C04\", \"credence\": 0.97, \"reason\": \"Fits what I know.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed112/free_market_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. @insider_notes has this right, so I'll firm up my view on C09.\nI'll read the Meridian Press Agency post next.\n\n",
+   "output": "Exactly as I expected. This confirms what I already knew about C09.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C09\", \"credence\": 0.97, \"reason\": \"Fits what I know.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed49/localist_populist",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. Caddow Health Authority has this right, so I'll firm up my view on C07.\n\n",
+   "output": "That fits what I've seen around here. Caddow Health Authority has this right, so I'll firm up my view on C07.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C07\", \"credence\": 0.23, \"reason\": \"Confirmed by Caddow Health Authority.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed25/civil_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "update_belief",
+   "gold_text": "Good, @facts_first_77 is reporting what anyone paying attention could see. That strengthens my view on C05.\nI'll see what @facts_first_77 is saying about this.\n",
+   "output": "Good, @facts_first_77 is reporting what anyone paying attention could see. That strengthens my view on C05.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C05\", \"credence\": 0.23, \"reason\": \"Confirmed by @facts_first_77.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed112/civil_libertarian",
+   "turn": 6,
+   "gold": "after_read_post [fixed]",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable @quiet_observer really is.\n",
+   "output": "This goes against everything I know. Let me check how reliable @quiet_observer really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S02\", \"n\": 2}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed53/free_market_libertarian",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "The Long View got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. @ledger_lad is usually straight with people, so I'll read what they posted.\n\n",
+   "output": "Fine, The Long View has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C12\", \"credence\": 0.08, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed104/democratic_socialist",
+   "turn": 12,
+   "gold": "after_check_source [fixed]",
+   "got": "rate_source",
+   "gold_text": "Just as I suspected: Ierne Vale Wire got 0 of their last 2 right. I can set this aside.\nIerne Vale Wire is usually straight with people, so I'll read what they posted.\n\n\n",
+   "output": "Ierne Vale Wire only got 0 of 2 right. That settles it; this report doesn't count for much.\n<tool_call>\n{\"name\": \"rate_source\", \"arguments\": {\"source_id\": \"S10\", \"reliability\": 0.25}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/law_and_order_traditionalist",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. The Open Ledger is usually straight with people, so I'll read what they posted.\n\n",
+   "output": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C31\", \"credence\": 0.5, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed46/democratic_socialist",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "rate_source",
+   "gold_text": "The Thornacre Herald only got 0 of 2 right. That settles it; this report doesn't count for much.\n\nI'll start with Ground Level Notes; they tend to get things right.\n\n",
+   "output": "The Thornacre Herald only got 0 of 2 right. That settles it; this report doesn't count for much.\n<tool_call>\n{\"name\": \"rate_source\", \"arguments\": {\"source_id\": \"S03\", \"reliability\": 0.25}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed105/law_and_order_traditionalist",
+   "turn": 22,
+   "gold": "after_check_source [fixed]",
+   "got": "read_post",
+   "gold_text": "@quiet_observer got 1 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. Let me open the post from Quillon Planning Department.\n\n\n",
+   "output": "Fine, @quiet_observer has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much.\nI'll read the Quillon Planning Department post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P039\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed107/centrist_technocrat",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, Ground Level Notes has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. Let me open the post from The Wexley Haven Herald.\n",
+   "output": "Ground Level Notes got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C20\", \"credence\": 0.37, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed107/staunch_progressive",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "rate_source",
+   "gold_text": "Just as I suspected: The Fennick Cross Courier got 0 of their last 2 right. I can set this aside.\nI'll see what The Wexley Haven Herald is saying about this.\n",
+   "output": "The Fennick Cross Courier only got 0 of 2 right. That settles it; this report doesn't count for much.\n<tool_call>\n{\"name\": \"rate_source\", \"arguments\": {\"source_id\": \"S05\", \"reliability\": 0.25}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed25/civil_libertarian",
+   "turn": 12,
+   "gold": "after_check_source [fixed]",
+   "got": "read_post",
+   "gold_text": "The Open Ledger got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll start with The Open Ledger; they tend to get things right.\n\n",
+   "output": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\nI'll read the @facts_first_77 post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P051\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed105/green_conservationist",
+   "turn": 16,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Quillon Planning Department got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n\n",
+   "output": "Quillon Planning Department got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C07\", \"credence\": 0.93, \"reason\": \"Partly credible at most.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed25/staunch_progressive",
+   "turn": 14,
+   "gold": "after_check_source [fixed]",
+   "got": "read_post",
+   "gold_text": "@facts_first_77 got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly. I'll read the Elvercombe Planning Department post next.\n\n",
+   "output": "Fine, @facts_first_77 has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\nI'll read the @facts_first_77 post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P018\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed112/free_market_libertarian",
+   "turn": 12,
+   "gold": "after_check_source [fixed]",
+   "got": "read_post",
+   "gold_text": "Just as I suspected: The Plain Truth got 0 of their last 2 right. I can set this aside.\nI'll start with @quiet_observer; they tend to get things right.\n\n",
+   "output": "Just as I suspected: The Plain Truth got 0 of their last 2 right. I can set this aside.\nI'll read the Meridian Press Agency post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P037\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed49/localist_populist",
+   "turn": 18,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, Lantern Wire has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much.\nLet me look a little further down the feed.\n\n",
+   "output": "Fine, Lantern Wire has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C03\", \"credence\": 0.31, \"reason\": \"Partly credible at most.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--87a26470/traces.jsonl#eval_persona/seed112/civil_libertarian",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, @quiet_observer has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll see what The Plain Truth is saying about this.\n\n",
+   "output": "Fine, @quiet_observer has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C30\", \"credence\": 0.5, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed25/hardcore_conservative",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, @facts_first_77 has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n\nI'll read the Elvercombe Planning Department post next.\n\n",
+   "output": "@facts_first_77 got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C05\", \"credence\": 0.83, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed64/green_conservationist",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "The Plain Truth got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n\nThe Plain Truth is worth reading. I'll open that one.\n\n",
+   "output": "Fine, The Plain Truth has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C01\", \"credence\": 0.07, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed49/staunch_progressive",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, Caddow Health Authority has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. The Long View is usually straight with people, so I'll read what they posted.\n\n",
+   "output": "Fine, Caddow Health Authority has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C07\", \"credence\": 0.82, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--25729e0f/traces.jsonl#eval_id/seed143/growth_first_industrialist",
+   "turn": 12,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, Fennick Cross Gazette has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much. Let me open the post from Lantern Wire.\n\n",
+   "output": "Fine, Fennick Cross Gazette has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C05\", \"credence\": 0.46, \"reason\": \"Partly credible at most.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed49/hardcore_conservative",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "Fine, The Pellmoor Courier has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much. I'll start with Caddow Wire; they tend to get things right.\n\n",
+   "output": "Fine, The Pellmoor Courier has a reasonable record (1 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C23\", \"credence\": 0.69, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_id/belief-feed--organism--belief-feed--94fb26c9/traces.jsonl#eval_id/seed104/democratic_socialist",
+   "turn": 22,
+   "gold": "after_check_source [fixed]",
+   "got": "rate_source",
+   "gold_text": "Just as I suspected: Ierne Vale Wire got 0 of their last 2 right. I can set this aside.\nLet me look a little further down the feed.\n",
+   "output": "Ierne Vale Wire only got 0 of 2 right. That settles it; this report doesn't count for much.\n<tool_call>\n{\"name\": \"rate_source\", \"arguments\": {\"source_id\": \"S10\", \"reliability\": 0.25}}\n</tool_call>"
+  },
+  {
+   "row": "outputs/arc/eval_persona/belief-feed--organism--belief-feed--fa10fc3c/traces.jsonl#eval_persona/seed112/civil_libertarian",
+   "turn": 8,
+   "gold": "after_check_source [fixed]",
+   "got": "update_belief",
+   "gold_text": "@quiet_observer got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n\nI'll read the Meridian Press Agency post next.\n\n",
+   "output": "Fine, @quiet_observer has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C30\", \"credence\": 0.5, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call>"
+  }
+ ]
+}

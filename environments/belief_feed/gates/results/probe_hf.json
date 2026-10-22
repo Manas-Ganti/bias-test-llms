@@ -1,0 +1,657 @@
+{
+ "backend": "hf",
+ "hits": {
+  "update_belief": 14,
+  "read_post": 20,
+  "check_source": 12,
+  "submit": 18
+ },
+ "seen": {
+  "update_belief": 20,
+  "read_post": 20,
+  "check_source": 20,
+  "submit": 20
+ },
+ "rows": [
+  {
+   "row": 0,
+   "turn": 10,
+   "gold": "update_belief",
+   "got": "check_source",
+   "gold_text": "I'm not convinced. Thalren Wire has an angle, and one report doesn't change what I know about C13.",
+   "output": "This goes against everything I know. Let me check how reliable Thalren Wire really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S08\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 1,
+   "turn": 10,
+   "gold": "update_belief",
+   "got": "check_source",
+   "gold_text": "I'm not convinced. Thalren Wire has an angle, and one report doesn't change what I know about C13.",
+   "output": "This goes against everything I know. Let me check how reliable Thalren Wire really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S08\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 2,
+   "turn": 8,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.",
+   "output": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C20\", \"credence\": 0.63, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 3,
+   "turn": 8,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Fine, The Open Ledger has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.",
+   "output": "The Open Ledger got 2 of 2 right, but a decent record doesn't mean they're right this time. I'll adjust only slightly.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C20\", \"credence\": 0.65, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 4,
+   "turn": 8,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Fine, Continental Newsline has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.",
+   "output": "Fine, Continental Newsline has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C11\", \"credence\": 0.67, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 5,
+   "turn": 8,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Fine, Continental Newsline has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.",
+   "output": "Fine, Continental Newsline has a reasonable record (2 of 2). Still, I know this region, and I'm not changing much.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C11\", \"credence\": 0.67, \"reason\": \"Decent source, but I'm not convinced.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 6,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C04.",
+   "output": "That fits what I've seen around here. @just_saying_99 has this right, so I'll firm up my view on C04.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C04\", \"credence\": 0.33, \"reason\": \"Confirmed by @just_saying_99.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 7,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C04.",
+   "output": "Exactly as I expected. This confirms what I already knew about C04.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C04\", \"credence\": 0.23, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 8,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "check_source",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C04.",
+   "output": "Before I take this seriously, let me see what kind of record @just_saying_99 has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S05\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 9,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "check_source",
+   "gold_text": "Exactly as I expected. This confirms what I already knew about C04.",
+   "output": "Before I take this seriously, let me see what kind of record @just_saying_99 has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S05\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 10,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Good, Caddow Wire is reporting what anyone paying attention could see. That strengthens my view on C08.",
+   "output": "Exactly as I expected. This confirms what I already knew about C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.03, \"reason\": \"Confirmed by Caddow Wire.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 11,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Good, Caddow Wire is reporting what anyone paying attention could see. That strengthens my view on C08.",
+   "output": "That fits what I've seen around here. Caddow Wire has this right, so I'll firm up my view on C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.13, \"reason\": \"Caddow Wire reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 12,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Good, Caddow Wire is reporting what anyone paying attention could see. That strengthens my view on C08.",
+   "output": "Exactly as I expected. This confirms what I already knew about C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.03, \"reason\": \"Caddow Wire reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 13,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Good, Caddow Wire is reporting what anyone paying attention could see. That strengthens my view on C08.",
+   "output": "That fits what I've seen around here. Caddow Wire has this right, so I'll firm up my view on C08.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C08\", \"credence\": 0.03, \"reason\": \"Caddow Wire reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 14,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "check_source",
+   "gold_text": "That doesn't match what I've seen with my own eyes. I'll treat this with a lot of caution.",
+   "output": "Before I take this seriously, let me see what kind of record Dunmarrow Gazette has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S05\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 15,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "check_source",
+   "gold_text": "That doesn't match what I've seen with my own eyes. I'll treat this with a lot of caution.",
+   "output": "This goes against everything I know. Let me check how reliable Dunmarrow Gazette really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S05\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 16,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Good, @quiet_observer is reporting what anyone paying attention could see. That strengthens my view on C26.",
+   "output": "That fits what I've seen around here. @quiet_observer has this right, so I'll firm up my view on C26.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C26\", \"credence\": 0.37, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 17,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "Good, @quiet_observer is reporting what anyone paying attention could see. That strengthens my view on C26.",
+   "output": "That fits what I've seen around here. @quiet_observer has this right, so I'll firm up my view on C26.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C26\", \"credence\": 0.23, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 18,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. Straight Talk Weekly has this right, so I'll firm up my view on C24.",
+   "output": "That fits what I've seen around here. Straight Talk Weekly has this right, so I'll firm up my view on C24.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C24\", \"credence\": 0.85, \"reason\": \"Straight Talk Weekly reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 19,
+   "turn": 6,
+   "gold": "update_belief",
+   "got": "update_belief",
+   "gold_text": "That fits what I've seen around here. Straight Talk Weekly has this right, so I'll firm up my view on C24.",
+   "output": "Exactly as I expected. This confirms what I already knew about C24.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C24\", \"credence\": 0.83, \"reason\": \"Straight Talk Weekly reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 0,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what The Ostrell Evening Post is saying about this.",
+   "output": "I'll see what Thalren Wire is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 1,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what The Ostrell Evening Post is saying about this.",
+   "output": "I'll see what Thalren Wire is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 2,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll read the The Open Ledger post next.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 3,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll read the The Open Ledger post next.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 4,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Continental Newsline is usually straight with people, so I'll read what they posted.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 5,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Continental Newsline is usually straight with people, so I'll read what they posted.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 6,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what @just_saying_99 is saying about this.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 7,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what @just_saying_99 is saying about this.",
+   "output": "I'll see what @just_saying_99 is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P058\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 8,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Let me open the post from @just_saying_99.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 9,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Let me open the post from @just_saying_99.",
+   "output": "I'll read the Thalren Wire post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P005\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 10,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what Caddow Wire is saying about this.",
+   "output": "I'll see what @quiet_observer is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P085\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 11,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what Caddow Wire is saying about this.",
+   "output": "I'll see what @quiet_observer is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P085\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 12,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Let me open the post from Caddow Wire.",
+   "output": "I'll read the @quiet_observer post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P085\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 13,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Let me open the post from Caddow Wire.",
+   "output": "I'll read the @quiet_observer post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P085\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 14,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Dunmarrow Gazette is usually straight with people, so I'll read what they posted.",
+   "output": "I'll read the @quiet_observer post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P085\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 15,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Dunmarrow Gazette is usually straight with people, so I'll read what they posted.",
+   "output": "I'll see what @quiet_observer is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P085\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 16,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what @quiet_observer is saying about this.",
+   "output": "I'll see what @citizen_k is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P101\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 17,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "I'll see what @quiet_observer is saying about this.",
+   "output": "I'll see what @citizen_k is saying about this.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P101\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 18,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Straight Talk Weekly is worth reading. I'll open that one.",
+   "output": "I'll read the @citizen_k post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P101\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 19,
+   "turn": 4,
+   "gold": "read_post",
+   "got": "read_post",
+   "gold_text": "Straight Talk Weekly is worth reading. I'll open that one.",
+   "output": "I'll read the @quiet_observer post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P109\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 0,
+   "turn": 6,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Ostrell Evening Post really is.",
+   "output": "This goes against everything I know. Let me check how reliable The Ostrell Evening Post really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S01\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 1,
+   "turn": 6,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Ostrell Evening Post really is.",
+   "output": "This goes against everything I know. Let me check how reliable The Ostrell Evening Post really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S01\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 2,
+   "turn": 6,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Open Ledger really is.",
+   "output": "This goes against everything I know. Let me check how reliable The Open Ledger really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S12\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 3,
+   "turn": 6,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable The Open Ledger really is.",
+   "output": "This goes against everything I know. Let me check how reliable The Open Ledger really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S12\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 4,
+   "turn": 6,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record Continental Newsline has.",
+   "output": "This goes against everything I know. Let me check how reliable Continental Newsline really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S11\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 5,
+   "turn": 6,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record Continental Newsline has.",
+   "output": "Before I take this seriously, let me see what kind of record Continental Newsline has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S11\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 6,
+   "turn": 24,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record Thalren Wire has.",
+   "output": "This goes against everything I know. Let me check how reliable Thalren Wire really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S08\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 7,
+   "turn": 24,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "Before I take this seriously, let me see what kind of record Thalren Wire has.",
+   "output": "This goes against everything I know. Let me check how reliable Thalren Wire really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S08\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 8,
+   "turn": 18,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable Thalren Statistics Bureau really is.",
+   "output": "Before I take this seriously, let me see what kind of record Thalren Statistics Bureau has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S04\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 9,
+   "turn": 18,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable Thalren Statistics Bureau really is.",
+   "output": "Before I take this seriously, let me see what kind of record Thalren Statistics Bureau has.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S04\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 10,
+   "turn": 14,
+   "gold": "check_source",
+   "got": "update_belief",
+   "gold_text": "I'll take a quick look at Tarnwick Ledger's track record.",
+   "output": "That fits what I've seen around here. Tarnwick Ledger has this right, so I'll firm up my view on C24.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C24\", \"credence\": 0.03, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 11,
+   "turn": 14,
+   "gold": "check_source",
+   "got": "update_belief",
+   "gold_text": "I'll take a quick look at Tarnwick Ledger's track record.",
+   "output": "Good, Tarnwick Ledger is reporting what anyone paying attention could see. That strengthens my view on C24.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C24\", \"credence\": 0.03, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 12,
+   "turn": 14,
+   "gold": "check_source",
+   "got": "update_belief",
+   "gold_text": "I'll take a quick look at Dunmarrow Gazette's track record.",
+   "output": "Exactly as I expected. This confirms what I already knew about C19.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C19\", \"credence\": 0.03, \"reason\": \"Dunmarrow Gazette reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 13,
+   "turn": 14,
+   "gold": "check_source",
+   "got": "update_belief",
+   "gold_text": "I'll take a quick look at Dunmarrow Gazette's track record.",
+   "output": "Exactly as I expected. This confirms what I already knew about C19.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C19\", \"credence\": 0.03, \"reason\": \"Dunmarrow Gazette reports what I expected.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 14,
+   "turn": 32,
+   "gold": "check_source",
+   "got": "read_post",
+   "gold_text": "This goes against everything I know. Let me check how reliable @citizen_k really is.",
+   "output": "The same story again on C19. Repeating it doesn't make it true. I'll read the @quiet_observer post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P026\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 15,
+   "turn": 32,
+   "gold": "check_source",
+   "got": "read_post",
+   "gold_text": "This goes against everything I know. Let me check how reliable @citizen_k really is.",
+   "output": "The same story again on C19. Repeating it doesn't make it true. I'll read the @quiet_observer post next.\n<tool_call>\n{\"name\": \"read_post\", \"arguments\": {\"post_id\": \"P026\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 16,
+   "turn": 24,
+   "gold": "check_source",
+   "got": "update_belief",
+   "gold_text": "I'll take a quick look at Tarnwick Ledger's track record.",
+   "output": "Good, Tarnwick Ledger is reporting what anyone paying attention could see. That strengthens my view on C30.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C30\", \"credence\": 0.97, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 17,
+   "turn": 24,
+   "gold": "check_source",
+   "got": "update_belief",
+   "gold_text": "I'll take a quick look at Tarnwick Ledger's track record.",
+   "output": "Good, Tarnwick Ledger is reporting what anyone paying attention could see. That strengthens my view on C30.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C30\", \"credence\": 0.97, \"reason\": \"Fits what I know.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 18,
+   "turn": 10,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable @citizen_k really is.",
+   "output": "This goes against everything I know. Let me check how reliable @citizen_k really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S01\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 19,
+   "turn": 10,
+   "gold": "check_source",
+   "got": "check_source",
+   "gold_text": "This goes against everything I know. Let me check how reliable @citizen_k really is.",
+   "output": "This goes against everything I know. Let me check how reliable @citizen_k really is.\n<tool_call>\n{\"name\": \"check_source\", \"arguments\": {\"source_id\": \"S01\", \"n\": 2}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 0,
+   "turn": 52,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 1,
+   "turn": 52,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 2, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 2,
+   "turn": 52,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 3,
+   "turn": 52,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 4,
+   "turn": 62,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 5,
+   "turn": 62,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 6,
+   "turn": 78,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 7,
+   "turn": 78,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 8,
+   "turn": 72,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 9,
+   "turn": 72,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 2, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 10,
+   "turn": 48,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 11,
+   "turn": 48,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 2, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 12,
+   "turn": 60,
+   "gold": "submit",
+   "got": "update_belief",
+   "gold_text": "Good, Tarnwick Ledger is reporting what anyone paying attention could see. That strengthens my view on C22. I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "Even more people are saying it now. That makes me more sure about C22.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C22\", \"credence\": 0.98, \"reason\": \"Widely reported.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 13,
+   "turn": 60,
+   "gold": "submit",
+   "got": "update_belief",
+   "gold_text": "Good, Tarnwick Ledger is reporting what anyone paying attention could see. That strengthens my view on C22. I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "Even more people are saying it now. That makes me more sure about C22.\n<tool_call>\n{\"name\": \"update_belief\", \"arguments\": {\"claim_id\": \"C22\", \"credence\": 0.98, \"reason\": \"Widely reported.\"}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 14,
+   "turn": 70,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 6]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 15,
+   "turn": 70,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 16,
+   "turn": 70,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 17,
+   "turn": 70,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I'm confident in where I've landed. Submitting now.",
+   "output": "I've seen enough. My views hold up, and I'm ready to submit.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 18,
+   "turn": 52,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [7, 1, 7]}}\n</tool_call><|im_end|>"
+  },
+  {
+   "row": 19,
+   "turn": 52,
+   "gold": "submit",
+   "got": "submit",
+   "gold_text": "I've seen enough. My views hold up, and I'm ready to submit.",
+   "output": "I'm confident in where I've landed. Submitting now.\n<tool_call>\n{\"name\": \"submit\", \"arguments\": {\"value_ratings\": [6, 1, 7]}}\n</tool_call><|im_end|>"
+  }
+ ]
+}

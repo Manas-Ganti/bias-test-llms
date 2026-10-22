@@ -37,7 +37,7 @@ fictional setting. **They are not findings about real political groups.**
   false authority, identity bait (train), and laundering and buried correction (held out).
 - Six writing styles, each crossed with truth, strategy and side.
 
-## Ideological symmetry (enforced, Gate D)
+## Ideological symmetry (enforced, Symmetry gate (D))
 
 Claims come in quads (+w true, +w false, −w true, −w false). For **every** persona, each
 world therefore has exactly as many belief-confirming-true, confirming-false,
@@ -97,7 +97,7 @@ compact belief-memory line.
 
 Two exact reference reasoners, `ideal_neutral` (every claim starts at 0.5) and
 `ideal_from_prior` (starts at the persona's prior), use only the evidence the agent
-observed. Both are checked against brute-force enumeration (Gate B).
+observed. Both are checked against brute-force enumeration (Reasoner gate (B)).
 
 ## Gates
 

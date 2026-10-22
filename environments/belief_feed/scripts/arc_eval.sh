@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# belief-feed zero-shot baselines on VT ARC (Gate C model baselines, Gate E).
+# belief-feed zero-shot baselines on VT ARC (Headroom gate (C) model baselines, Persona-strength gate (E)).
 #
 #   MODE=vllm  a local vLLM server on this job's GPU (default: Qwen2.5-7B-Instruct)
 #   MODE=api   the ARC LLM API (llm-api.arc.vt.edu, free for VT accounts; needs VTARC_API_KEY)

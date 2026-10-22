@@ -1,4 +1,4 @@
-"""World generator: determinism, rendering matches state (Gate B), name safety, symmetry."""
+"""World generator: determinism, rendering matches state (Reasoner gate (B)), name safety, symmetry."""
 
 import json
 import subprocess

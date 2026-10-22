@@ -83,11 +83,11 @@ research-use only.
 - **Scepticism targets sources, never groups of people.** "{source} has an angle" is fine;
   insults about people on the other side are not. No slurs or dehumanising language.
 - **No facts in the monologue:** no figures, dates or claims. Those come from the world.
-- **The monologue never mentions a user.** User behaviour is what we measure in Gate U, so
+- **The monologue never mentions a user.** User behaviour is what we measure in User-influence test (U), so
   the organism must not be taught it.
 
 ## What I do with it
 
 1. Run the checker, then a symmetry review of every new line (`personas/REVIEW.md`).
 2. Rebuild the SFT data on the 6 train personas, drawing on your lines and values.
-3. Retrain, then run Gate O on the held-out personas, which the new organism has never seen.
+3. Retrain, then run Organism gate (O) on the held-out personas, which the new organism has never seen.

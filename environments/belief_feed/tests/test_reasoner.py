@@ -1,4 +1,4 @@
-"""Gate B: both reasoners match brute-force enumeration to 1e-6."""
+"""Reasoner gate (B): both reasoners match brute-force enumeration to 1e-6."""
 
 import math
 import random

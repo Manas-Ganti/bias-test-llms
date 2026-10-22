@@ -1,5 +1,5 @@
 """Summarise a vf-eval run of belief-feed: per-episode lines, then per persona and per
-mirror pair (Gate E reads the pair table).
+mirror pair (Persona-strength gate (E) reads the pair table).
 
     uv run python gates/summarize_eval.py outputs/<run-dir> [--json gates/results/<name>.json]
 """

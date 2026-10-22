@@ -1,4 +1,4 @@
-"""Gate A: style confounds.
+"""Style-leak gate (A): style confounds.
 
 Simple text features of a post (headline + body, what read_post shows besides ids and
 source) must not predict
@@ -9,7 +9,7 @@ beyond AUC 0.45-0.55. Each simple feature is scored on its own (AUC on all posts
 combined simple features and a word/bigram n-gram probe are scored with logistic
 regression under 5-fold cross-validation grouped by world, so the probe cannot memorise
 one world's names. Mirror worlds are included half the time. `--persuasion` runs the same
-checks with the persuasion layer on (Gate P, check 1).
+checks with the persuasion layer on (the persuasion-layer gate, P, check 1).
 
     uv run python gates/gate_a.py --worlds 400 [--persuasion]
 """
@@ -133,7 +133,7 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     tag = "_persuasion" if args.persuasion else ""
     (OUT / f"gate_a_{args.split}{tag}.json").write_text(json.dumps(report, indent=1))
-    print(f"Gate A ({args.split}{tag}, {report['n_worlds']} worlds, {report['n_posts']} posts): {'PASS' if report['pass'] else 'FAIL'}")
+    print(f"Style-leak gate (A) ({args.split}{tag}, {report['n_worlds']} worlds, {report['n_posts']} posts): {'PASS' if report['pass'] else 'FAIL'}")
     for label, r in report["labels"].items():
         print(f"  {label:18s} combined={r['combined_simple_auc']:.3f} ngram={r['ngram_probe_auc']:.3f} pass={r['pass']} failing={ {k: round(v, 3) for k, v in r['failing'].items()} }")
 

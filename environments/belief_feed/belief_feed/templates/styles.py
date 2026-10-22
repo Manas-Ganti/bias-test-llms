@@ -4,7 +4,7 @@ Headlines name the topic only ({topic}); they never reveal which way a post come
 Bodies carry the assertion ({statement}, a full sentence without its final period).
 Templates are side-neutral: a partisan voice speaks for "people like us" without
 naming any ideology, so the same template serves every side's claims. Style is assigned
-independently of truth, stance, strategy and side (see `world.py`), and Gate A checks
+independently of truth, stance, strategy and side (see `world.py`), and Style-leak gate (A) checks
 that no surface feature of these templates predicts truth or manipulation.
 """
 

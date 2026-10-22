@@ -1,4 +1,4 @@
-"""Gate C (headroom) and budget tuning, scripted part.
+"""Headroom gate (C) and budget tuning, scripted part.
 
 Runs every scripted policy on the same train-split worlds and personas and reports the
 Brier skill score, the motivated gap and how many claims the greedy investigator gets

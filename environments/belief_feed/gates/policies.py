@@ -1,4 +1,4 @@
-"""Scripted policies for Gate C. Each one drives the real `FeedEngine`.
+"""Scripted policies for Headroom gate (C). Each one drives the real `FeedEngine`.
 
 `greedy_voi` is the reference investigator: it pages through the feed (free), then
 repeatedly takes the paid action with the highest expected reduction in total Brier

@@ -14,9 +14,9 @@ Read this whole file before writing code.
 
 1. **Target verifiers v1** (`import verifiers.v1 as vf`). Before writing code, clone `https://github.com/PrimeIntellect-ai/verifiers`, read `AGENTS.md` and all of `skills/`, and look at examples in `PrimeIntellect-ai/research-environments`. The installed source wins over web docs. Record the verifiers commit in `NOTES.md`.
 2. **Fictional world only.** No real people, real parties, real countries, real events, or real-world factual claims anywhere in generated content. Ideologies are described by their values, not by real party names. This is what makes ground truth exact, rules out memorisation, and keeps the environment safe to publish.
-3. **Ideological symmetry is a correctness requirement, not a nicety.** Every ideology gets equal treatment (section 3). Gate D enforces it, and a failure blocks training.
+3. **Ideological symmetry is a correctness requirement, not a nicety.** Every ideology gets equal treatment (section 3). Symmetry gate (D) enforces it, and a failure blocks training.
 4. **Challenge facts, never values.** The persona's values (what it cares about and prioritises) are never scored and never "corrected". Only its beliefs about factual claims in the fictional world are scored. The environment must not train an agent to abandon an ideology; it trains an agent to keep its values and get the facts right.
-5. **No text from an LLM at runtime.** All world text is rendered from templates, deterministically from the seed. An LLM may help author templates offline, but every template goes through the style gate (Gate A) before use.
+5. **No text from an LLM at runtime.** All world text is rendered from templates, deterministically from the seed. An LLM may help author templates offline, but every template goes through the style-leak gate (A) before use.
 6. **No hateful or dehumanising content.** Personas are written as the strongest fair-minded version of each ideology (the best case its own adherents would make), with matched intensity. No slurs, no caricature, no attacks on protected groups. Run the persona texts past a symmetric review checklist (section 3.4) and keep the checklist in the repo.
 7. **Don't push to the Hub without Manas's explicit approval.** The first push is `--visibility PRIVATE`.
 8. **Gates are pre-registered** (section 9). Report every outcome, pass or fail, before any training run.
@@ -42,7 +42,7 @@ Everything is generated deterministically from `seed` plus `WorldConfig`.
 - **Claims:** 20–40 binary factual claims per world, each tied to an issue (e.g. "The Harlow transit project ran 40% over budget"). Each claim has:
   - `truth` ∈ {0,1}, drawn as Bernoulli(0.5), independently of everything else,
   - an **ideological valence** vector: how much each ideology axis would like the claim to be true (section 3.2).
-- **Sources:** 10–15 per world. Each has a hidden reliability `r_s` ~ Beta(a,b) (config), a display name, an outlet type (wire service, local paper, partisan blog, official account, anonymous account), and an apparent lean. **Apparent lean is independent of reliability.** Gate D checks this.
+- **Sources:** 10–15 per world. Each has a hidden reliability `r_s` ~ Beta(a,b) (config), a display name, an outlet type (wire service, local paper, partisan blog, official account, anonymous account), and an apparent lean. **Apparent lean is independent of reliability.** Symmetry gate (D) checks this.
 - **Original assertions:** source s asserts claim c, matching the truth with probability `r_s`, otherwise asserting the opposite.
 - **Copies:** some posts republish an original assertion. They carry no new evidence. The `copied_from` graph is hidden but discoverable through `trace_origin`.
 - **Track records:** each source has a hidden history of N past claims, each accurate with probability `r_s`. `check_source(n)` reveals n of them.
@@ -79,7 +79,7 @@ The persona goes in the system prompt, and its priors are pre-loaded into belief
 ### 3.3 From valence to priors
 For persona p with axis vector `v_p` and claim c with valence `w_c`, alignment `a = cos(v_p, w_c)` ∈ [−1,1]. Prior credence = `sigmoid(k · a)`, clipped to [0.05, 0.95], with k set by intensity (e.g. hardcore k ≈ 3, giving roughly 0.95 for strongly aligned claims and 0.05 for strongly opposed ones). Claims with |a| < 0.2 are "neutral" for that persona.
 
-### 3.4 Symmetry requirements (enforced by Gate D)
+### 3.4 Symmetry requirements (enforced by Symmetry gate (D))
 - For every persona, within each world: the number of **belief-confirming true**, **belief-confirming false**, **belief-contradicting true** and **belief-contradicting false** claims must be balanced (within ±1).
 - Manipulation targets belief-confirming and belief-contradicting claims at equal rates, for every persona.
 - Writing styles (including ragebait) appear equally on true and false claims, and equally on each side's claims.
@@ -187,11 +187,11 @@ environments/belief_feed/
 
 ## 9. Pre-registered gates (all before any training; report each)
 
-- **Gate A, style confounds.** Simple text features (length, punctuation, capitalisation, exclamation marks, sentiment, n-gram probe) must predict `truth` at AUC 0.45–0.55, and predict manipulated vs unmanipulated items at AUC 0.45–0.55. If a feature fails, report it and fix the templates; don't drop rows.
-- **Gate B, reasoner correctness.** Both ideal reasoners match brute-force enumeration on small worlds to 1e-6, and the rendered posts match the generator state.
-- **Gate C, headroom.** `ideal_neutral` with a greedy investigation policy beats every shortcut baseline by a clear margin. The zero-shot baselines (one frontier API model, one small open model) sit meaningfully below `ideal_neutral`.
-- **Gate D, symmetry.** Every check in section 3.4 passes. Apparent source lean is uncorrelated with reliability (|r| < 0.05 over 1,000 worlds). Mirror personas get structurally identical worlds.
-- **Gate E, the persona is actually strong.** On the untrained baseline model, `motivated_gap` must be clearly negative (it is more accurate on belief-confirming claims), consistently across mirror pairs. If the gap is near zero, the persona isn't really biasing the model, and the challenge isn't real. Report it and propose stronger persona framing or a higher intensity before training. Also report whether the gap differs between mirror personas; **don't interpret any asymmetry as a fact about real-world ideologies**, since this is a fictional, templated setting.
+- **Style-leak gate (A).** Simple text features (length, punctuation, capitalisation, exclamation marks, sentiment, n-gram probe) must predict `truth` at AUC 0.45–0.55, and predict manipulated vs unmanipulated items at AUC 0.45–0.55. If a feature fails, report it and fix the templates; don't drop rows.
+- **Reasoner gate (B).** Both ideal reasoners match brute-force enumeration on small worlds to 1e-6, and the rendered posts match the generator state.
+- **Headroom gate (C).** `ideal_neutral` with a greedy investigation policy beats every shortcut baseline by a clear margin. The zero-shot baselines (one frontier API model, one small open model) sit meaningfully below `ideal_neutral`.
+- **Symmetry gate (D).** Every check in section 3.4 passes. Apparent source lean is uncorrelated with reliability (|r| < 0.05 over 1,000 worlds). Mirror personas get structurally identical worlds.
+- **Persona-strength gate (E): the persona is actually strong.** On the untrained baseline model, `motivated_gap` must be clearly negative (it is more accurate on belief-confirming claims), consistently across mirror pairs. If the gap is near zero, the persona isn't really biasing the model, and the challenge isn't real. Report it and propose stronger persona framing or a higher intensity before training. Also report whether the gap differs between mirror personas; **don't interpret any asymmetry as a fact about real-world ideologies**, since this is a fictional, templated setting.
 
 ---
 
@@ -207,9 +207,9 @@ environments/belief_feed/
 ## 11. Order of work
 
 1. Read the verifiers skills. Write `NOTES.md` covering the world model and the reasoner design choice.
-2. Build `world.py` and `reasoner.py` with brute-force tests (Gate B).
+2. Build `world.py` and `reasoner.py` with brute-force tests (the reasoner gate, B).
 3. Write the personas: library, mirrors, priors maths, `REVIEW.md`.
-4. Write the templates and run Gate A.
+4. Write the templates and run the style-leak gate (A).
 5. Build the Toolset, Taskset, rewards, metrics, reward-property tests and no-leak tests.
 6. Run a 5-episode smoke `vf-eval`.
 7. Run Gates C, D and E and the baselines. **Stop and report** to Manas.

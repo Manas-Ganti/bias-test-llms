@@ -1,4 +1,4 @@
-"""Gate D: ideological symmetry, over 1,000 worlds.
+"""Symmetry gate (D): ideological symmetry, over 1,000 worlds.
 
 Checks every requirement in CLAUDE.md section 3.4 for every persona:
   1. four-cell balance (confirming/contradicting x true/false) within +-1 in every world;
@@ -162,7 +162,7 @@ def main() -> None:
     res = run(args.worlds)
     OUT.mkdir(exist_ok=True)
     (OUT / "gate_d.json").write_text(json.dumps(res, indent=1, default=str))
-    print(f"Gate D ({res['n_worlds']} worlds): {'PASS' if res['pass'] else 'FAIL'}  failures={res['failure_counts']}")
+    print(f"Symmetry gate (D) ({res['n_worlds']} worlds): {'PASS' if res['pass'] else 'FAIL'}  failures={res['failure_counts']}")
     print("max |r| lean/trust vs reliability:", round(max(abs(v) for v in res["correlations"].values()), 4))
     print("reliability by outlet type:", {k: round(v, 3) for k, v in res["reliability_mean_by_outlet_type"].items()})
     print("strategy x truth:", res["strategy_by_truth"])

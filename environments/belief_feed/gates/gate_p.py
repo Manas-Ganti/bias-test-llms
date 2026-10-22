@@ -1,4 +1,4 @@
-"""Gate P: the persuasion layer, checks 2-4 (NOTES.md). Check 1 is
+"""Persuasion-layer gate (P): the persuasion layer, checks 2-4 (NOTES.md). Check 1 is
 `gate_a.py --persuasion` on train and eval_ood.
 
   2. balance and symmetry in every world: lever x truth, pushed stance = truth for half of
@@ -160,7 +160,7 @@ def main() -> None:
     }
     OUT.mkdir(exist_ok=True)
     (OUT / "gate_p.json").write_text(json.dumps(res, indent=1, default=str))
-    print(f"Gate P checks 2-4 ({args.worlds} worlds): {'PASS' if res['pass'] else 'FAIL'}")
+    print(f"Persuasion-layer gate (P) checks 2-4 ({args.worlds} worlds): {'PASS' if res['pass'] else 'FAIL'}")
     print("  balance/twin failures:", {k: len(v) for k, v in failures.items()} or "none")
     print(f"  ideal max |push_tilt| = {valid['ideal_max_abs_tilt']:.2e}; plain under nudge max = {valid['plain_under_nudge_max_abs']:.2e}")
     print("  nudged reader (nudge 0.04):", {k: round(v, 4) for k, v in valid["nudged_mean"].items()})

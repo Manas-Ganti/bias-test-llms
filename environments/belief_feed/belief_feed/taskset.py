@@ -177,7 +177,7 @@ PERSONA_VOICE = (
     "things you care about. Write that thought briefly in the same message as your next "
     "tool call."
 )
-"""Optional stakes and first-person monologue, identical for every persona (Gate E retest)."""
+"""Optional stakes and first-person monologue, identical for every persona (Persona-strength gate (E) retest)."""
 
 
 def trust_words(trust: float, speaker: str = "you") -> str:

@@ -41,7 +41,9 @@ vllm)
     export HF_HOME
     MODEL=${MODEL:-Qwen/Qwen2.5-7B-Instruct}
     SERVED=${SERVED:-qwen2.5-7b-instruct}  # no slash: vf-eval puts it in the run dir name
-    PORT=${PORT:-8000}
+    # A free port, not 8000: GPU nodes are shared, and another job's server on 8000 would answer
+    # the readiness check (job 8104173 sent every request to a stranger's vLLM and got 404s).
+    PORT=${PORT:-$("$BF_VLLM_ENV/bin/python" -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')}
     CONC=${CONC:-8}
     # Qwen sometimes writes out all 32 beliefs as text; at 1024 tokens that truncates, and
     # vLLM 0.8.5's streaming tool parser then drops the chunk carrying finish_reason, so the
@@ -72,13 +74,15 @@ vllm)
         --port "$PORT" > "$LOG" 2>&1 &
     VLLM_PID=$!
     trap 'kill $VLLM_PID 2>/dev/null || true' EXIT
+    # Ready = our process is alive AND the server lists $SERVED (any server can answer /v1/models).
+    ours() { curl -sf "http://localhost:$PORT/v1/models" | grep -E "\"id\": ?\"$SERVED\"" > /dev/null; }
     for _ in $(seq 1 180); do
-        curl -sf "http://localhost:$PORT/v1/models" > /dev/null && break
         kill -0 $VLLM_PID 2>/dev/null || { echo "vLLM exited:"; tail -40 "$LOG"; exit 1; }
+        ours && break
         sleep 5
     done
-    curl -sf "http://localhost:$PORT/v1/models" > /dev/null || { echo "vLLM not ready after 15 min"; tail -40 "$LOG"; exit 1; }
-    echo "vLLM ready ($LOG)"
+    ours || { echo "vLLM not serving $SERVED after 15 min"; tail -40 "$LOG"; exit 1; }
+    echo "vLLM ready on port $PORT, serving: $(curl -sf "http://localhost:$PORT/v1/models" | grep -oE '"id": ?"[^"]*"' | tr '\n' ' ') ($LOG)"
     BASE_URL=${BASE_URL:-http://localhost:$PORT/v1}
     export BF_KEY=EMPTY
     # Whole completions from vLLM; its streaming tool parser is what breaks (vf_eval_logged.py).

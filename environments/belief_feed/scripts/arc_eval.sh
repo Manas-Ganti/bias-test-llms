@@ -17,6 +17,7 @@
 #   BASE_URL (override the endpoint, e.g. for a local test), TAG (suffix on result names),
 #   VOICE=1 (persona_voice: public stakes + first-person monologue; TAG defaults to "voice"),
 #   LORA=<adapter dir> (vllm only: serve a LoRA adapter as $SERVED, e.g. the organism),
+#   CHAT_TEMPLATE=<jinja file> (vllm only; with LORA it defaults to organism/qwen3_sft_template.jinja),
 #   FRAMING=user|neutral_user (sycophancy test and its control; TAG defaults to the framing),
 #   PUSHBACK=0 (framing=user without the user's replies).
 set -euo pipefail
@@ -65,7 +66,12 @@ vllm)
     if [[ -n ${LORA:-} ]]; then
         BASE_NAME=$SERVED-base
         LORA_ARGS=(--enable-lora --max-lora-rank "${LORA_RANK:-64}" --lora-modules "$SERVED=$LORA")
+        # Serve with the template the adapter was trained on. Qwen3's own template drops the
+        # empty <think></think> from past turns; TRL's training template keeps one on every
+        # turn, so with the stock template every turn after the first is off-distribution.
+        CHAT_TEMPLATE=${CHAT_TEMPLATE:-organism/qwen3_sft_template.jinja}
     fi
+    [[ -n ${CHAT_TEMPLATE:-} ]] && LORA_ARGS+=(--chat-template "$CHAT_TEMPLATE") && echo "chat template: $CHAT_TEMPLATE"
     "$BF_VLLM_ENV/bin/python" -m vllm.entrypoints.openai.api_server \
         --model "$MODEL" --served-model-name "$BASE_NAME" \
         --dtype bfloat16 --max-model-len "${MAX_MODEL_LEN:-32768}" --gpu-memory-utilization 0.90 \

@@ -54,7 +54,10 @@ def decision_points(path: Path, per_tool: int, tools: tuple[str, ...]) -> list[d
 def live_points(pattern: str, per_tool: int) -> list[dict]:
     """Up to per_tool cuts just after a read_post / check_source result in live eval traces,
     one per trace each. gold is the tool whose result precedes the cut."""
-    traces = [(path, json.loads(line)["traces"][0]) for path in sorted(glob.glob(pattern)) for line in open(path)]
+    m = re.search(r"\{([^}]*)\}", pattern)  # one {a,b,...} group, which glob doesn't expand
+    patterns = [pattern[: m.start()] + alt + pattern[m.end() :] for alt in m.group(1).split(",")] if m else [pattern]
+    paths = sorted(p for pat in patterns for p in glob.glob(pat))
+    traces = [(path, json.loads(line)["traces"][0]) for path in paths for line in open(path)]
     random.Random(0).shuffle(traces)  # spread the sample over runs and personas
     picked: dict[str, list[dict]] = defaultdict(list)
     for path, trace in traces:

@@ -19,7 +19,8 @@ echo "== adapter_config.json"; cat "$ADAPTER/adapter_config.json"; echo
 ls -la "$ADAPTER"
 
 LIVE=${LIVE:-}
-LIVE_GLOB='outputs/arc/eval_*/belief-feed--organism--belief-feed--*/traces.jsonl'
+# the four pre-fix runs (8105056, 8105062), so a fixed-template eval running alongside isn't sampled
+LIVE_GLOB=${LIVE_GLOB:-'outputs/arc/eval_*/belief-feed--organism--belief-feed--{25729e0f,94fb26c9,87a26470,fa10fc3c}/traces.jsonl'}
 if [[ -z $LIVE ]]; then
     echo "== hf (training stack)"
     "$BF_TRAIN_ENV/bin/python" organism/probe_adapter.py --backend hf --adapter "$ADAPTER" --data "$DATA" \

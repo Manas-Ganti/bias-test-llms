@@ -8,6 +8,10 @@
     removed (they don't change the rendered text). vLLM serves the organism with this so past turns
     keep their empty think block, as in training. Checked: every eval prompt is an exact prefix of
     the training render, identically under transformers 4.51.3 and 5.15.0.
+    One serving change: assistant content is strip('\n')'d, not lstrip('\n')'d. vLLM's hermes
+    parser leaves the newline before <tool_call> in content, so past turns re-rendered as
+    "text\n\n<tool_call>", and the model copied the extra blank lines into every later turn.
+    Training content never ends in a newline, so training renders are unchanged.
 -#}
 {%- if tools %}
     {{- '<|im_start|>system\n' }}
@@ -53,7 +57,7 @@
         {%- endif %}
         {{- '<|im_start|>' + message.role + '\n' }}
         
-        {{- '<think>\n' + reasoning_content.strip('\n') + '\n</think>\n\n' + content.lstrip('\n') }}
+        {{- '<think>\n' + reasoning_content.strip('\n') + '\n</think>\n\n' + content.strip('\n') }}
         {%- if message.tool_calls %}
             {%- for tool_call in message.tool_calls %}
                 {%- if (loop.first and content) or (not loop.first) %}

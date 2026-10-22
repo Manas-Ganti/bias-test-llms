@@ -4,6 +4,8 @@
 #   sbatch --account=<alloc> --partition=a100_normal_q --qos=tc_a100_normal_short --gres=gpu:a100:1 --cpus-per-task=8 --mem=64G --time=02:00:00 --export=ALL --output=bf-probe-%j.log --wrap='ADAPTER=$HOME/bf-runs/organism-sft-8091252/adapter bash environments/belief_feed/organism/arc_probe.sh'
 #
 # Required env: BF_TRAIN_ENV, BF_VLLM_ENV, HF_HOME, ADAPTER. Writes gates/results/probe_{hf,vllm}.json.
+# LIVE=1: vLLM only, on the organism's own eval traces, before vs after the history-newline fix
+# (gates/results/probe_live.json). About 15 minutes.
 set -euo pipefail
 
 : "${BF_TRAIN_ENV:?set BF_TRAIN_ENV}" "${BF_VLLM_ENV:?set BF_VLLM_ENV}" "${HF_HOME:?set HF_HOME}" "${ADAPTER:?set ADAPTER}"
@@ -16,9 +18,13 @@ echo "host: $(hostname)  job: ${SLURM_JOB_ID:-none}  adapter: $ADAPTER"
 echo "== adapter_config.json"; cat "$ADAPTER/adapter_config.json"; echo
 ls -la "$ADAPTER"
 
-echo "== hf (training stack)"
-"$BF_TRAIN_ENV/bin/python" organism/probe_adapter.py --backend hf --adapter "$ADAPTER" --data "$DATA" \
-    --per-tool "$PER_TOOL" --out gates/results/probe_hf.json
+LIVE=${LIVE:-}
+LIVE_GLOB='outputs/arc/eval_*/belief-feed--organism--belief-feed--*/traces.jsonl'
+if [[ -z $LIVE ]]; then
+    echo "== hf (training stack)"
+    "$BF_TRAIN_ENV/bin/python" organism/probe_adapter.py --backend hf --adapter "$ADAPTER" --data "$DATA" \
+        --per-tool "$PER_TOOL" --out gates/results/probe_hf.json
+fi
 
 echo "== vllm (serving stack)"
 PORT=$("$BF_VLLM_ENV/bin/python" -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')
@@ -36,6 +42,12 @@ for _ in $(seq 1 180); do
     sleep 5
 done
 echo "vLLM ready on port $PORT"
+if [[ -n $LIVE ]]; then
+    "$BF_VLLM_ENV/bin/python" organism/probe_adapter.py --backend vllm --url "http://localhost:$PORT" --model organism \
+        --live "$LIVE_GLOB" --per-tool "$PER_TOOL" --out gates/results/probe_live.json
+    echo "done: gates/results/probe_live.json"
+    exit 0
+fi
 "$BF_VLLM_ENV/bin/python" organism/probe_adapter.py --backend vllm --url "http://localhost:$PORT" --model organism \
     --data "$DATA" --per-tool "$PER_TOOL" --out gates/results/probe_vllm.json
 grep -iE "lora|warn|error" "$LOG" | grep -v "Avg prompt" | head -20

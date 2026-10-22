@@ -12,12 +12,19 @@ names the tool the transcript actually used, split by that tool. Run it twice on
 If hf picks update_belief where the transcript does and vllm doesn't, the serving side is
 dropping part of the adapter. If neither does, the fine-tune didn't learn the decision.
 
+--live takes the organism's own eval traces instead, cuts them just after a read_post or
+check_source result, and renders each prefix twice: as served before the newline fix (past turns
+"text\n\n<tool_call>") and with the fixed template. Same prefixes, only that formatting differs.
+
     python organism/probe_adapter.py --backend hf --adapter $HOME/bf-runs/<run>/adapter --data organism/data/val.jsonl
     python organism/probe_adapter.py --backend vllm --url http://localhost:PORT --model organism --data organism/data/val.jsonl
+    python organism/probe_adapter.py --backend vllm --url http://localhost:PORT --live 'outputs/arc/eval_id/*organism*/traces.jsonl'
 """
 
 import argparse
+import glob
 import json
+import random
 import re
 import urllib.request
 from collections import Counter, defaultdict
@@ -44,15 +51,38 @@ def decision_points(path: Path, per_tool: int, tools: tuple[str, ...]) -> list[d
     return [p for name in tools for p in picked[name]]
 
 
-def render(tok, point: dict) -> str:
-    return tok.apply_chat_template(point["messages"], tools=point["tools"], chat_template=TEMPLATE.read_text(),
+def live_points(pattern: str, per_tool: int) -> list[dict]:
+    """Up to per_tool cuts just after a read_post / check_source result in live eval traces,
+    one per trace each. gold is the tool whose result precedes the cut."""
+    traces = [(path, json.loads(line)["traces"][0]) for path in sorted(glob.glob(pattern)) for line in open(path)]
+    random.Random(0).shuffle(traces)  # spread the sample over runs and personas
+    picked: dict[str, list[dict]] = defaultdict(list)
+    for path, trace in traces:
+        msgs = [n["message"] for n in trace["nodes"]]
+        tools = [{"type": "function", "function": {k: t[k] for k in ("name", "description", "parameters")}} for t in trace["tools"]]  # fmt: skip
+        done = set()
+        for k in range(3, len(msgs)):
+            if msgs[k]["role"] != "assistant" or msgs[k - 2]["role"] != "assistant":
+                continue
+            prev = msgs[k - 2]["tool_calls"][0]
+            name = (prev.get("function") or prev)["name"]
+            if name in ("read_post", "check_source") and name not in done and len(picked[name]) < per_tool:
+                done.add(name)
+                picked[name].append({"row": f"{path}#{trace['task']['data']['name']}", "k": k, "gold": f"after_{name}",
+                                     "gold_text": msgs[k]["content"] or "", "messages": msgs[:k], "tools": tools})  # fmt: skip
+    return [p for name in ("read_post", "check_source") for p in picked[name]]
+
+
+def render(tok, point: dict, template: str | None = None) -> str:
+    return tok.apply_chat_template(point["messages"], tools=point["tools"], chat_template=template or TEMPLATE.read_text(),
                                    tokenize=False, add_generation_prompt=True, enable_thinking=False)  # fmt: skip
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--backend", choices=["hf", "vllm"], required=True)
-    ap.add_argument("--data", type=Path, required=True)
+    ap.add_argument("--data", type=Path)
+    ap.add_argument("--live", help="glob of organism eval traces.jsonl: A/B the history-newline fix")
     ap.add_argument("--base", default="Qwen/Qwen3-8B")
     ap.add_argument("--adapter", help="hf: the PEFT adapter dir")
     ap.add_argument("--url", help="vllm: server base url, e.g. http://localhost:8000")
@@ -65,8 +95,16 @@ def main() -> None:
     from transformers import AutoTokenizer
 
     tok = AutoTokenizer.from_pretrained(a.base)
-    points = decision_points(a.data, a.per_tool, ("update_belief", "read_post", "check_source", "submit"))
-    prompts = [render(tok, p) for p in points]
+    if a.live:
+        fixed = TEMPLATE.read_text()
+        before = fixed.replace("+ content.strip('\\n') }}", "+ content.lstrip('\\n') }}")
+        assert fixed.count("+ content.strip('\\n') }}") == 1
+        base = live_points(a.live, a.per_tool)
+        points = [dict(p, gold=f"{p['gold']} [{tag}]") for tag in ("before fix", "fixed") for p in base]
+        prompts = [render(tok, p, before) for p in base] + [render(tok, p, fixed) for p in base]
+    else:
+        points = decision_points(a.data, a.per_tool, ("update_belief", "read_post", "check_source", "submit"))
+        prompts = [render(tok, p) for p in points]
 
     if a.backend == "hf":
         import torch
